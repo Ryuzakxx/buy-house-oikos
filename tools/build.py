@@ -558,8 +558,7 @@ def head(site: Site, page: Page) -> str:
         f'<meta name="twitter:title" content="{esc(page.meta.get("ogTitle", page.h1))}">',
         f'<meta name="twitter:description" content="{esc(desc)}">',
         f'<meta name="twitter:image" content="{image}">',
-        '<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" data-light="#ffffff" data-dark="#15130f">',
-        '<meta name="theme-color" content="#15130f" media="(prefers-color-scheme: dark)" data-light="#ffffff" data-dark="#15130f">',
+        '<meta name="theme-color" content="#ffffff" data-light="#ffffff" data-dark="#15130f">',
         f'<link rel="icon" href="{BASE_PATH}/img/favicon.svg" type="image/svg+xml">',
         f'<link rel="preload" href="{BASE_PATH}/fonts/prata-latin.woff2" as="font" type="font/woff2" crossorigin>',
         f"<style>{css_for(page)}</style>",
@@ -840,7 +839,7 @@ def root_redirect(site: Site) -> str:
 <link rel="canonical" href="{SITE_URL}/en/">
 {alts}<link rel="alternate" hreflang="x-default" href="{SITE_URL}/en/">
 <link rel="icon" href="{BASE_PATH}/img/favicon.svg" type="image/svg+xml">
-<style>body{{font:1.125rem/1.6 system-ui,sans-serif;background:#fff;color:#221f1a;margin:0;padding:2rem 1rem}}main{{max-width:30rem;margin:auto}}a{{color:#221f1a;text-decoration-color:#cea040}}@media (prefers-color-scheme:dark){{body{{background:#15130f;color:#f3ecdd}}a{{color:#f3ecdd}}}}</style>
+<style>body{{font:1.125rem/1.6 system-ui,sans-serif;background:#fff;color:#221f1a;margin:0;padding:2rem 1rem}}main{{max-width:30rem;margin:auto}}a{{color:#221f1a;text-decoration-color:#cea040}}</style>
 </head>
 <body>
 <main>

@@ -18,7 +18,7 @@ Sito statico (HTML, CSS e JavaScript vanilla, nessuna dipendenza a runtime) per 
 | Adapter Apimo, CRM, trascrizione, partner | Mock | Vedi "Collegare i servizi reali" |
 | Area consulente `/internal/` | Demo | Richiede autenticazione reale prima di andare online |
 | Immagini | Foto reali della Puglia e delle altre regioni, tutte CC0 o di pubblico dominio (Wikimedia Commons); foto del team fornite da Oikos | Elenco e autori in `img/photos/CREDITS.md`; si possono sostituire con foto proprie (vedi "Immagini") |
-| Tema chiaro/scuro | Pronto | Pulsante nell'header (nel menu su telefono); senza scelta segue il sistema operativo |
+| Tema chiaro/scuro | Pronto | Si apre sempre chiaro; scuro solo dal pulsante nell'header (nel menu su telefono) |
 | Privacy, Cookie, Termini | Bozze | Da far verificare a un legale |
 | Team | Nomi e foto reali (Flavio Moretto, Alessandra Toniolo, Diego Moretto) | Mancano i ruoli di Flavio e Alessandra e le lingue parlate: segnaposto `[Role]` / `[Ruolo]` |
 | Logo | Logo Oikos Immobiliare nell'header, nel footer e nell'area consulenti | Originale in `data/photos/logo.webp`; variante chiara per i fondi scuri generata da `tools/photos.py` |
@@ -180,7 +180,7 @@ Tutti gli adapter in `js/api/` sono asincroni e restituiscono già le forme defi
 
 ## Tema chiaro e scuro
 
-Senza una scelta il sito segue il tema del sistema operativo. Il pulsante nell'header (su telefono dentro il menu) passa da chiaro a scuro e salva la scelta sul dispositivo (`bhi.theme`, elencato nella Cookie Policy come necessario). Uno script inline nell'`<head>` applica la scelta prima che la pagina venga disegnata, così non si vede mai un lampo del tema sbagliato. I colori scuri sono in `css/tokens.css`, in due blocchi identici: uno per `data-theme="dark"`, uno per il sistema operativo scuro senza scelta esplicita.
+Il sito si apre sempre nel tema chiaro, anche se il sistema operativo è impostato sullo scuro. Il pulsante nell'header (su telefono dentro il menu) passa da chiaro a scuro e salva la scelta sul dispositivo (`bhi.theme`, elencato nella Cookie Policy come necessario). Uno script inline nell'`<head>` applica la scelta prima che la pagina venga disegnata, così non si vede mai un lampo del tema sbagliato. I colori scuri sono in `css/tokens.css`, nel blocco `data-theme="dark"`.
 
 ## Consensi e origine del lead
 

@@ -19,7 +19,7 @@
 }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   --paper: #ffffff;
   --surface: #fffdf7;
@@ -89,8 +89,7 @@
   :root { --gutter: 2rem; }
 }
 
-/* Dark theme: chosen with the header switch (data-theme), otherwise following the operating system. */
-:root[data-theme="light"] { color-scheme: light; }
+/* Dark theme: only when chosen with the header switch (data-theme). The site opens light whatever the operating system prefers. */
 :root[data-theme="dark"] {
   color-scheme: dark;
   --paper: #15130f;
@@ -110,25 +109,4 @@
   --danger: #f08a6a;
   --focus: #f3ecdd;
   --shadow-float: 0 1px 2px rgb(0 0 0 / 0.4), 0 14px 34px -10px rgb(0 0 0 / 0.7);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #15130f;
-    --surface: #1e1b16;
-    --vanilla: #24201a;
-    --line: #3a3429;
-    --line-strong: #7f7663;
-    --ink: #f3ecdd;
-    --ink-2: #bdb4a2;
-    --gold: #d9ae52;
-    --on-gold: #15130f;
-    --gold-ink: #e2b964;
-    --deep: #0e0c09;
-    --on-deep: #f3ecdd;
-    --on-deep-2: #bdb4a2;
-    --gold-on-deep: #e2b964;
-    --danger: #f08a6a;
-    --focus: #f3ecdd;
-    --shadow-float: 0 1px 2px rgb(0 0 0 / 0.4), 0 14px 34px -10px rgb(0 0 0 / 0.7);
-  }
 }
