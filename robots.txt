@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /internal/
+Disallow: /buy-house-oikos/internal/
 
-Sitemap: https://buyhouseinitaly.example/sitemap.xml
+Sitemap: https://ryuzakxx.github.io/buy-house-oikos/sitemap.xml

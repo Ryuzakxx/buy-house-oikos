@@ -10,7 +10,7 @@ Sito statico (HTML, CSS e JavaScript vanilla, nessuna dipendenza a runtime) per 
 | Pagine IT | Tutto il sito pubblico, compresi intervista (chat e voce), riepilogo del brief e prenotazione | L'area consulente `/internal/` resta in inglese |
 | Pagine DE, FR, NL, ES | Home + guida "acquisto passo per passo" | Le altre pagine rimandano all'inglese, segnalato in modo visibile |
 | Template regioni (Toscana, Sicilia, Lago di Como, Liguria, Sardegna) e nazionalità (NL, FR, CH), in inglese e italiano | Bozze `noindex` | Struttura pronta; mancano i dati locali `[REAL DATA]` |
-| SEO tecnico (canonical, hreflang, sitemap, JSON-LD, robots, llms.txt) | Pronto | Cambiare `SITE_URL` (dominio di produzione) e ricostruire |
+| SEO tecnico (canonical, hreflang, sitemap, JSON-LD, robots, llms.txt) | Pronto | Oggi su GitHub Pages; per il dominio di produzione cambiare `SITE_URL` e ricostruire |
 | Banner consensi e tracciamento origine lead | Pronto lato client | Il salvataggio server dei consensi va fatto nel backend |
 | Chat guidata, intervista vocale, riepilogo brief, prenotazione videochiamata, contatto, form partner | Funzionanti in demo | I dati restano in `localStorage`: nessun invio a server |
 | Matching | Pronto (funzioni pure, testate) | Stesse regole in produzione |
@@ -27,13 +27,15 @@ Sito statico (HTML, CSS e JavaScript vanilla, nessuna dipendenza a runtime) per 
 
 ## Avvio in locale
 
+Il sito generato vive sotto `/buy-house-oikos/` (vedi "Generatore"), quindi il server va avviato dalla cartella che contiene il progetto:
+
 ```sh
-python3 -m http.server 8000
+python3 -m http.server 8000 --directory ..
 ```
 
-Aprire http://localhost:8000/ (reindirizza a `/en/`). Il server di sviluppo di Python non serve `404.html` per le pagine mancanti; gli hosting reali sì (vedi "Messa in produzione").
+Aprire http://localhost:8000/buy-house-oikos/ (reindirizza a `/buy-house-oikos/en/`). La cartella locale deve chiamarsi `buy-house-oikos`. Il server di sviluppo di Python non serve `404.html` per le pagine mancanti; gli hosting reali sì (vedi "Messa in produzione").
 
-L'area consulente demo è su http://localhost:8000/internal/ (non linkata dal sito pubblico).
+L'area consulente demo è su http://localhost:8000/buy-house-oikos/internal/ (non linkata dal sito pubblico).
 
 ## Struttura
 
@@ -60,13 +62,16 @@ DESIGN.md             direzione visiva e motivazioni delle scelte
 Le pagine HTML in `en/`, `it/`, `de/`… sono il sito: si possono pubblicare così come sono. Il generatore serve solo a non duplicare a mano header, footer, JSON-LD e sitemap.
 
 ```sh
-python3 tools/build.py                                   # tutte le lingue, dominio di produzione
+python3 tools/build.py                                   # tutte le lingue, per GitHub Pages
 SITE_URL=https://staging.example.com python3 tools/build.py   # altro dominio (staging, audit)
+SITE_URL=http://127.0.0.1:8765 python3 tools/build.py    # sito alla radice, per i test nel browser
 python3 tools/build.py --langs en                        # solo inglese, per iterare più in fretta
 python3 tools/check.py                                   # controlli sul risultato (vedi "Test")
 ```
 
 Requisiti: Python 3.10+ (solo libreria standard). Il build cancella e riscrive le cartelle delle lingue e `internal/`; non toccare a mano i file generati.
+
+`SITE_URL` vale di default `https://ryuzakxx.github.io/buy-house-oikos`, cioè il sito pubblicato da GitHub Pages come sito di progetto. Il percorso dell'URL (`/buy-house-oikos`) diventa `BASE_PATH` e prefissa ogni link, immagine, font e script generato. Con un dominio proprio (`SITE_URL=https://dominio.it`) il prefisso sparisce. Nei contenuti i link interni vanno sempre scritti con `{{link id=...}}`, mai come `href="/..."`: `check.py` segnala come rotto ogni percorso che non inizia con il prefisso. Il JS ricava lo stesso prefisso dall'indirizzo da cui è stato caricato (`js/core/base.js`: `withBase('/data/...')`), quindi non dipende dal build.
 
 Il CSS di ogni pagina viene inserito inline nell'`<head>` (tokens, base, layout, components più l'eventuale `css/pages/*.css` della pagina): nessuna richiesta CSS bloccante e nessun salto di layout. Il JavaScript è caricato come modulo (`type="module"`, quindi differito); ogni pagina carica solo il modulo indicato da `data-page`.
 
@@ -109,7 +114,7 @@ Chiavi del front matter:
 | `css`, `js` | Foglio in `css/pages/` e modulo in `js/pages/` |
 | `noCtaBar: yes` | Nasconde la barra "Start your search" su mobile (home e pagine del percorso Start, che mostrano già i modi per iniziare) |
 
-Segnaposto nel corpo: `{{link id=...}}`, `{{start-paths}}`, `{{brief-example}}`, `{{picture name=... alt="..." sizes="..." eager}}`, `{{regions-grid}}`, `{{countries}}`, `{{services-grouped level=2}}`, `{{pages type=guide style=cols}}`, `{{consult}}`, `{{legal-note}}`, `{{testimonial-slots}}`, `{{faq}}`. Un `id` sconosciuto blocca il build: i link interni non possono rompersi.
+Segnaposto nel corpo: `{{link id=...}}` (con `lang=de` punta alla versione in un'altra lingua), `{{start-paths}}`, `{{brief-example}}`, `{{picture name=... alt="..." sizes="..." eager}}`, `{{regions-grid}}`, `{{countries}}`, `{{services-grouped level=2}}`, `{{pages type=guide style=cols}}`, `{{consult}}`, `{{legal-note}}`, `{{testimonial-slots}}`, `{{faq}}`. Un `id` sconosciuto blocca il build: i link interni non possono rompersi.
 
 ### Aggiungere una lingua
 
@@ -204,7 +209,8 @@ I test nel browser usano `puppeteer-core` installato fuori dal progetto (il sito
 ```sh
 mkdir -p ~/.cache/oikos-tools && cd ~/.cache/oikos-tools && npm i puppeteer-core lighthouse @puppeteer/browsers
 npx @puppeteer/browsers install chrome-headless-shell@stable --path ~/.cache/oikos-tools/browsers
-# dalla cartella del progetto, con il server su 127.0.0.1:8765:
+# dalla cartella del progetto, dopo SITE_URL=http://127.0.0.1:8765 python3 tools/build.py e con il server su 127.0.0.1:8765
+# (python3 -m http.server 8765 --bind 127.0.0.1); a fine test rilanciare python3 tools/build.py per tornare alla versione GitHub Pages:
 TOOLS_DIR=~/.cache/oikos-tools CHROME=<percorso di chrome-headless-shell> node tools/e2e.mjs        # 28 percorsi cliccati
 TOOLS_DIR=~/.cache/oikos-tools CHROME=<...> node tools/pages-audit.mjs                             # errori console e overflow, 390 e 1280 px
 ```
@@ -213,7 +219,7 @@ Risultati dell'ultima esecuzione (16 ottobre 2026): `check.py` 0 problemi su 113
 
 ## Messa in produzione: cosa serve lato backend
 
-1. **Dominio**: impostare `SITE_URL` in `tools/build.py` (o variabile d'ambiente) e in `robots.txt`, poi ricostruire.
+1. **Dominio**: impostare `SITE_URL` in `tools/build.py` (o variabile d'ambiente) e in `robots.txt`, poi ricostruire. Oggi punta a GitHub Pages; lì `robots.txt` sta in `/buy-house-oikos/robots.txt` e i motori di ricerca non lo leggono (lo cercano solo alla radice del dominio), quindi per `/internal/` vale solo il `noindex`.
 2. **Autenticazione per `/internal/`** (accesso consulenti con account personali, idealmente SSO o 2FA), oppure spostare l'area consulente in un'applicazione separata. Oggi è protetta solo da `noindex` e `Disallow`, cioè non protetta.
 3. **API**: proxy Apimo, CRM, invio dei form, prenotazioni con calendari reali, email transazionali.
 4. **Consensi**: archivio server dei consensi (chi, cosa, quando, testo mostrato) e gestione delle richieste GDPR (accesso, cancellazione).

@@ -22,17 +22,15 @@ import shutil
 import sys
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 
-# Production domain for canonical, hreflang, sitemap and JSON-LD; SITE_URL in the environment overrides it (staging, audits).
-SITE_URL = os.environ.get("SITE_URL", "https://buyhouseinitaly.example").rstrip("/")
-# Sub-folder the site is served from (GitHub Pages project page: BASE_PATH=/buy-house-oikos). Empty when served from the domain root.
-# Only the paths written into the HTML change; canonical, hreflang and sitemap keep using SITE_URL (put the folder in it too).
-BASE_PATH = os.environ.get("BASE_PATH", "").rstrip("/")
-if BASE_PATH and not BASE_PATH.startswith("/"):
-    BASE_PATH = "/" + BASE_PATH
+# Production address for canonical, hreflang, sitemap and JSON-LD; SITE_URL in the environment overrides it (staging, audits).
+# Its path, if any, is where the site lives on that host (a GitHub Pages project site): every link and asset URL starts with it.
+SITE_URL = os.environ.get("SITE_URL", "https://ryuzakxx.github.io/buy-house-oikos").rstrip("/")
+BASE_PATH = urlparse(SITE_URL).path.rstrip("/")
 LANGS = ["en", "it", "de", "fr", "nl", "es"]
 DEFAULT_LANG = "en"
 CSS_COMMON = ["tokens.css", "base.css", "layout.css", "components.css"]
@@ -43,6 +41,11 @@ PAGE_TYPES_WITH_CONSULT = {"service", "region", "nationality"}
 
 def esc(value) -> str:
     return html.escape(str(value), quote=True)
+
+
+def at_base(path: str) -> str:
+    """URL for a root-relative site path such as /en/ or /img/favicon.svg."""
+    return BASE_PATH + path
 
 
 def truthy(value) -> bool:
@@ -64,24 +67,6 @@ def minify_css(css: str) -> str:
 
 
 
-_ROOT_ATTR = re.compile(r'(\b(?:href|src|action|poster)=")/(?!/)')
-_SRCSET = re.compile(r'(\bsrcset=")([^"]*)(")')
-_META_REFRESH = re.compile(r'(content="[^"]*\burl=)/(?!/)')
-_CSS_URL = re.compile(r'(url\(["\']?)/(?!/)')
-
-
-def rebase(page_html: str) -> str:
-    """Prefix every root-absolute local path with BASE_PATH (no-op when BASE_PATH is empty)."""
-    if not BASE_PATH:
-        return page_html
-    page_html = _ROOT_ATTR.sub(lambda m: m.group(1) + BASE_PATH + "/", page_html)
-    page_html = _SRCSET.sub(
-        lambda m: m.group(1) + ", ".join(BASE_PATH + c.strip() if c.strip().startswith("/") else c.strip() for c in m.group(2).split(",")) + m.group(3),
-        page_html)
-    page_html = _META_REFRESH.sub(lambda m: m.group(1) + BASE_PATH + "/", page_html)
-    return _CSS_URL.sub(lambda m: m.group(1) + BASE_PATH + "/", page_html)
-
-
 @dataclass
 class Page:
     lang: str
@@ -97,6 +82,10 @@ class Page:
         if "path" in self.meta:
             return self.meta["path"]
         return f"/{self.lang}/" + (f"{self.slug}/" if self.slug else "")
+
+    @property
+    def href(self) -> str:
+        return at_base(self.path)
 
     @property
     def url(self) -> str:
@@ -220,7 +209,7 @@ class Site:
         return (override.get("label") or page.label, override.get("desc") or page.meta.get("summary", ""))
 
 
-LOGO = '<img class="brand__logo-img{cls}" src="/img/logo/oikos-immobiliare{variant}.webp" width="289" height="174" alt="" loading="lazy">'
+LOGO = f'<img class="brand__logo-img{{cls}}" src="{BASE_PATH}/img/logo/oikos-immobiliare{{variant}}.webp" width="289" height="174" alt="" loading="lazy">'
 
 
 def brand_logo(on_dark_only: bool = False) -> str:
@@ -239,14 +228,14 @@ def picture(site: Site, name: str, alt: str, sizes: str, eager: bool = False, cl
     folder = entry["dir"]
 
     def srcset(ext):
-        return ", ".join(f"/img/{folder}/{name}-{w['w']}.{ext} {w['w']}w" for w in widths)
+        return ", ".join(f"{BASE_PATH}/img/{folder}/{name}-{w['w']}.{ext} {w['w']}w" for w in widths)
 
     loading = ' fetchpriority="high"' if eager else ' loading="lazy"'
     cls_attr = f' class="{cls}"' if cls else ""
     return (f'<picture{cls_attr}>'
             f'<source type="image/avif" srcset="{srcset("avif")}" sizes="{sizes}">'
             f'<source type="image/webp" srcset="{srcset("webp")}" sizes="{sizes}">'
-            f'<img src="/img/{folder}/{name}-{big["w"]}.jpg" srcset="{srcset("jpg")}" sizes="{sizes}" '
+            f'<img src="{BASE_PATH}/img/{folder}/{name}-{big["w"]}.jpg" srcset="{srcset("jpg")}" sizes="{sizes}" '
             f'width="{big["w"]}" height="{big["h"]}" alt="{esc(alt)}"{loading} decoding="async">'
             f'</picture>')
 
@@ -271,7 +260,7 @@ def start_paths(site: Site, lang: str, extra_query: str = "") -> str:
         target = site.resolve(lang, pid)
         hint = f' <span class="path__lang">({esc(t["inEnglish"])})</span>' if target.lang != lang else ""
         cls = "path path--primary" if primary else "path"
-        rows.append(f'<li><a class="{cls}" href="{target.path}{extra_query}"{link_attrs(lang, target)}>'
+        rows.append(f'<li><a class="{cls}" href="{target.href}{extra_query}"{link_attrs(lang, target)}>'
                     f'<span class="path__title">{esc(title)}{hint}</span>'
                     f'<span class="path__note">{esc(note)}</span>'
                     f'<span class="path__mark" aria-hidden="true">›</span></a></li>')
@@ -283,7 +272,7 @@ def regions_grid(site: Site, lang: str) -> str:
     for page in site.of_type(lang, "region"):
         label, desc = site.label(lang, page)
         key = page.meta.get("region")
-        items.append(f'<li><a class="region" href="{page.path}"{link_attrs(lang, page)}>'
+        items.append(f'<li><a class="region" href="{page.href}"{link_attrs(lang, page)}>'
                      f'<span class="region__media">{picture(site, "region-" + key, "", "(min-width: 48em) 30vw, 78vw")}</span>'
                      f'<span class="region__name">{esc(label)}{en_hint(site, lang, page)}</span>'
                      f'<span class="region__note">{esc(desc)}</span></a></li>')
@@ -294,7 +283,7 @@ def countries_list(site: Site, lang: str) -> str:
     items = []
     for page in site.of_type(lang, "nationality"):
         label, desc = site.label(lang, page)
-        items.append(f'<li><a href="{page.path}"{link_attrs(lang, page)}><span class="countries__name">{esc(label)}{en_hint(site, lang, page)}</span>'
+        items.append(f'<li><a href="{page.href}"{link_attrs(lang, page)}><span class="countries__name">{esc(label)}{en_hint(site, lang, page)}</span>'
                      f'<span class="countries__note">{esc(desc)}</span></a></li>')
     return '<ul class="countries">' + "".join(items) + "</ul>"
 
@@ -308,7 +297,7 @@ def services_grouped(site: Site, lang: str, level: int = 3) -> str:
         for page in [s for s in services if s.meta.get("phase") == key]:
             target = site.resolve(lang, page.id)
             label, desc = site.label(lang, target)
-            rows.append(f'<li><a href="{target.path}"{link_attrs(lang, target)}><span class="service-rows__name">{esc(label)}{en_hint(site, lang, target)}</span>'
+            rows.append(f'<li><a href="{target.href}"{link_attrs(lang, target)}><span class="service-rows__name">{esc(label)}{en_hint(site, lang, target)}</span>'
                         f'<span class="service-rows__desc">{esc(desc)}</span></a></li>')
         out.append(f'<div class="phase"><h{level}>{esc(phase["title"])} <span>{esc(phase["note"])}</span></h{level}>'
                    f'<ul class="service-rows">{"".join(rows)}</ul></div>')
@@ -325,7 +314,7 @@ def pages_list(site: Site, lang: str, args: dict) -> str:
     for page in pages:
         label, desc = site.label(lang, page)
         desc_html = f'<span class="link-list__desc">{esc(desc)}</span>' if desc else ""
-        items.append(f'<li><a href="{page.path}"{link_attrs(lang, page)}><span class="link-list__title">{esc(label)}{en_hint(site, lang, page)}</span>{desc_html}</a></li>')
+        items.append(f'<li><a href="{page.href}"{link_attrs(lang, page)}><span class="link-list__title">{esc(label)}{en_hint(site, lang, page)}</span>{desc_html}</a></li>')
     return f'<ul class="{cls}">' + "".join(items) + "</ul>"
 
 
@@ -343,8 +332,8 @@ def consult_box(site: Site, lang: str, heading: str = "h2") -> str:
     chat = site.resolve(lang, "start/chat")
     return (f'<aside class="consult" aria-labelledby="consult-title"><div class="consult__text">'
             f'<{heading} id="consult-title">{esc(t["title"])}</{heading}><p>{esc(t["text"])}</p></div>'
-            f'<div class="consult__actions"><a class="btn btn--primary" href="{call.path}"{link_attrs(lang, call)}>{esc(t["call"])}</a>'
-            f'<a class="btn" href="{chat.path}"{link_attrs(lang, chat)}>{esc(t["chat"])}</a></div></aside>')
+            f'<div class="consult__actions"><a class="btn btn--primary" href="{call.href}"{link_attrs(lang, call)}>{esc(t["call"])}</a>'
+            f'<a class="btn" href="{chat.href}"{link_attrs(lang, chat)}>{esc(t["chat"])}</a></div></aside>')
 
 
 def legal_note(site: Site, page: Page) -> str:
@@ -415,10 +404,10 @@ def expand(site: Site, page: Page, text: str) -> str:
         if name == "faq":
             return faq_section(site, page)
         if name == "link":
-            target = site.resolve(lang, args["id"])
+            target = site.resolve(args.get("lang", lang), args["id"])
             if target is None:
                 sys.exit(f"{page.source}: link to unknown page id {args['id']}")
-            return target.path
+            return target.href
         if name == "today":
             return TODAY
         sys.exit(f"{page.source}: unknown token {name}")
@@ -525,7 +514,9 @@ def og_image(site: Site, page: Page) -> str:
 
 def css_for(page: Page) -> str:
     files = list(CSS_COMMON) + [f"pages/{n.strip()}.css" for n in page.meta.get("css", "").split(",") if n.strip()]
-    return "".join(minify_css((ROOT / "css" / f).read_text(encoding="utf-8")) for f in files)
+    css = "".join(minify_css((ROOT / "css" / f).read_text(encoding="utf-8")) for f in files)
+    # Inline CSS resolves url() against the page, so root-relative font and image URLs need the base path too.
+    return re.sub(r"""url\((["']?)/""", lambda m: f"url({m.group(1)}{BASE_PATH}/", css)
 
 
 def head(site: Site, page: Page) -> str:
@@ -569,11 +560,11 @@ def head(site: Site, page: Page) -> str:
         f'<meta name="twitter:image" content="{image}">',
         '<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" data-light="#ffffff" data-dark="#15130f">',
         '<meta name="theme-color" content="#15130f" media="(prefers-color-scheme: dark)" data-light="#ffffff" data-dark="#15130f">',
-        '<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">',
-        '<link rel="preload" href="/fonts/prata-latin.woff2" as="font" type="font/woff2" crossorigin>',
+        f'<link rel="icon" href="{BASE_PATH}/img/favicon.svg" type="image/svg+xml">',
+        f'<link rel="preload" href="{BASE_PATH}/fonts/prata-latin.woff2" as="font" type="font/woff2" crossorigin>',
         f"<style>{css_for(page)}</style>",
         THEME_SCRIPT,
-        '<script type="module" src="/js/main.js"></script>',
+        f'<script type="module" src="{BASE_PATH}/js/main.js"></script>',
         f'<script type="application/ld+json">{jsonld(site, page)}</script>',
     ]
     return "\n".join(tags)
@@ -605,7 +596,7 @@ def header(site: Site, page: Page) -> str:
             continue
         current = ' aria-current="page"' if (active == item["id"] or page.id == item["id"]) else ""
         title = f' title="{esc(t["enHintTitle"])}"' if target.lang != lang else ""
-        nav_items.append(f'<li><a href="{target.path}"{link_attrs(lang, target)}{title}{current}>{esc(item["label"])}{en_hint(site, lang, target)}</a></li>')
+        nav_items.append(f'<li><a href="{target.href}"{link_attrs(lang, target)}{title}{current}>{esc(item["label"])}{en_hint(site, lang, target)}</a></li>')
 
     lang_items = []
     translations = {l: site.get(l, page.id) for l in LANGS}
@@ -613,22 +604,22 @@ def header(site: Site, page: Page) -> str:
         tr = translations[l]
         name = site.t(l)["name"]
         if tr is not None and tr.meta.get("layout") != "internal":
-            note, href = "", tr.path
+            note, href = "", tr.href
         else:
             note = f' <small lang="{lang}">({esc(t["langMenu"]["notTranslated"])})</small>'
-            href = site.get(l, "home").path
+            href = site.get(l, "home").href
         current = ' aria-current="true"' if l == lang else ""
         lang_items.append(f'<li><a href="{href}" hreflang="{l}" lang="{l}"{current}><span>{esc(name)}</span>{note}</a></li>')
 
     start = site.resolve(lang, "start")
     return f"""<header class="site-header">
 <div class="container site-header__inner">
-<a class="brand" href="{home.path}">{brand_logo()}<span class="brand__text"><span class="brand__name">{esc(t["site"]["name"])}</span><span class="brand__by visually-hidden">{esc(t["site"]["by"])}</span></span></a>
+<a class="brand" href="{home.href}">{brand_logo()}<span class="brand__text"><span class="brand__name">{esc(t["site"]["name"])}</span><span class="brand__by visually-hidden">{esc(t["site"]["by"])}</span></span></a>
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>{esc(t["a11y"]["menu"])}</button>
 <nav id="site-nav" class="site-nav" aria-label="{esc(t["a11y"]["mainNav"])}"><ul>{"".join(nav_items)}</ul></nav>
 <details class="lang"><summary><span class="visually-hidden">{esc(t["a11y"]["language"])}: </span>{lang.upper()}</summary><ul class="lang__menu">{"".join(lang_items)}</ul></details>
 {theme_toggle(t["a11y"]["darkTheme"])}
-<a class="btn btn--primary header-cta" href="{start.path}"{link_attrs(lang, start)}>{esc(t["cta"]["start"])}</a>
+<a class="btn btn--primary header-cta" href="{start.href}"{link_attrs(lang, start)}>{esc(t["cta"]["start"])}</a>
 </div>
 </header>"""
 
@@ -640,7 +631,7 @@ def breadcrumb_nav(site: Site, page: Page) -> str:
         if i == len(crumbs) - 1:
             items.append(f'<li aria-current="page">{esc(name)}</li>')
         else:
-            items.append(f'<li><a href="{path}">{esc(name)}</a></li>')
+            items.append(f'<li><a href="{at_base(path)}">{esc(name)}</a></li>')
     return f'<nav class="breadcrumb" aria-label="{esc(site.t(page.lang)["a11y"]["breadcrumb"])}"><ol>{"".join(items)}</ol></nav>'
 
 
@@ -654,7 +645,7 @@ def footer(site: Site, page: Page) -> str:
             return ""
         all_en = lang != DEFAULT_LANG and all(p.lang == DEFAULT_LANG for p in pages)
         note = f'<p class="footer-links__note">{esc(f["enNote"])}</p>' if all_en else ""
-        items = "".join(f'<li><a href="{p.path}"{link_attrs(lang, p)}>{esc(site.label(lang, p)[0])}</a>{"" if all_en else en_hint(site, lang, p)}</li>' for p in pages)
+        items = "".join(f'<li><a href="{p.href}"{link_attrs(lang, p)}>{esc(site.label(lang, p)[0])}</a>{"" if all_en else en_hint(site, lang, p)}</li>' for p in pages)
         cls = f"footer-links__{key}"
         return f'<div class="{cls}"><h2>{esc(f["groups"][key])}</h2>{note}<ul>{items}{extra}</ul></div>'
 
@@ -672,7 +663,7 @@ def footer(site: Site, page: Page) -> str:
 <div class="footer-top">
 <p class="footer-statement">{esc(f["statement"])}</p>
 <div class="footer-company">
-<a class="brand" href="{home.path}">{brand_logo(on_dark_only=True)}<span class="brand__text"><span class="brand__name">{esc(t["site"]["name"])}</span><span class="brand__by visually-hidden">{esc(t["site"]["by"])}</span></span></a>
+<a class="brand" href="{home.href}">{brand_logo(on_dark_only=True)}<span class="brand__text"><span class="brand__name">{esc(t["site"]["name"])}</span><span class="brand__by visually-hidden">{esc(t["site"]["by"])}</span></span></a>
 <p>{esc(f["company"])}</p>
 <p><span class="ph">{esc(f["address"])}</span></p>
 <p><span class="ph">{esc(f["vat"])}</span></p>
@@ -688,7 +679,7 @@ def footer(site: Site, page: Page) -> str:
 </div>
 <div class="footer-bottom">
 <p>© {year} {esc(f["copyright"])}</p>
-<ul class="footer-legal">{"".join(f'<li><a href="{p.path}"{link_attrs(lang, p)}>{esc(site.label(lang, p)[0])}</a></li>' for p in legal)}{cookie_btn}</ul>
+<ul class="footer-legal">{"".join(f'<li><a href="{p.href}"{link_attrs(lang, p)}>{esc(site.label(lang, p)[0])}</a></li>' for p in legal)}{cookie_btn}</ul>
 </div>
 </div>
 </footer>"""
@@ -714,7 +705,7 @@ def consent_banner(site: Site, page: Page) -> str:
 <button type="submit" class="btn" data-consent="save" hidden>{esc(c["save"])}</button>
 </div>
 </form>
-<p class="consent__policy"><a href="{policy.path}"{link_attrs(page.lang, policy)}>{esc(c["policy"])}</a></p>
+<p class="consent__policy"><a href="{policy.href}"{link_attrs(page.lang, policy)}>{esc(c["policy"])}</a></p>
 </section>
 <p class="visually-hidden" role="status" id="consent-status"></p>"""
 
@@ -724,7 +715,7 @@ SCRIPT_LINK_IDS = ("start", "start/chat", "start/voice", "start/wishlist", "star
 
 
 def site_links(site: Site, page: Page) -> str:
-    links = {pid: BASE_PATH + target.path for pid in SCRIPT_LINK_IDS if (target := site.resolve(page.lang, pid))}
+    links = {pid: target.href for pid in SCRIPT_LINK_IDS if (target := site.resolve(page.lang, pid))}
     return f'<script type="application/json" id="site-links">{json.dumps(links, separators=(",", ":"))}</script>'
 
 
@@ -732,7 +723,7 @@ def cta_bar(site: Site, page: Page) -> str:
     start = site.resolve(page.lang, "start")
     country = page.meta.get("country")
     query = f"?country={country}" if country else ""
-    return f'<div class="cta-bar"><a class="btn btn--primary" href="{start.path}{query}"{link_attrs(page.lang, start)}>{esc(site.t(page.lang)["cta"]["start"])}</a></div>'
+    return f'<div class="cta-bar"><a class="btn btn--primary" href="{start.href}{query}"{link_attrs(page.lang, start)}>{esc(site.t(page.lang)["cta"]["start"])}</a></div>'
 
 
 def page_hero(site: Site, page: Page) -> str:
@@ -780,13 +771,13 @@ def main_content(site: Site, page: Page) -> str:
 def internal_frame(site: Site, page: Page) -> str:
     links = [("internal/index", "Buyers"), ("internal/partners", "Partners and sales")]
     nav = "".join(
-        f'<li><a href="{site.get(DEFAULT_LANG, pid).path}"{" aria-current=\"page\"" if page.id == pid or page.meta.get("nav") == pid else ""}>{label}</a></li>'
+        f'<li><a href="{site.get(DEFAULT_LANG, pid).href}"{" aria-current=\"page\"" if page.id == pid or page.meta.get("nav") == pid else ""}>{label}</a></li>'
         for pid, label in links)
     body = expand(site, page, page.body)
     return f"""<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header internal-header">
 <div class="container site-header__inner">
-<a class="brand" href="/internal/">{brand_logo()}<span class="brand__text"><span class="brand__name">Consultant area</span><span class="brand__by">Demo, no login yet</span></span></a>
+<a class="brand" href="{BASE_PATH}/internal/">{brand_logo()}<span class="brand__text"><span class="brand__name">Consultant area</span><span class="brand__by">Demo, no login yet</span></span></a>
 <nav class="internal-nav" aria-label="Consultant area"><ul>{nav}</ul></nav>
 {theme_toggle("Dark theme")}
 </div>
@@ -836,7 +827,7 @@ def render(site: Site, page: Page) -> str:
 
 
 def root_redirect(site: Site) -> str:
-    links = "".join(f'<li><a href="/{l}/" hreflang="{l}" lang="{l}">{esc(site.t(l)["name"])}</a></li>' for l in LANGS)
+    links = "".join(f'<li><a href="{BASE_PATH}/{l}/" hreflang="{l}" lang="{l}">{esc(site.t(l)["name"])}</a></li>' for l in LANGS)
     alts = "".join(f'<link rel="alternate" hreflang="{l}" href="{SITE_URL}/{l}/">' for l in LANGS)
     return f"""<!doctype html>
 <html lang="en">
@@ -845,16 +836,16 @@ def root_redirect(site: Site) -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Buy House in Italy</title>
 <meta name="description" content="{esc(site.t("en")["site"]["description"])}">
-<meta http-equiv="refresh" content="0; url=/en/">
+<meta http-equiv="refresh" content="0; url={BASE_PATH}/en/">
 <link rel="canonical" href="{SITE_URL}/en/">
 {alts}<link rel="alternate" hreflang="x-default" href="{SITE_URL}/en/">
-<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{BASE_PATH}/img/favicon.svg" type="image/svg+xml">
 <style>body{{font:1.125rem/1.6 system-ui,sans-serif;background:#fff;color:#221f1a;margin:0;padding:2rem 1rem}}main{{max-width:30rem;margin:auto}}a{{color:#221f1a;text-decoration-color:#cea040}}@media (prefers-color-scheme:dark){{body{{background:#15130f;color:#f3ecdd}}a{{color:#f3ecdd}}}}</style>
 </head>
 <body>
 <main>
 <h1>Buy House in Italy</h1>
-<p><a href="/en/">Continue to the English site</a>, or choose a language:</p>
+<p><a href="{BASE_PATH}/en/">Continue to the English site</a>, or choose a language:</p>
 <ul>{links}</ul>
 </main>
 </body>
@@ -927,8 +918,8 @@ def main():
     for page in site.pages.values():
         out = page.out_file
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(rebase(render(site, page)), encoding="utf-8")
-    (ROOT / "index.html").write_text(rebase(root_redirect(site)), encoding="utf-8")
+        out.write_text(render(site, page), encoding="utf-8")
+    (ROOT / "index.html").write_text(root_redirect(site), encoding="utf-8")
     (ROOT / "sitemap.xml").write_text(sitemap(site), encoding="utf-8")
     (ROOT / "llms.txt").write_text(llms_txt(site), encoding="utf-8")
     indexable = sum(1 for p in site.pages.values() if not p.noindex)

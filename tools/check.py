@@ -94,16 +94,16 @@ def url_of(path: Path) -> str:
     return "/" + (rel[: -len("index.html")] if rel.endswith("index.html") else rel)
 
 
-def site_path(href: str) -> str:
-    """Path of an absolute site URL inside the site, without the BASE_PATH folder."""
-    path = urlparse(href).path
-    return path[len(BASE_PATH):] or "/" if BASE_PATH and path.startswith(BASE_PATH) else path
+def site_path(url_path: str) -> str | None:
+    """The path below BASE_PATH (/en/ for /base/en/), or None when the URL is outside the site."""
+    return url_path[len(BASE_PATH):] if url_path.startswith(BASE_PATH + "/") else None
 
 
 def target_exists(url_path: str) -> bool:
-    if BASE_PATH and url_path.startswith(BASE_PATH + "/"):
-        url_path = url_path[len(BASE_PATH):]
-    p = ROOT / url_path.lstrip("/")
+    rel = site_path(url_path)
+    if rel is None:
+        return False
+    p = ROOT / rel.lstrip("/")
     return p.is_file() or (p / "index.html").is_file()
 
 
@@ -175,7 +175,7 @@ def main():
             elif not 50 <= len(p.description) <= 170:
                 err(f"description length {len(p.description)}")
             for lang, href in p.alternates.items():
-                other = parsed.get(site_path(href))
+                other = parsed.get(site_path(urlparse(href).path))
                 if other is None:
                     err(f"hreflang {lang} points to missing page {href}")
                 elif other.alternates != p.alternates:
@@ -190,13 +190,13 @@ def main():
     ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     locs = [loc.text for loc in ET.parse(ROOT / "sitemap.xml").getroot().findall("s:url/s:loc", ns)]
     for loc in locs:
-        path = site_path(loc)
+        path = site_path(urlparse(loc).path)
         if path not in parsed:
             problems["sitemap.xml"].append(f"missing page {loc}")
         elif "noindex" in parsed[path].robots:
             problems["sitemap.xml"].append(f"noindex page listed {loc}")
     indexable = {u for u, p in parsed.items() if "noindex" not in p.robots and u not in {"/"}}
-    for u in sorted(indexable - {site_path(l) for l in locs}):
+    for u in sorted(indexable - {site_path(urlparse(l).path) for l in locs}):
         problems["sitemap.xml"].append(f"indexable page not listed {u}")
 
     for line in (ROOT / "llms.txt").read_text(encoding="utf-8").splitlines():
