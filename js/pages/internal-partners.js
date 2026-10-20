@@ -6,6 +6,7 @@ import { formatEuro } from '../core/wishlist.js';
 import { describeLeadSource } from '../ui/lead-source.js';
 import { h, $, formatDate, errorBox } from '../ui/dom.js';
 import { initResetButtons, loading } from './internal-common.js';
+import { withBase } from '../core/base.js';
 
 let app;
 
@@ -57,7 +58,7 @@ async function render(focusId) {
         h('td', {}, formatDate(r.sale.saleDate)),
         h('th', { scope: 'row' }, r.property?.title || `Property ${r.sale.propertyId}`, h('span', { class: 'cell-sub' }, r.property?.reference || '')),
         h('td', {}, r.agency ? r.agency.name : 'Oikos listing'),
-        h('td', {}, r.buyer ? h('a', { href: `/internal/buyer/?id=${encodeURIComponent(r.buyer.id)}` }, r.buyer.contact.name) : 'Not in the CRM',
+        h('td', {}, r.buyer ? h('a', { href: withBase(`/internal/buyer/?id=${encodeURIComponent(r.buyer.id)}`) }, r.buyer.contact.name) : 'Not in the CRM',
           h('span', { class: 'cell-sub' }, r.buyer ? describeLeadSource(r.buyer.leadSource) : '')),
         h('td', { class: 'num' }, formatEuro(r.sale.value)),
         h('td', { class: 'num' }, r.share.due ? formatEuro(r.share.amount) : '€0', h('span', { class: 'cell-sub' }, r.share.reason))))),

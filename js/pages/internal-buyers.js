@@ -5,6 +5,7 @@ import { matchProperties } from '../api/matching.js';
 import { describeLeadSource } from '../ui/lead-source.js';
 import { h, $, formatDate, errorBox } from '../ui/dom.js';
 import { STATUS_LABELS, SOURCE_LABELS, initResetButtons, consentFlags, briefSummary, loading } from './internal-common.js';
+import { withBase } from '../core/base.js';
 
 let app;
 let filters = { text: '', status: '' };
@@ -67,7 +68,7 @@ function row(b, properties) {
   const matches = matchProperties(b.wishlist || {}, properties, { minScore: 60 }).length;
   return h('tr', {},
     h('th', { scope: 'row' },
-      h('a', { href: `/internal/buyer/?id=${encodeURIComponent(b.id)}` }, b.contact?.name || 'Unnamed buyer'),
+      h('a', { href: withBase(`/internal/buyer/?id=${encodeURIComponent(b.id)}`) }, b.contact?.name || 'Unnamed buyer'),
       h('span', { class: 'cell-sub' }, [b.contact?.country, formatDate(b.createdAt)].filter(Boolean).join(' · '))),
     h('td', {}, briefSummary(b.wishlist)),
     h('td', { class: 'num' }, matches ? String(matches) : h('span', {}, '0', h('span', { class: 'cell-sub' }, 'search outside'))),
@@ -87,7 +88,7 @@ async function addBuyer() {
       leadSource: null,
       interaction: { type: 'note', summary: 'Buyer added by a consultant' },
     });
-    location.href = `/internal/buyer/?id=${encodeURIComponent(buyer.id)}`;
+    location.href = withBase(`/internal/buyer/?id=${encodeURIComponent(buyer.id)}`);
   } catch (error) {
     alert(`The buyer was not added: ${error.message}`);
   }

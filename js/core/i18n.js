@@ -1,6 +1,7 @@
 // Strings for the interactive pages, picked by the page language (<html lang>); English fills any gap.
 import en from '../i18n/en.js';
 import it from '../i18n/it.js';
+import { withBase } from './base.js';
 
 const DICTIONARIES = { en, it };
 const pageLang = globalThis.document?.documentElement?.lang;
@@ -31,5 +32,5 @@ export function link(id) {
       links = {};
     }
   }
-  return links[id] || `/en/${id}/`;
+  return links[id] || withBase(`/en/${id}/`);
 }

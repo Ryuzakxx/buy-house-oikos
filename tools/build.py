@@ -28,6 +28,11 @@ CONTENT = ROOT / "content"
 
 # Production domain for canonical, hreflang, sitemap and JSON-LD; SITE_URL in the environment overrides it (staging, audits).
 SITE_URL = os.environ.get("SITE_URL", "https://buyhouseinitaly.example").rstrip("/")
+# Sub-folder the site is served from (GitHub Pages project page: BASE_PATH=/buy-house-oikos). Empty when served from the domain root.
+# Only the paths written into the HTML change; canonical, hreflang and sitemap keep using SITE_URL (put the folder in it too).
+BASE_PATH = os.environ.get("BASE_PATH", "").rstrip("/")
+if BASE_PATH and not BASE_PATH.startswith("/"):
+    BASE_PATH = "/" + BASE_PATH
 LANGS = ["en", "it", "de", "fr", "nl", "es"]
 DEFAULT_LANG = "en"
 CSS_COMMON = ["tokens.css", "base.css", "layout.css", "components.css"]
@@ -57,6 +62,24 @@ def minify_css(css: str) -> str:
     return css.replace(";}", "}").strip()
 
 
+
+
+_ROOT_ATTR = re.compile(r'(\b(?:href|src|action|poster)=")/(?!/)')
+_SRCSET = re.compile(r'(\bsrcset=")([^"]*)(")')
+_META_REFRESH = re.compile(r'(content="[^"]*\burl=)/(?!/)')
+_CSS_URL = re.compile(r'(url\(["\']?)/(?!/)')
+
+
+def rebase(page_html: str) -> str:
+    """Prefix every root-absolute local path with BASE_PATH (no-op when BASE_PATH is empty)."""
+    if not BASE_PATH:
+        return page_html
+    page_html = _ROOT_ATTR.sub(lambda m: m.group(1) + BASE_PATH + "/", page_html)
+    page_html = _SRCSET.sub(
+        lambda m: m.group(1) + ", ".join(BASE_PATH + c.strip() if c.strip().startswith("/") else c.strip() for c in m.group(2).split(",")) + m.group(3),
+        page_html)
+    page_html = _META_REFRESH.sub(lambda m: m.group(1) + BASE_PATH + "/", page_html)
+    return _CSS_URL.sub(lambda m: m.group(1) + BASE_PATH + "/", page_html)
 
 
 @dataclass
@@ -701,7 +724,7 @@ SCRIPT_LINK_IDS = ("start", "start/chat", "start/voice", "start/wishlist", "star
 
 
 def site_links(site: Site, page: Page) -> str:
-    links = {pid: target.path for pid in SCRIPT_LINK_IDS if (target := site.resolve(page.lang, pid))}
+    links = {pid: BASE_PATH + target.path for pid in SCRIPT_LINK_IDS if (target := site.resolve(page.lang, pid))}
     return f'<script type="application/json" id="site-links">{json.dumps(links, separators=(",", ":"))}</script>'
 
 
@@ -904,8 +927,8 @@ def main():
     for page in site.pages.values():
         out = page.out_file
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(render(site, page), encoding="utf-8")
-    (ROOT / "index.html").write_text(root_redirect(site), encoding="utf-8")
+        out.write_text(rebase(render(site, page)), encoding="utf-8")
+    (ROOT / "index.html").write_text(rebase(root_redirect(site)), encoding="utf-8")
     (ROOT / "sitemap.xml").write_text(sitemap(site), encoding="utf-8")
     (ROOT / "llms.txt").write_text(llms_txt(site), encoding="utf-8")
     indexable = sum(1 for p in site.pages.values() if not p.noindex)

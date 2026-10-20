@@ -1,6 +1,7 @@
 // Partner agencies and sale attribution, read only by the consultant area. Mock: JSON seed plus localStorage.
 // Production: sales and signed agreements (with their share rate) live in the backend.
 import { read, write, remove, uid, latency } from './storage.js';
+import { withBase } from '../core/base.js';
 
 const KEY = 'partners.v1';
 export const DEFAULT_RATE = 0.01;
@@ -8,7 +9,7 @@ export const DEFAULT_RATE = 0.01;
 async function load() {
   let db = read(KEY);
   if (!db) {
-    const [agencies, sales] = await Promise.all(['/data/partner-agencies.json', '/data/demo-sales.json'].map(async (url) => {
+    const [agencies, sales] = await Promise.all(['/data/partner-agencies.json', '/data/demo-sales.json'].map(withBase).map(async (url) => {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`${url} returned ${res.status}`);
       return res.json();

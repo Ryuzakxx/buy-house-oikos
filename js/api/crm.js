@@ -1,9 +1,10 @@
 // Buyer CRM adapter. Mock: one JSON document in localStorage, seeded from /data/demo-buyers.json.
 // Production: keep the function names and return shapes, and call the backend that writes to the real CRM.
 import { read, write, remove, uid, latency } from './storage.js';
+import { withBase } from '../core/base.js';
 
 const KEY = 'crm.v1';
-const SEED = '/data/demo-buyers.json';
+const SEED = withBase('/data/demo-buyers.json');
 
 /*
 Buyer {

@@ -1,8 +1,9 @@
 // Property feed adapter. Mock: /data/properties.json, a simplified copy of an Apimo export.
 // Production: point SOURCE at your backend, which calls Apimo server-side so the API token never reaches the browser.
 import { latency } from './storage.js';
+import { withBase } from '../core/base.js';
 
-const SOURCE = '/data/properties.json';
+const SOURCE = withBase('/data/properties.json');
 let cache = null;
 
 async function fetchRaw() {

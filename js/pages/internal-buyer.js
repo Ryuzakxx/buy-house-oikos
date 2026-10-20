@@ -8,6 +8,7 @@ import { CRITERIA, PRIORITIES, LIST_OF, MARK_CLASS, FEEDBACK_REASONS, allCriteri
 import { describeLeadSource } from '../ui/lead-source.js';
 import { h, $, formatDate, errorBox } from '../ui/dom.js';
 import { STATUS_LABELS, SOURCE_LABELS, initResetButtons, consentFlags, loading } from './internal-common.js';
+import { withBase } from '../core/base.js';
 
 const SHORTLIST_STATUS = { proposed: 'Proposed', 'visit-planned': 'Visit planned', visited: 'Visited', offer: 'Offer made', rejected: 'Rejected' };
 // Same threshold as the buyer-facing "homes that fit" message and the buyer list.
@@ -30,7 +31,7 @@ export async function init() {
   initResetButtons(() => location.reload());
   const id = new URLSearchParams(location.search).get('id');
   if (!id) {
-    app.replaceChildren(h('div', { class: 'empty-state' }, h('h2', {}, 'No buyer selected'), h('p', {}, h('a', { href: '/internal/' }, 'Choose a buyer from the list.'))));
+    app.replaceChildren(h('div', { class: 'empty-state' }, h('h2', {}, 'No buyer selected'), h('p', {}, h('a', { href: withBase('/internal/') }, 'Choose a buyer from the list.'))));
     return;
   }
   app.replaceChildren(loading('Loading buyer…'));
@@ -41,7 +42,7 @@ export async function init() {
     return;
   }
   if (!buyer) {
-    app.replaceChildren(h('div', { class: 'empty-state' }, h('h2', {}, 'Buyer not found'), h('p', {}, 'It may have been removed by a demo reset. ', h('a', { href: '/internal/' }, 'Back to all buyers'), '.')));
+    app.replaceChildren(h('div', { class: 'empty-state' }, h('h2', {}, 'Buyer not found'), h('p', {}, 'It may have been removed by a demo reset. ', h('a', { href: withBase('/internal/') }, 'Back to all buyers'), '.')));
     return;
   }
   draft = structuredClone(buyer.wishlist || { mustHave: [], niceToHave: [], dealBreakers: [], context: {} });

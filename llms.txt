@@ -7,55 +7,55 @@ Key points:
 - Ways to start: a guided chat interview, a voice interview, or a video call with a consultant.
 - If no property in the database matches, the search continues through partner agencies, colleagues and other sources.
 - Legal and tax figures on the guides are indicative and must be confirmed with a notary, lawyer or tax adviser.
-- Other languages: Italiano (https://buyhouseinitaly.example/it/), Deutsch (https://buyhouseinitaly.example/de/), Français (https://buyhouseinitaly.example/fr/), Nederlands (https://buyhouseinitaly.example/nl/), Español (https://buyhouseinitaly.example/es/).
+- Other languages: Italiano (https://ryuzakxx.github.io/buy-house-oikos/it/), Deutsch (https://ryuzakxx.github.io/buy-house-oikos/de/), Français (https://ryuzakxx.github.io/buy-house-oikos/fr/), Nederlands (https://ryuzakxx.github.io/buy-house-oikos/nl/), Español (https://ryuzakxx.github.io/buy-house-oikos/es/).
 
 ## Start here
 
-- [Home](https://buyhouseinitaly.example/en/): Tell us what you're looking for in Italy. A consultant from Oikos Immobiliare turns it into a written brief, finds matching homes and guides you through the purchase.
-- [Start your search](https://buyhouseinitaly.example/en/start/): Three ways to tell us what you're looking for in Italy: a guided chat, a voice interview or a video call with a consultant. Each ends in a written brief you can edit.
-- [What we take care of](https://buyhouseinitaly.example/en/services/): What we organise for foreign buyers in Italy: search, visits, negotiation, checks, notary, codice fiscale, mortgages, currency, escrow and relocation.
-- [About us](https://buyhouseinitaly.example/en/about/): Buy House in Italy is a property-finding service for international buyers, run by the Italian estate agency Oikos Immobiliare. How we work and who you'll speak to.
-- [For partner agencies](https://buyhouseinitaly.example/en/partner-agencies/): Estate agencies in Italy can share listings with Buy House in Italy for free. When we introduce a buyer who completes, the agency shares part of its commission.
-- [Contact us](https://buyhouseinitaly.example/en/contact/): Write to a Buy House in Italy consultant about buying a home in Italy or about a specific property, or start with the guided interview or a video call.
+- [Home](https://ryuzakxx.github.io/buy-house-oikos/en/): Tell us what you're looking for in Italy. A consultant from Oikos Immobiliare turns it into a written brief, finds matching homes and guides you through the purchase.
+- [Start your search](https://ryuzakxx.github.io/buy-house-oikos/en/start/): Three ways to tell us what you're looking for in Italy: a guided chat, a voice interview or a video call with a consultant. Each ends in a written brief you can edit.
+- [What we take care of](https://ryuzakxx.github.io/buy-house-oikos/en/services/): What we organise for foreign buyers in Italy: search, visits, negotiation, checks, notary, codice fiscale, mortgages, currency, escrow and relocation.
+- [About us](https://ryuzakxx.github.io/buy-house-oikos/en/about/): Buy House in Italy is a property-finding service for international buyers, run by the Italian estate agency Oikos Immobiliare. How we work and who you'll speak to.
+- [For partner agencies](https://ryuzakxx.github.io/buy-house-oikos/en/partner-agencies/): Estate agencies in Italy can share listings with Buy House in Italy for free. When we introduce a buyer who completes, the agency shares part of its commission.
+- [Contact us](https://ryuzakxx.github.io/buy-house-oikos/en/contact/): Write to a Buy House in Italy consultant about buying a home in Italy or about a specific property, or start with the guided interview or a video call.
 
 ## Services
 
-- [Property search](https://buyhouseinitaly.example/en/services/property-search/): How we search for a home in Italy from your brief: Oikos listings, partner agencies, colleagues and other sources, with a shortlist that explains each match.
-- [Visits](https://buyhouseinitaly.example/en/services/visits/): How we plan property viewings in Italy for buyers who live abroad: video tours for a first look, grouped viewing trips and notes after every visit.
-- [Negotiation support](https://buyhouseinitaly.example/en/services/negotiation/): How a purchase offer works in Italy, what it should contain and how we negotiate price and conditions for foreign buyers.
-- [Legal assistance](https://buyhouseinitaly.example/en/services/legal-assistance/): The difference between the notary and your own lawyer when buying property in Italy, when a lawyer is worth it and how we work with independent lawyers.
-- [Technical and legal due diligence](https://buyhouseinitaly.example/en/services/due-diligence/): Checks to run before buying property in Italy: land registry and plans, mortgages and liens, planning compliance, energy certificate and building condition.
-- [The notary](https://buyhouseinitaly.example/en/services/notary/): What the Italian notary does in a property purchase, who chooses and pays them, the interpreter rule and signing by power of attorney.
-- [Codice fiscale](https://buyhouseinitaly.example/en/services/codice-fiscale/): What the Italian codice fiscale is, why you need it to buy property, and how to get it at an Italian consulate or an Agenzia delle Entrate office.
-- [Translations](https://buyhouseinitaly.example/en/services/translations/): Which documents to translate when buying property in Italy, working versus sworn translations, and the interpreter required at the notary's deed.
-- [Mortgages for foreign buyers](https://buyhouseinitaly.example/en/services/mortgages/): What to expect when applying for an Italian mortgage as a non-resident: documents, valuation, timing, the mortgage deed and the substitute tax.
-- [Currency exchange](https://buyhouseinitaly.example/en/services/currency-exchange/): How to move money into euros for an Italian property purchase: bank transfers, currency providers, forward contracts, traceable payments and anti-money-laundering checks.
-- [Escrow](https://buyhouseinitaly.example/en/services/escrow/): How the Italian notary's dedicated account works as escrow for a property purchase, when to use it, and how to protect deposits paid before the deed.
-- [Architects, surveyors and builders](https://buyhouseinitaly.example/en/services/architects-surveyors-builders/): Who does what in an Italian renovation, the feasibility check before you buy, the main building permits and how we follow the works while you are abroad.
-- [Utilities and after-sale services](https://buyhouseinitaly.example/en/services/utilities-after-sale/): What to set up after buying a home in Italy: utility transfers, internet, waste tax, IMU deadlines, insurance, maintenance and short-term rental registration.
-- [Relocation](https://buyhouseinitaly.example/en/services/relocation/): Moving to Italy after buying property: residence registration for EU citizens, visas and residence permits for non-EU citizens, health care, schools and tax residence.
+- [Property search](https://ryuzakxx.github.io/buy-house-oikos/en/services/property-search/): How we search for a home in Italy from your brief: Oikos listings, partner agencies, colleagues and other sources, with a shortlist that explains each match.
+- [Visits](https://ryuzakxx.github.io/buy-house-oikos/en/services/visits/): How we plan property viewings in Italy for buyers who live abroad: video tours for a first look, grouped viewing trips and notes after every visit.
+- [Negotiation support](https://ryuzakxx.github.io/buy-house-oikos/en/services/negotiation/): How a purchase offer works in Italy, what it should contain and how we negotiate price and conditions for foreign buyers.
+- [Legal assistance](https://ryuzakxx.github.io/buy-house-oikos/en/services/legal-assistance/): The difference between the notary and your own lawyer when buying property in Italy, when a lawyer is worth it and how we work with independent lawyers.
+- [Technical and legal due diligence](https://ryuzakxx.github.io/buy-house-oikos/en/services/due-diligence/): Checks to run before buying property in Italy: land registry and plans, mortgages and liens, planning compliance, energy certificate and building condition.
+- [The notary](https://ryuzakxx.github.io/buy-house-oikos/en/services/notary/): What the Italian notary does in a property purchase, who chooses and pays them, the interpreter rule and signing by power of attorney.
+- [Codice fiscale](https://ryuzakxx.github.io/buy-house-oikos/en/services/codice-fiscale/): What the Italian codice fiscale is, why you need it to buy property, and how to get it at an Italian consulate or an Agenzia delle Entrate office.
+- [Translations](https://ryuzakxx.github.io/buy-house-oikos/en/services/translations/): Which documents to translate when buying property in Italy, working versus sworn translations, and the interpreter required at the notary's deed.
+- [Mortgages for foreign buyers](https://ryuzakxx.github.io/buy-house-oikos/en/services/mortgages/): What to expect when applying for an Italian mortgage as a non-resident: documents, valuation, timing, the mortgage deed and the substitute tax.
+- [Currency exchange](https://ryuzakxx.github.io/buy-house-oikos/en/services/currency-exchange/): How to move money into euros for an Italian property purchase: bank transfers, currency providers, forward contracts, traceable payments and anti-money-laundering checks.
+- [Escrow](https://ryuzakxx.github.io/buy-house-oikos/en/services/escrow/): How the Italian notary's dedicated account works as escrow for a property purchase, when to use it, and how to protect deposits paid before the deed.
+- [Architects, surveyors and builders](https://ryuzakxx.github.io/buy-house-oikos/en/services/architects-surveyors-builders/): Who does what in an Italian renovation, the feasibility check before you buy, the main building permits and how we follow the works while you are abroad.
+- [Utilities and after-sale services](https://ryuzakxx.github.io/buy-house-oikos/en/services/utilities-after-sale/): What to set up after buying a home in Italy: utility transfers, internet, waste tax, IMU deadlines, insurance, maintenance and short-term rental registration.
+- [Relocation](https://ryuzakxx.github.io/buy-house-oikos/en/services/relocation/): Moving to Italy after buying property: residence registration for EU citizens, visas and residence permits for non-EU citizens, health care, schools and tax residence.
 
 ## Guides
 
-- [The buying process, step by step](https://buyhouseinitaly.example/en/guides/buying-process/): The steps of buying a home in Italy as a foreign buyer: codice fiscale, checks, purchase offer, preliminary contract and deposit, notary deed and after.
-- [Italian property taxes](https://buyhouseinitaly.example/en/guides/italian-property-taxes/): Italian property taxes explained: purchase tax or VAT, first-home rules, cadastral value, IMU, TARI, rental income, capital gains and inheritance tax.
-- [How the Italian notary works](https://buyhouseinitaly.example/en/guides/italian-notary/): The role of the notary in an Italian property purchase: impartiality, checks, the deed day, interpreters, powers of attorney, fees and what happens after the signing.
-- [Financing a property in Italy](https://buyhouseinitaly.example/en/guides/financing-a-property-in-italy/): How to finance a home in Italy from abroad: the full budget beyond the price, when each payment is due, cash or mortgage, currency and traceable payments.
-- [Legal due diligence](https://buyhouseinitaly.example/en/guides/legal-due-diligence/): The checks before buying a home in Italy: chain of title, mortgages and seizures, cadastral and planning compliance, condominium, constraints, pre-emption.
-- [Mortgages for foreign buyers](https://buyhouseinitaly.example/en/guides/mortgages-for-foreign-buyers/): How to get an Italian mortgage as a non-resident: who can borrow, documents, the bank valuation, fixed or variable rates, timing and costs.
+- [The buying process, step by step](https://ryuzakxx.github.io/buy-house-oikos/en/guides/buying-process/): The steps of buying a home in Italy as a foreign buyer: codice fiscale, checks, purchase offer, preliminary contract and deposit, notary deed and after.
+- [Italian property taxes](https://ryuzakxx.github.io/buy-house-oikos/en/guides/italian-property-taxes/): Italian property taxes explained: purchase tax or VAT, first-home rules, cadastral value, IMU, TARI, rental income, capital gains and inheritance tax.
+- [How the Italian notary works](https://ryuzakxx.github.io/buy-house-oikos/en/guides/italian-notary/): The role of the notary in an Italian property purchase: impartiality, checks, the deed day, interpreters, powers of attorney, fees and what happens after the signing.
+- [Financing a property in Italy](https://ryuzakxx.github.io/buy-house-oikos/en/guides/financing-a-property-in-italy/): How to finance a home in Italy from abroad: the full budget beyond the price, when each payment is due, cash or mortgage, currency and traceable payments.
+- [Legal due diligence](https://ryuzakxx.github.io/buy-house-oikos/en/guides/legal-due-diligence/): The checks before buying a home in Italy: chain of title, mortgages and seizures, cadastral and planning compliance, condominium, constraints, pre-emption.
+- [Mortgages for foreign buyers](https://ryuzakxx.github.io/buy-house-oikos/en/guides/mortgages-for-foreign-buyers/): How to get an Italian mortgage as a non-resident: who can borrow, documents, the bank valuation, fixed or variable rates, timing and costs.
 
 ## Where to buy
 
-- [Buying property in Puglia](https://buyhouseinitaly.example/en/buying-property-in-puglia/): Buying a home in Puglia: Valle d'Itria trulli, masserie near Ostuni, Salento and the coast. Airports, property types, landscape rules and the 7% regime.
+- [Buying property in Puglia](https://ryuzakxx.github.io/buy-house-oikos/en/buying-property-in-puglia/): Buying a home in Puglia: Valle d'Itria trulli, masserie near Ostuni, Salento and the coast. Airports, property types, landscape rules and the 7% regime.
 
 ## Buying from abroad
 
-- [Buying property in Italy from the USA](https://buyhouseinitaly.example/en/buying-property-in-italy-from-the-usa/): A guide for Americans buying a home in Italy: reciprocity, the 90/180 rule, codice fiscale, moving dollars, FBAR reporting and the US-Italy tax treaties.
-- [Buying property in Italy from the UK](https://buyhouseinitaly.example/en/buying-property-in-italy-from-the-uk/): A guide for British buyers in Italy after Brexit: reciprocity, the 90/180 rule and visas, codice fiscale, moving pounds and the UK-Italy tax treaty.
-- [Buying property in Italy from Germany](https://buyhouseinitaly.example/en/buying-property-in-italy-from-germany/): A guide for German buyers in Italy: EU rights, the Italian notary compared with the German system, protecting deposits, the tax treaty and inheritance tax.
+- [Buying property in Italy from the USA](https://ryuzakxx.github.io/buy-house-oikos/en/buying-property-in-italy-from-the-usa/): A guide for Americans buying a home in Italy: reciprocity, the 90/180 rule, codice fiscale, moving dollars, FBAR reporting and the US-Italy tax treaties.
+- [Buying property in Italy from the UK](https://ryuzakxx.github.io/buy-house-oikos/en/buying-property-in-italy-from-the-uk/): A guide for British buyers in Italy after Brexit: reciprocity, the 90/180 rule and visas, codice fiscale, moving pounds and the UK-Italy tax treaty.
+- [Buying property in Italy from Germany](https://ryuzakxx.github.io/buy-house-oikos/en/buying-property-in-italy-from-germany/): A guide for German buyers in Italy: EU rights, the Italian notary compared with the German system, protecting deposits, the tax treaty and inheritance tax.
 
 ## Optional
 
-- [Privacy policy](https://buyhouseinitaly.example/en/privacy/)
-- [Cookie policy](https://buyhouseinitaly.example/en/cookies/)
-- [Terms of service](https://buyhouseinitaly.example/en/terms/)
+- [Privacy policy](https://ryuzakxx.github.io/buy-house-oikos/en/privacy/)
+- [Cookie policy](https://ryuzakxx.github.io/buy-house-oikos/en/cookies/)
+- [Terms of service](https://ryuzakxx.github.io/buy-house-oikos/en/terms/)
