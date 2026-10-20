@@ -1,0 +1,85 @@
+---
+id: partner-agencies
+short: Partner agencies
+crumb: Partner agencies
+title: For estate agencies: share listings with international buyers | Buy House in Italy
+description: Estate agencies in Italy can share listings with Buy House in Italy for free. When we introduce a buyer who completes, the agency shares part of its commission.
+h1: For partner agencies
+lede: Our buyers come with a written brief and a budget. If you have the home one of them is looking for, we want to show it to them.
+wrap: container
+js: partner
+---
+<div class="split partners">
+  <div class="prose">
+    <h2>How the partnership works</h2>
+    <ol>
+      <li><strong>You share your listings,</strong> through your Apimo account or a feed we agree on. There's no fee to list and no exclusivity.</li>
+      <li><strong>We match them to buyers' briefs.</strong> Your properties enter our matching alongside Oikos listings. They aren't published in a public catalogue: we show them only to buyers whose brief they fit, and only with your agreement.</li>
+      <li><strong>We introduce the buyer.</strong> We record which buyer was shown which property, and when, so the introduction is documented on both sides.</li>
+      <li><strong>At completion, you share the commission.</strong> When a buyer we introduced completes the purchase of one of your properties, you recognise us a share of your commission, indicatively 1% of the sale price. The exact terms are set in a written agreement before any introduction.</li>
+    </ol>
+
+    <h2>What you get</h2>
+    <ul>
+      <li>Buyers who already know what they want, with a written brief and a budget.</li>
+      <li>The language work done for you: we handle the buyer's questions, translations and the coordination with their lawyer or translator.</li>
+      <li>No cost unless a sale completes.</li>
+    </ul>
+
+    <h2>What we ask of you</h2>
+    <ul>
+      <li>Accurate listings, and prompt updates when a property goes under offer or is sold.</li>
+      <li>Availability for viewings, in person or by video.</li>
+      <li>The cadastral and planning documents when a buyer is ready to make an offer.</li>
+    </ul>
+  </div>
+  <section aria-labelledby="partner-form-title">
+    <h2 id="partner-form-title">Become a partner</h2>
+    <form class="form" id="partner-form" novalidate>
+      <p class="form-status" id="partner-status" role="status" tabindex="-1"></p>
+      <div class="field">
+        <label for="pa-agency">Agency name</label>
+        <input type="text" id="pa-agency" name="agency" autocomplete="organization" required aria-describedby="pa-agency-error">
+        <span class="field-error" id="pa-agency-error"></span>
+      </div>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="pa-name">Your name</label>
+          <input type="text" id="pa-name" name="name" autocomplete="name" required aria-describedby="pa-name-error" placeholder="Your name">
+          <span class="field-error" id="pa-name-error"></span>
+        </div>
+        <div class="field">
+          <label for="pa-email">Email</label>
+          <input type="email" id="pa-email" name="email" autocomplete="email" required aria-describedby="pa-email-error" placeholder="email@example.com">
+          <span class="field-error" id="pa-email-error"></span>
+        </div>
+      </div>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="pa-area">Town and province</label>
+          <input type="text" id="pa-area" name="area" required aria-describedby="pa-area-error">
+          <span class="field-error" id="pa-area-error"></span>
+        </div>
+        <div class="field">
+          <label for="pa-software">Listing software</label>
+          <select id="pa-software" name="software">
+            <option value="apimo">Apimo</option>
+            <option value="other">Another system</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="pa-message">Anything else <span class="optional">(optional)</span></label>
+        <textarea id="pa-message" name="message" placeholder="Areas you cover, types of property, languages spoken in your office."></textarea>
+      </div>
+      <fieldset class="consents">
+        <legend>Consent</legend>
+        <label class="check"><input type="checkbox" name="consentProcessing" required aria-describedby="pa-consent-error"><span><strong>Processing of my data (required)</strong>Oikos Immobiliare may use these details to contact me about the partnership, as described in the <a href="{{link id=privacy}}">privacy policy</a>.</span></label>
+        <span class="field-error" id="pa-consent-error"></span>
+      </fieldset>
+      <div class="form-actions"><button class="btn btn--primary" type="submit">Send request</button></div>
+    </form>
+    <noscript><p class="noscript-note">This form needs JavaScript in this version of the site.</p></noscript>
+  </section>
+</div>

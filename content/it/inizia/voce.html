@@ -1,0 +1,26 @@
+---
+id: start/voice
+parent: start
+title: Intervista a voce | Buy House in Italy
+description: Rispondi a voce alle nostre domande sulla casa che vuoi in Italia. La trascrizione compare sullo schermo e puoi correggerla prima di andare avanti.
+h1: Intervista a voce
+crumb: Intervista a voce
+lede: Leggiamo ogni domanda ad alta voce; tu rispondi parlando. Controlla la trascrizione sullo schermo, correggila se serve e poi dicci quanto conta la risposta.
+noCtaBar: yes
+wrap: container
+css: start
+js: voice
+---
+<div class="voice-intro" id="voice-intro">
+  <h2>Prima di iniziare</h2>
+  <ul>
+    <li>La voce funziona con Chrome, Edge e Safari. Con gli altri browser ti portiamo alla chat guidata, con le stesse domande.</li>
+    <li>È il servizio vocale del browser a trasformare quello che dici in testo. In Chrome l'audio viene elaborato dai server di Google, in Safari da Apple. Noi riceviamo solo il testo.</li>
+    <li>Il browser ti chiederà il permesso di usare il microfono.</li>
+    <li>Puoi passare alla scrittura in qualsiasi momento. Le risposte date a voce restano.</li>
+  </ul>
+</div>
+<div class="interview" id="interview" data-mode="voice">
+  <p class="interview__loading" id="interview-loading" role="status">Controllo se questo browser supporta la voce…</p>
+  <noscript><p class="noscript-note">L'intervista a voce richiede JavaScript. Puoi <a href="{{link id=start/webcall}}">prenotare una videochiamata</a> o scriverci dalla <a href="{{link id=contact}}">pagina contatti</a>.</p></noscript>
+</div>

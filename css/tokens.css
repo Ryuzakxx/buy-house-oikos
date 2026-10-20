@@ -1,0 +1,134 @@
+/* Design tokens. Every color, size and duration used by the site is defined here; reasons in DESIGN.md. */
+
+@font-face {
+  font-family: "Prata";
+  src: url("/fonts/prata-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Times-metric fallback scaled to Prata's width and line box, so the swap does not reflow headings. */
+@font-face {
+  font-family: "Prata Fallback";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif");
+  size-adjust: 116.8%;
+  ascent-override: 85%;
+  descent-override: 31%;
+  line-gap-override: 0%;
+}
+
+:root {
+  color-scheme: light dark;
+
+  --paper: #ffffff;
+  --surface: #fffdf7;
+  --vanilla: #f8f1df;
+  --line: #ebe1c9;
+  --line-strong: #8c8270;
+  --ink: #221f1a;
+  --ink-2: #5c564b;
+  --gold: #cea040;
+  --on-gold: #221f1a;
+  --gold-ink: #7a5a10;
+  --deep: #23211d;
+  --on-deep: #f3ecdd;
+  --on-deep-2: #c9bfaa;
+  --gold-on-deep: #e2b964;
+  --danger: #9b2c1c;
+  --focus: #221f1a;
+
+  --font-serif: "Prata", "Prata Fallback", Georgia, serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.175rem, 1.1rem + 0.35vw, 1.375rem);
+  --step-2: clamp(1.35rem, 1.22rem + 0.6vw, 1.7rem);
+  --step-3: clamp(1.6rem, 1.38rem + 1vw, 2.2rem);
+  --step-4: clamp(1.9rem, 1.55rem + 1.8vw, 3rem);
+  --step-5: clamp(2.1rem, 1.55rem + 2.8vw, 3.75rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Section rhythm: introduce (l), list (m), link (s). */
+  --section-s: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --section-m: clamp(3rem, 2rem + 4vw, 5.5rem);
+  --section-l: clamp(4rem, 2.5rem + 6vw, 8rem);
+
+  --gutter: 1rem;
+  --container: 74rem;
+  --measure: 42rem;
+
+  --r-s: 3px;
+  --r-m: 8px;
+  --r-pill: 999px;
+
+  --shadow-float: 0 1px 2px rgb(34 31 26 / 0.06), 0 14px 34px -10px rgb(34 31 26 / 0.22);
+
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --header-h: 4rem;
+  --cta-bar-h: 4.5rem;
+}
+
+@media (min-width: 40em) {
+  :root { --gutter: 1.5rem; }
+}
+@media (min-width: 64em) {
+  :root { --gutter: 2rem; }
+}
+
+/* Dark theme: chosen with the header switch (data-theme), otherwise following the operating system. */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #15130f;
+  --surface: #1e1b16;
+  --vanilla: #24201a;
+  --line: #3a3429;
+  --line-strong: #7f7663;
+  --ink: #f3ecdd;
+  --ink-2: #bdb4a2;
+  --gold: #d9ae52;
+  --on-gold: #15130f;
+  --gold-ink: #e2b964;
+  --deep: #0e0c09;
+  --on-deep: #f3ecdd;
+  --on-deep-2: #bdb4a2;
+  --gold-on-deep: #e2b964;
+  --danger: #f08a6a;
+  --focus: #f3ecdd;
+  --shadow-float: 0 1px 2px rgb(0 0 0 / 0.4), 0 14px 34px -10px rgb(0 0 0 / 0.7);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #15130f;
+    --surface: #1e1b16;
+    --vanilla: #24201a;
+    --line: #3a3429;
+    --line-strong: #7f7663;
+    --ink: #f3ecdd;
+    --ink-2: #bdb4a2;
+    --gold: #d9ae52;
+    --on-gold: #15130f;
+    --gold-ink: #e2b964;
+    --deep: #0e0c09;
+    --on-deep: #f3ecdd;
+    --on-deep-2: #bdb4a2;
+    --gold-on-deep: #e2b964;
+    --danger: #f08a6a;
+    --focus: #f3ecdd;
+    --shadow-float: 0 1px 2px rgb(0 0 0 / 0.4), 0 14px 34px -10px rgb(0 0 0 / 0.7);
+  }
+}

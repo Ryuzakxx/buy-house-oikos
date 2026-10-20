@@ -1,0 +1,218 @@
+{
+  "hero-puglia": {
+    "aspect": 0.8,
+    "widths": [
+      {
+        "w": 480,
+        "h": 600
+      },
+      {
+        "w": 800,
+        "h": 1000
+      },
+      {
+        "w": 1200,
+        "h": 1500
+      }
+    ],
+    "dir": "photos",
+    "source": "https://commons.wikimedia.org/wiki/File:Alberobello,_Italy_08.jpg",
+    "author": "Bernard Gagnon",
+    "licence": "CC0"
+  },
+  "puglia-wide": {
+    "aspect": 2.2857,
+    "widths": [
+      {
+        "w": 960,
+        "h": 420
+      },
+      {
+        "w": 1920,
+        "h": 840
+      }
+    ],
+    "dir": "photos",
+    "source": "https://commons.wikimedia.org/wiki/File:Alberobello,_Italy_02.jpg",
+    "author": "Bernard Gagnon",
+    "licence": "CC0"
+  },
+  "og-default": {
+    "aspect": 1.9048,
+    "widths": [
+      {
+        "w": 1200,
+        "h": 630
+      }
+    ],
+    "dir": "photos",
+    "source": "https://commons.wikimedia.org/wiki/File:Alberobello,_Italy_03.jpg",
+    "author": "Bernard Gagnon",
+    "licence": "CC0"
+  },
+  "region-puglia": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "dir": "photos",
+    "source": "https://commons.wikimedia.org/wiki/File:Alberobello,_Italy_04.jpg",
+    "author": "Bernard Gagnon",
+    "licence": "CC0"
+  },
+  "region-tuscany": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "dir": "photos",
+    "source": "https://commons.wikimedia.org/wiki/File:Tuscany,_Italy_(Unsplash).jpg",
+    "author": "Vittorio Zamboni vittorio_zamboni",
+    "licence": "CC0"
+  },
+  "region-sicily": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "dir": "photos",
+    "source": "https://commons.wikimedia.org/wiki/File:Santissimo_Salvatore_(Noto)_14_01_2024_02.jpg",
+    "author": "Effems",
+    "licence": "CC0"
+  },
+  "region-lake-como": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "dir": "photos",
+    "source": "https://commons.wikimedia.org/wiki/File:L%27Adda_si_immette_nel_Lago_di_Como_visto_dal_Monte_Legnone.jpg",
+    "author": "Matnick1410",
+    "licence": "CC0"
+  },
+  "region-liguria": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "dir": "photos",
+    "source": "https://commons.wikimedia.org/wiki/File:Vernazza_from_above.JPG",
+    "author": "Original uploader was Evadb",
+    "licence": "Public domain"
+  },
+  "region-sardinia": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "dir": "photos",
+    "source": "https://commons.wikimedia.org/wiki/File:Gallura_-_Sardinia_-_2016_(34).JPG",
+    "author": "Benoît Prieur",
+    "licence": "CC0"
+  },
+  "team-flavio": {
+    "aspect": 1.0,
+    "widths": [
+      {
+        "w": 96,
+        "h": 96
+      },
+      {
+        "w": 192,
+        "h": 192
+      },
+      {
+        "w": 288,
+        "h": 288
+      }
+    ],
+    "dir": "photos",
+    "source": "data/photos/flavio.jpeg",
+    "author": "Oikos Immobiliare",
+    "licence": "supplied"
+  },
+  "team-alessandra": {
+    "aspect": 1.0,
+    "widths": [
+      {
+        "w": 96,
+        "h": 96
+      },
+      {
+        "w": 192,
+        "h": 192
+      },
+      {
+        "w": 288,
+        "h": 288
+      }
+    ],
+    "dir": "photos",
+    "source": "data/photos/alessandra.jpeg",
+    "author": "Oikos Immobiliare",
+    "licence": "supplied"
+  },
+  "team-diego": {
+    "aspect": 1.0,
+    "widths": [
+      {
+        "w": 96,
+        "h": 96
+      },
+      {
+        "w": 192,
+        "h": 192
+      },
+      {
+        "w": 288,
+        "h": 288
+      }
+    ],
+    "dir": "photos",
+    "source": "data/photos/diego.jpeg",
+    "author": "Oikos Immobiliare",
+    "licence": "supplied"
+  }
+}

@@ -1,0 +1,21 @@
+---
+path: /internal/
+title: Buyers | Consultant area (demo)
+description: Consultant area demo: buyers, their briefs and where they came from.
+css: internal
+js: internal-buyers
+---
+<div class="container internal">
+  <div class="demo-banner" role="note">
+    <p><strong>Demo area, sample data.</strong> Everything here is stored in this browser. In production this area requires real authentication and a server-side CRM (see README).</p>
+    <button type="button" class="btn btn--small" data-reset-demo>Reset demo data</button>
+  </div>
+  <header class="internal-head">
+    <h1>Buyers</h1>
+    <p>Who is searching, for what, and where they came from. Open a buyer to edit the brief, generate it from a call transcript, build a shortlist and record feedback.</p>
+  </header>
+  <div id="buyers-app" aria-live="polite">
+    <p class="interview__loading" role="status">Loading buyers…</p>
+  </div>
+  <noscript><p class="noscript-note">The consultant area needs JavaScript.</p></noscript>
+</div>

@@ -1,0 +1,85 @@
+---
+id: partner-agencies
+short: Agenzie partner
+crumb: Agenzie partner
+title: Per le agenzie: i vostri immobili ad acquirenti dall'estero | Buy House in Italy
+description: Le agenzie immobiliari possono condividere i loro immobili con Buy House in Italy senza costi. Se un nostro acquirente compra, riconoscono indicativamente l'1%.
+h1: Per le agenzie partner
+lede: I nostri acquirenti arrivano con un brief scritto e un budget. Se avete la casa che uno di loro cerca, vogliamo fargliela vedere.
+wrap: container
+js: partner
+---
+<div class="split partners">
+  <div class="prose">
+    <h2>Come funziona la collaborazione</h2>
+    <ol>
+      <li><strong>Condividete i vostri immobili</strong> tramite il vostro account Apimo o un flusso concordato. Nessun costo di pubblicazione e nessuna esclusiva.</li>
+      <li><strong>Li confrontiamo con i brief degli acquirenti.</strong> I vostri immobili entrano nella nostra ricerca insieme a quelli di Oikos. Non vengono pubblicati in un catalogo: li mostriamo solo agli acquirenti il cui brief corrisponde, e solo con il vostro accordo.</li>
+      <li><strong>Presentiamo l'acquirente.</strong> Registriamo quale acquirente ha visto quale immobile e quando, così la segnalazione è documentata per entrambi.</li>
+      <li><strong>A rogito avvenuto, condividete la provvigione.</strong> Quando un acquirente presentato da noi compra uno dei vostri immobili, ci riconoscete una parte della vostra provvigione, indicativamente l'1% del prezzo di vendita. Le condizioni esatte si fissano in un accordo scritto prima di ogni segnalazione.</li>
+    </ol>
+
+    <h2>Cosa ottenete</h2>
+    <ul>
+      <li>Acquirenti che sanno già cosa vogliono, con un brief scritto e un budget.</li>
+      <li>Il lavoro sulle lingue fatto da noi: domande dell'acquirente, traduzioni e coordinamento con il suo avvocato o traduttore.</li>
+      <li>Nessun costo se la vendita non si conclude.</li>
+    </ul>
+
+    <h2>Cosa vi chiediamo</h2>
+    <ul>
+      <li>Schede corrette, e aggiornamenti tempestivi quando un immobile va in trattativa o viene venduto.</li>
+      <li>Disponibilità per le visite, di persona o in video.</li>
+      <li>Documenti catastali e titoli edilizi quando un acquirente è pronto a fare una proposta.</li>
+    </ul>
+  </div>
+  <section aria-labelledby="partner-form-title">
+    <h2 id="partner-form-title">Diventa partner</h2>
+    <form class="form" id="partner-form" novalidate>
+      <p class="form-status" id="partner-status" role="status" tabindex="-1"></p>
+      <div class="field">
+        <label for="pa-agency">Nome dell'agenzia</label>
+        <input type="text" id="pa-agency" name="agency" autocomplete="organization" required aria-describedby="pa-agency-error">
+        <span class="field-error" id="pa-agency-error"></span>
+      </div>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="pa-name">Il tuo nome</label>
+          <input type="text" id="pa-name" name="name" autocomplete="name" required aria-describedby="pa-name-error" placeholder="Nome e cognome">
+          <span class="field-error" id="pa-name-error"></span>
+        </div>
+        <div class="field">
+          <label for="pa-email">Email</label>
+          <input type="email" id="pa-email" name="email" autocomplete="email" required aria-describedby="pa-email-error" placeholder="email@esempio.it">
+          <span class="field-error" id="pa-email-error"></span>
+        </div>
+      </div>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="pa-area">Comune e provincia</label>
+          <input type="text" id="pa-area" name="area" required aria-describedby="pa-area-error">
+          <span class="field-error" id="pa-area-error"></span>
+        </div>
+        <div class="field">
+          <label for="pa-software">Gestionale</label>
+          <select id="pa-software" name="software">
+            <option value="apimo">Apimo</option>
+            <option value="other">Un altro gestionale</option>
+            <option value="none">Nessuno</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="pa-message">Altro <span class="optional">(facoltativo)</span></label>
+        <textarea id="pa-message" name="message" placeholder="Zone in cui lavorate, tipologie di immobili, lingue parlate in agenzia."></textarea>
+      </div>
+      <fieldset class="consents">
+        <legend>Consenso</legend>
+        <label class="check"><input type="checkbox" name="consentProcessing" required aria-describedby="pa-consent-error"><span><strong>Trattamento dei miei dati (obbligatorio)</strong>Oikos Immobiliare può usare questi dati per contattarmi sulla collaborazione, come descritto nell'<a href="{{link id=privacy}}">informativa privacy</a>.</span></label>
+        <span class="field-error" id="pa-consent-error"></span>
+      </fieldset>
+      <div class="form-actions"><button class="btn btn--primary" type="submit">Invia la richiesta</button></div>
+    </form>
+    <noscript><p class="noscript-note">In questa versione del sito il modulo richiede JavaScript.</p></noscript>
+  </section>
+</div>

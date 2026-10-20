@@ -1,0 +1,74 @@
+---
+id: contact
+schema: contact
+short: Contact
+crumb: Contact
+title: Contact Buy House in Italy
+description: Write to a Buy House in Italy consultant about buying a home in Italy or about a specific property, or start with the guided interview or a video call.
+h1: Contact us
+lede: A question about a property, about the buying process, or about whether we can help with your search. Write to us here and a consultant will reply by email.
+wrap: container
+js: contact
+---
+<div class="split contact">
+  <div class="prose">
+    <h2>Other ways to start</h2>
+    <ul>
+      <li><a href="{{link id=start/chat}}">The guided chat</a>: 18 questions that turn into your brief.</li>
+      <li><a href="{{link id=start/webcall}}">A video call</a> with a consultant, at a time in your time zone.</li>
+    </ul>
+    <h2>Oikos Immobiliare</h2>
+    <p><span class="ph">[REAL DATA: office address]</span></p>
+    <p><span class="ph">[REAL DATA: phone]</span></p>
+    <p><span class="ph">[REAL DATA: email]</span></p>
+    <p><span class="ph">[REAL DATA: office hours, Italian time]</span></p>
+  </div>
+  <form class="form" id="contact-form" novalidate>
+    <p class="form-status" id="contact-status" role="status" tabindex="-1"></p>
+    <div class="form-row form-row--2">
+      <div class="field">
+        <label for="ct-name">Name</label>
+        <input type="text" id="ct-name" name="name" autocomplete="name" required aria-describedby="ct-name-error" placeholder="Your name">
+        <span class="field-error" id="ct-name-error"></span>
+      </div>
+      <div class="field">
+        <label for="ct-email">Email</label>
+        <input type="email" id="ct-email" name="email" autocomplete="email" required aria-describedby="ct-email-error" placeholder="email@example.com">
+        <span class="field-error" id="ct-email-error"></span>
+      </div>
+    </div>
+    <div class="form-row form-row--2">
+      <div class="field">
+        <label for="ct-country">Country you live in</label>
+        <input type="text" id="ct-country" name="country" autocomplete="country-name" aria-describedby="ct-country-error" required>
+        <span class="field-error" id="ct-country-error"></span>
+      </div>
+      <div class="field">
+        <label for="ct-subject">About</label>
+        <select id="ct-subject" name="subject">
+          <option value="search">Starting a search</option>
+          <option value="property">A listing I have seen</option>
+          <option value="process">The buying process</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+    </div>
+    <div class="field" id="ct-property-field">
+      <label for="ct-property">Link or reference of the listing <span class="optional">(optional)</span></label>
+      <input type="text" id="ct-property" name="property" placeholder="Paste a link or a reference">
+    </div>
+    <div class="field">
+      <label for="ct-message">Message</label>
+      <textarea id="ct-message" name="message" required aria-describedby="ct-message-error" placeholder="Tell us what you're looking for, or what you'd like to know."></textarea>
+      <span class="field-error" id="ct-message-error"></span>
+    </div>
+    <fieldset class="consents">
+      <legend>Your consents</legend>
+      <label class="check"><input type="checkbox" name="consentProcessing" required aria-describedby="ct-consent-error"><span><strong>Processing of my data (required)</strong>Oikos Immobiliare may use these details to reply to me, as described in the <a href="{{link id=privacy}}">privacy policy</a>.</span></label>
+      <span class="field-error" id="ct-consent-error"></span>
+      <label class="check"><input type="checkbox" name="consentMarketing"><span><strong>News and new properties by email (optional)</strong>Occasional emails. Unsubscribe at any time.</span></label>
+    </fieldset>
+    <div class="form-actions"><button class="btn btn--primary" type="submit">Send message</button></div>
+  </form>
+  <noscript><p class="noscript-note">This form needs JavaScript in this version of the site.</p></noscript>
+</div>

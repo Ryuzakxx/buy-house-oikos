@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "description": "Photos used on the site. Entries with \"commons\" must be CC0 or public-domain files on Wikimedia Commons; tools/photos.py re-reads author and licence from Commons at every run and refuses anything else. Entries with \"file\" are photos supplied by Oikos Immobiliare, kept in data/photos/.",
+    "focus": "Point of the original image to keep in view when cropping, as fractions of width and height.",
+    "zoom": "Optional, default 1: values above 1 crop tighter around the focus point."
+  },
+  "logo": { "file": "data/photos/logo.webp", "out": "img/logo/oikos-immobiliare", "lightText": "#f3ecdd" },
+  "photos": [
+    { "name": "hero-puglia", "commons": "File:Alberobello, Italy 08.jpg", "aspect": [4, 5], "widths": [480, 800, 1200], "focus": [0.5, 0.55] },
+    { "name": "puglia-wide", "commons": "File:Alberobello, Italy 02.jpg", "aspect": [16, 7], "widths": [960, 1920], "focus": [0.5, 0.45] },
+    { "name": "og-default", "commons": "File:Alberobello, Italy 03.jpg", "aspect": [1200, 630], "widths": [1200], "focus": [0.5, 0.5] },
+    { "name": "region-puglia", "commons": "File:Alberobello, Italy 04.jpg", "aspect": [3, 2], "widths": [640, 1280], "focus": [0.5, 0.5] },
+    { "name": "region-tuscany", "commons": "File:Tuscany, Italy (Unsplash).jpg", "aspect": [3, 2], "widths": [640, 1280], "focus": [0.5, 0.5] },
+    { "name": "region-sicily", "commons": "File:Santissimo Salvatore (Noto) 14 01 2024 02.jpg", "aspect": [3, 2], "widths": [640, 1280], "focus": [0.62, 0.5] },
+    { "name": "region-lake-como", "commons": "File:L'Adda si immette nel Lago di Como visto dal Monte Legnone.jpg", "aspect": [3, 2], "widths": [640, 1280], "focus": [0.45, 0.5] },
+    { "name": "region-liguria", "commons": "File:Vernazza from above.JPG", "aspect": [3, 2], "widths": [640, 1280], "focus": [0.5, 0.5] },
+    { "name": "region-sardinia", "commons": "File:Gallura - Sardinia - 2016 (34).JPG", "aspect": [3, 2], "widths": [640, 1280], "focus": [0.5, 0.5] },
+    { "name": "team-flavio", "file": "data/photos/flavio.jpeg", "credit": "Oikos Immobiliare", "aspect": [1, 1], "widths": [96, 192, 288], "focus": [0.5, 0.42], "zoom": 1.05 },
+    { "name": "team-alessandra", "file": "data/photos/alessandra.jpeg", "credit": "Oikos Immobiliare", "aspect": [1, 1], "widths": [96, 192, 288], "focus": [0.63, 0.3], "zoom": 1.6 },
+    { "name": "team-diego", "file": "data/photos/diego.jpeg", "credit": "Oikos Immobiliare", "aspect": [1, 1], "widths": [96, 192, 288], "focus": [0.5, 0.43], "zoom": 1.3 }
+  ]
+}

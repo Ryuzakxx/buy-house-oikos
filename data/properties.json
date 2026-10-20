@@ -1,0 +1,1117 @@
+{
+  "meta": {
+    "description": "Sample properties for the prototype, used only by the matching engine and the consultant area. None of these are real listings, and the site publishes no catalogue.",
+    "shape": "Simplified copy of an Apimo property export. js/api/apimo.js normalize() maps it to the model used by the site and the matching engine.",
+    "units": {
+      "area": "m2",
+      "distances": "km by road, approximate"
+    },
+    "updatedAt": "2026-10-14"
+  },
+  "properties": [
+    {
+      "id": 1001,
+      "reference": "OIK-PU-1001",
+      "slug": "masseria-with-pool-near-ostuni",
+      "status": "available",
+      "source": "oikos",
+      "partnerAgencyId": null,
+      "category": "house",
+      "type": "farmhouse",
+      "subtype": "masseria",
+      "price": {
+        "value": 1250000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Ostuni",
+        "province": "BR",
+        "region": "puglia",
+        "area": "Valle d'Itria"
+      },
+      "rooms": 9,
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "area": {
+        "value": 410,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 30000,
+        "unit": "m2"
+      },
+      "pool": true,
+      "poolPossible": true,
+      "seaView": true,
+      "distances": {
+        "sea": 8,
+        "airport": 38,
+        "town": 4
+      },
+      "airportName": "Brindisi",
+      "condition": "move-in",
+      "energyClass": "F",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Masseria with pool and sea view near Ostuni",
+          "subtitle": "Restored stone farmhouse on 3 hectares of olive groves",
+          "comment": "A fortified farmhouse restored with local stone and vaulted ceilings, set among centuries-old olive trees on the hills between Ostuni and the coast. The main house has five bedrooms; a separate annexe could host guests or staff. The pool terrace looks across the plain to the Adriatic. Brindisi airport is about 40 minutes by car."
+        },
+        {
+          "language": "de",
+          "title": "Masseria mit Pool und Meerblick bei Ostuni",
+          "subtitle": "Restaurierter Gutshof aus Naturstein auf 3 Hektar Olivenhain",
+          "comment": "Ein befestigter Gutshof mit Kreuzgewölben, umgeben von jahrhundertealten Olivenbäumen. Vom Pool blickt man über die Ebene bis zur Adria."
+        },
+        {
+          "language": "fr",
+          "title": "Masseria avec piscine et vue mer près d'Ostuni",
+          "subtitle": "Ferme fortifiée restaurée sur 3 hectares d'oliviers",
+          "comment": "Une ferme fortifiée en pierre locale aux plafonds voûtés, entourée d'oliviers centenaires. La terrasse de la piscine regarde la plaine jusqu'à l'Adriatique."
+        },
+        {
+          "language": "nl",
+          "title": "Masseria met zwembad en zeezicht bij Ostuni",
+          "subtitle": "Gerestaureerde stenen boerderij op 3 hectare olijfgaard",
+          "comment": "Een versterkte boerderij met gewelfde plafonds tussen eeuwenoude olijfbomen. Vanaf het zwembad kijk je over de vlakte naar de Adriatische Zee."
+        },
+        {
+          "language": "es",
+          "title": "Masseria con piscina y vistas al mar cerca de Ostuni",
+          "subtitle": "Granja fortificada restaurada en 3 hectáreas de olivar",
+          "comment": "Una granja fortificada de piedra local con techos abovedados, entre olivos centenarios. Desde la piscina se ve la llanura hasta el Adriático."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1001",
+          "rank": 1
+        },
+        {
+          "id": "region-puglia",
+          "rank": 2
+        },
+        {
+          "id": "interior-a",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-08-03",
+      "updatedAt": "2026-09-28"
+    },
+    {
+      "id": 1002,
+      "reference": "PA1-PU-0188",
+      "slug": "trulli-with-land-near-cisternino",
+      "status": "available",
+      "source": "partner",
+      "partnerAgencyId": "pa-01",
+      "category": "house",
+      "type": "farmhouse",
+      "subtype": "trullo",
+      "price": {
+        "value": 385000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Cisternino",
+        "province": "BR",
+        "region": "puglia",
+        "area": "Valle d'Itria"
+      },
+      "rooms": 5,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "area": {
+        "value": 120,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 6000,
+        "unit": "m2"
+      },
+      "pool": false,
+      "poolPossible": true,
+      "seaView": false,
+      "distances": {
+        "sea": 22,
+        "airport": 55,
+        "town": 2.5
+      },
+      "airportName": "Brindisi",
+      "condition": "light-refresh",
+      "energyClass": "G",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Trulli with land near Cisternino",
+          "subtitle": "Three cones and a lamia on 6,000 m² of almond and olive trees",
+          "comment": "A small cluster of trulli joined to a lamia, already habitable but ready for new bathrooms and a kitchen. The land is flat enough for a pool, subject to permits."
+        },
+        {
+          "language": "de",
+          "title": "Trulli mit Grundstück bei Cisternino",
+          "subtitle": "Drei Kegel und eine Lamia auf 6.000 m²",
+          "comment": "Bewohnbar, aber Bäder und Küche sollten erneuert werden. Ein Pool ist vorbehaltlich Genehmigung möglich."
+        },
+        {
+          "language": "fr",
+          "title": "Trulli avec terrain près de Cisternino",
+          "subtitle": "Trois cônes et une lamia sur 6 000 m²",
+          "comment": "Habitable, mais salles de bains et cuisine à refaire. Une piscine est envisageable sous réserve de permis."
+        },
+        {
+          "language": "nl",
+          "title": "Trulli met grond bij Cisternino",
+          "subtitle": "Drie kegels en een lamia op 6.000 m²",
+          "comment": "Bewoonbaar, maar badkamers en keuken zijn aan vernieuwing toe. Een zwembad is mogelijk onder voorbehoud van vergunning."
+        },
+        {
+          "language": "es",
+          "title": "Trulli con terreno cerca de Cisternino",
+          "subtitle": "Tres conos y una lamia en 6.000 m²",
+          "comment": "Habitable, aunque baños y cocina necesitan renovación. Se podría construir una piscina con permiso."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1002",
+          "rank": 1
+        },
+        {
+          "id": "region-puglia",
+          "rank": 2
+        },
+        {
+          "id": "interior-b",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-09-02",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": 1003,
+      "reference": "PA1-PU-0204",
+      "slug": "farmhouse-to-restore-near-otranto",
+      "status": "available",
+      "source": "partner",
+      "partnerAgencyId": "pa-01",
+      "category": "house",
+      "type": "rustic",
+      "subtype": "masseria",
+      "price": {
+        "value": 240000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Otranto",
+        "province": "LE",
+        "region": "puglia",
+        "area": "Salento"
+      },
+      "rooms": 6,
+      "bedrooms": 3,
+      "bathrooms": 1,
+      "area": {
+        "value": 180,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 20000,
+        "unit": "m2"
+      },
+      "pool": false,
+      "poolPossible": true,
+      "seaView": false,
+      "distances": {
+        "sea": 5,
+        "airport": 85,
+        "town": 3
+      },
+      "airportName": "Brindisi",
+      "condition": "restoration",
+      "energyClass": "G",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Farmhouse to restore near Otranto",
+          "subtitle": "Stone masseria on 2 hectares, five kilometres from the sea",
+          "comment": "An unrestored masseria with barrel vaults and an old oil press room. A full restoration project, best suited to buyers who want to design the house themselves with an architect."
+        },
+        {
+          "language": "de",
+          "title": "Restaurierungsobjekt bei Otranto",
+          "subtitle": "Masseria auf 2 Hektar, fünf Kilometer vom Meer",
+          "comment": "Unrestaurierte Masseria mit Tonnengewölben. Ein Projekt für Käufer, die mit einem Architekten selbst planen wollen."
+        },
+        {
+          "language": "fr",
+          "title": "Ferme à restaurer près d'Otrante",
+          "subtitle": "Masseria sur 2 hectares, à cinq kilomètres de la mer",
+          "comment": "Masseria non restaurée aux voûtes en berceau. Un projet pour des acheteurs qui veulent concevoir leur maison avec un architecte."
+        },
+        {
+          "language": "nl",
+          "title": "Te restaureren boerderij bij Otranto",
+          "subtitle": "Masseria op 2 hectare, vijf kilometer van zee",
+          "comment": "Ongerestaureerde masseria met tongewelven. Een project voor kopers die zelf met een architect willen ontwerpen."
+        },
+        {
+          "language": "es",
+          "title": "Masseria para restaurar cerca de Otranto",
+          "subtitle": "En 2 hectáreas, a cinco kilómetros del mar",
+          "comment": "Masseria sin restaurar con bóvedas de cañón. Un proyecto para compradores que quieren diseñar la casa con un arquitecto."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1003",
+          "rank": 1
+        },
+        {
+          "id": "region-puglia",
+          "rank": 2
+        },
+        {
+          "id": "interior-a",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-09-15",
+      "updatedAt": "2026-10-03"
+    },
+    {
+      "id": 1004,
+      "reference": "OIK-TO-1004",
+      "slug": "farmhouse-with-pool-in-val-dorcia",
+      "status": "available",
+      "source": "oikos",
+      "partnerAgencyId": null,
+      "category": "house",
+      "type": "farmhouse",
+      "subtype": "casale",
+      "price": {
+        "value": 1890000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Pienza",
+        "province": "SI",
+        "region": "tuscany",
+        "area": "Val d'Orcia"
+      },
+      "rooms": 11,
+      "bedrooms": 6,
+      "bathrooms": 5,
+      "area": {
+        "value": 520,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 40000,
+        "unit": "m2"
+      },
+      "pool": true,
+      "poolPossible": true,
+      "seaView": false,
+      "distances": {
+        "sea": 95,
+        "airport": 115,
+        "town": 3
+      },
+      "airportName": "Florence",
+      "condition": "move-in",
+      "energyClass": "E",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Farmhouse with pool in the Val d'Orcia",
+          "subtitle": "Stone casale with six bedrooms on 4 hectares near Pienza",
+          "comment": "A classic Tuscan casale on a ridge outside Pienza, with a guest wing, a cellar and an infinity pool facing the valley. Pienza's shops and restaurants are three kilometres away."
+        },
+        {
+          "language": "de",
+          "title": "Bauernhaus mit Pool im Val d'Orcia",
+          "subtitle": "Steinernes Casale mit sechs Schlafzimmern auf 4 Hektar",
+          "comment": "Klassisches toskanisches Casale auf einem Hügelkamm bei Pienza, mit Gästeflügel und Pool mit Talblick."
+        },
+        {
+          "language": "fr",
+          "title": "Ferme avec piscine dans le Val d'Orcia",
+          "subtitle": "Casale en pierre de six chambres sur 4 hectares",
+          "comment": "Casale toscan classique sur une crête près de Pienza, avec aile d'invités et piscine face à la vallée."
+        },
+        {
+          "language": "nl",
+          "title": "Boerderij met zwembad in het Val d'Orcia",
+          "subtitle": "Stenen casale met zes slaapkamers op 4 hectare",
+          "comment": "Klassieke Toscaanse casale op een heuvelrug bij Pienza, met gastenvleugel en zwembad met uitzicht over het dal."
+        },
+        {
+          "language": "es",
+          "title": "Casa de campo con piscina en el Val d'Orcia",
+          "subtitle": "Casale de piedra con seis dormitorios en 4 hectáreas",
+          "comment": "Un casale toscano clásico cerca de Pienza, con ala de invitados y piscina frente al valle."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1004",
+          "rank": 1
+        },
+        {
+          "id": "region-tuscany",
+          "rank": 2
+        },
+        {
+          "id": "interior-b",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-07-21",
+      "updatedAt": "2026-09-30"
+    },
+    {
+      "id": 1005,
+      "reference": "OIK-TO-1005",
+      "slug": "villa-in-the-lucca-countryside",
+      "status": "available",
+      "source": "oikos",
+      "partnerAgencyId": null,
+      "category": "house",
+      "type": "villa",
+      "subtype": "villa",
+      "price": {
+        "value": 950000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Lucca",
+        "province": "LU",
+        "region": "tuscany",
+        "area": "Lucca hills"
+      },
+      "rooms": 8,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "area": {
+        "value": 300,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 5000,
+        "unit": "m2"
+      },
+      "pool": true,
+      "poolPossible": true,
+      "seaView": false,
+      "distances": {
+        "sea": 25,
+        "airport": 30,
+        "town": 6
+      },
+      "airportName": "Pisa",
+      "condition": "light-refresh",
+      "energyClass": "E",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Villa in the Lucca countryside",
+          "subtitle": "Four bedrooms, pool and 5,000 m² of garden",
+          "comment": "A 1920s villa in the hills north of Lucca with a walled garden and a pool. Kitchen and bathrooms would benefit from updating. Pisa airport and the Versilia beaches are both within about half an hour."
+        },
+        {
+          "language": "de",
+          "title": "Villa im Umland von Lucca",
+          "subtitle": "Vier Schlafzimmer, Pool und 5.000 m² Garten",
+          "comment": "Villa aus den 1920er Jahren mit ummauertem Garten. Küche und Bäder sollten modernisiert werden."
+        },
+        {
+          "language": "fr",
+          "title": "Villa dans la campagne de Lucques",
+          "subtitle": "Quatre chambres, piscine et 5 000 m² de jardin",
+          "comment": "Villa des années 1920 avec jardin clos. Cuisine et salles de bains à moderniser."
+        },
+        {
+          "language": "nl",
+          "title": "Villa op het platteland bij Lucca",
+          "subtitle": "Vier slaapkamers, zwembad en 5.000 m² tuin",
+          "comment": "Villa uit de jaren twintig met ommuurde tuin. Keuken en badkamers kunnen een update gebruiken."
+        },
+        {
+          "language": "es",
+          "title": "Villa en la campiña de Lucca",
+          "subtitle": "Cuatro dormitorios, piscina y 5.000 m² de jardín",
+          "comment": "Villa de los años veinte con jardín amurallado. Cocina y baños necesitan actualización."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1005",
+          "rank": 1
+        },
+        {
+          "id": "region-tuscany",
+          "rank": 2
+        },
+        {
+          "id": "interior-a",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-08-19",
+      "updatedAt": "2026-09-12"
+    },
+    {
+      "id": 1006,
+      "reference": "OIK-SI-1006",
+      "slug": "palazzetto-with-roof-terrace-in-noto",
+      "status": "available",
+      "source": "oikos",
+      "partnerAgencyId": null,
+      "category": "house",
+      "type": "townhouse",
+      "subtype": "palazzetto",
+      "price": {
+        "value": 420000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Noto",
+        "province": "SR",
+        "region": "sicily",
+        "area": "Val di Noto"
+      },
+      "rooms": 7,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "area": {
+        "value": 210,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 0,
+        "unit": "m2"
+      },
+      "pool": false,
+      "poolPossible": false,
+      "seaView": true,
+      "distances": {
+        "sea": 7,
+        "airport": 85,
+        "town": 0
+      },
+      "airportName": "Catania",
+      "condition": "move-in",
+      "energyClass": "F",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Palazzetto with roof terrace in Noto",
+          "subtitle": "Three bedrooms in the Baroque centre, sea view from the roof",
+          "comment": "A narrow townhouse on three floors, two streets from Noto's cathedral, with original stone stairs and a roof terrace that looks over the rooftops to the sea. Restored in recent years; ready to live in."
+        },
+        {
+          "language": "de",
+          "title": "Palazzetto mit Dachterrasse in Noto",
+          "subtitle": "Drei Schlafzimmer im barocken Zentrum, Meerblick vom Dach",
+          "comment": "Stadthaus auf drei Etagen nahe der Kathedrale, mit Dachterrasse und Blick bis zum Meer. Bezugsfertig."
+        },
+        {
+          "language": "fr",
+          "title": "Palazzetto avec toit-terrasse à Noto",
+          "subtitle": "Trois chambres dans le centre baroque, vue mer depuis le toit",
+          "comment": "Maison de ville sur trois niveaux près de la cathédrale, avec toit-terrasse vue mer. Prête à habiter."
+        },
+        {
+          "language": "nl",
+          "title": "Palazzetto met dakterras in Noto",
+          "subtitle": "Drie slaapkamers in het barokke centrum, zeezicht vanaf het dak",
+          "comment": "Herenhuis van drie verdiepingen bij de kathedraal, met dakterras en zicht op zee. Instapklaar."
+        },
+        {
+          "language": "es",
+          "title": "Palazzetto con azotea en Noto",
+          "subtitle": "Tres dormitorios en el centro barroco, vistas al mar desde la azotea",
+          "comment": "Casa de tres plantas cerca de la catedral, con azotea y vistas al mar. Lista para entrar a vivir."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1006",
+          "rank": 1
+        },
+        {
+          "id": "region-sicily",
+          "rank": 2
+        },
+        {
+          "id": "interior-b",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-08-27",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": 1007,
+      "reference": "PA3-SI-0311",
+      "slug": "sea-view-apartment-in-taormina",
+      "status": "sold",
+      "source": "partner",
+      "partnerAgencyId": "pa-03",
+      "category": "apartment",
+      "type": "apartment",
+      "subtype": "apartment",
+      "price": {
+        "value": 690000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Taormina",
+        "province": "ME",
+        "region": "sicily",
+        "area": "Taormina"
+      },
+      "rooms": 4,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "area": {
+        "value": 110,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 0,
+        "unit": "m2"
+      },
+      "pool": false,
+      "poolPossible": false,
+      "seaView": true,
+      "distances": {
+        "sea": 2,
+        "airport": 60,
+        "town": 0.5
+      },
+      "airportName": "Catania",
+      "condition": "light-refresh",
+      "energyClass": "E",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Sea-view apartment in Taormina",
+          "subtitle": "Two bedrooms and a terrace facing the bay",
+          "comment": "A two-bedroom apartment a short walk from Corso Umberto, with a terrace over the bay of Giardini Naxos. Finishes date from the 2000s."
+        },
+        {
+          "language": "de",
+          "title": "Wohnung mit Meerblick in Taormina",
+          "subtitle": "Zwei Schlafzimmer und Terrasse zur Bucht",
+          "comment": "Wenige Gehminuten vom Corso Umberto, Terrasse mit Blick auf die Bucht."
+        },
+        {
+          "language": "fr",
+          "title": "Appartement vue mer à Taormine",
+          "subtitle": "Deux chambres et terrasse face à la baie",
+          "comment": "À quelques minutes à pied du Corso Umberto, terrasse sur la baie."
+        },
+        {
+          "language": "nl",
+          "title": "Appartement met zeezicht in Taormina",
+          "subtitle": "Twee slaapkamers en een terras aan de baai",
+          "comment": "Op loopafstand van de Corso Umberto, met terras boven de baai."
+        },
+        {
+          "language": "es",
+          "title": "Apartamento con vistas al mar en Taormina",
+          "subtitle": "Dos dormitorios y terraza frente a la bahía",
+          "comment": "A pocos minutos a pie del Corso Umberto, con terraza sobre la bahía."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1007",
+          "rank": 1
+        },
+        {
+          "id": "region-sicily",
+          "rank": 2
+        },
+        {
+          "id": "interior-a",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-06-30",
+      "updatedAt": "2026-09-22"
+    },
+    {
+      "id": 1008,
+      "reference": "OIK-CO-1008",
+      "slug": "lake-view-apartment-in-menaggio",
+      "status": "available",
+      "source": "oikos",
+      "partnerAgencyId": null,
+      "category": "apartment",
+      "type": "apartment",
+      "subtype": "apartment",
+      "price": {
+        "value": 780000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Menaggio",
+        "province": "CO",
+        "region": "lake-como",
+        "area": "West shore"
+      },
+      "rooms": 5,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "area": {
+        "value": 140,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 0,
+        "unit": "m2"
+      },
+      "pool": false,
+      "poolPossible": false,
+      "seaView": false,
+      "distances": {
+        "sea": 200,
+        "airport": 80,
+        "town": 0.8
+      },
+      "airportName": "Milan Malpensa",
+      "condition": "move-in",
+      "energyClass": "C",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Lake-view apartment in Menaggio",
+          "subtitle": "Three bedrooms in a period villa above the lake",
+          "comment": "The first floor of a converted 19th-century villa, with high ceilings, a balcony facing Bellagio and use of the shared garden. The ferry pier and Menaggio's centre are a ten-minute walk."
+        },
+        {
+          "language": "de",
+          "title": "Wohnung mit Seeblick in Menaggio",
+          "subtitle": "Drei Schlafzimmer in einer historischen Villa",
+          "comment": "Erste Etage einer umgebauten Villa aus dem 19. Jahrhundert, Balkon mit Blick auf Bellagio."
+        },
+        {
+          "language": "fr",
+          "title": "Appartement vue lac à Menaggio",
+          "subtitle": "Trois chambres dans une villa d'époque",
+          "comment": "Premier étage d'une villa du XIXe siècle, balcon face à Bellagio."
+        },
+        {
+          "language": "nl",
+          "title": "Appartement met meerzicht in Menaggio",
+          "subtitle": "Drie slaapkamers in een historische villa",
+          "comment": "Eerste verdieping van een negentiende-eeuwse villa, balkon met zicht op Bellagio."
+        },
+        {
+          "language": "es",
+          "title": "Apartamento con vistas al lago en Menaggio",
+          "subtitle": "Tres dormitorios en una villa de época",
+          "comment": "Primera planta de una villa del siglo XIX, balcón frente a Bellagio."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1008",
+          "rank": 1
+        },
+        {
+          "id": "region-lake-como",
+          "rank": 2
+        },
+        {
+          "id": "interior-b",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-09-08",
+      "updatedAt": "2026-10-08"
+    },
+    {
+      "id": 1009,
+      "reference": "OIK-CO-1009",
+      "slug": "lakefront-villa-in-tremezzina",
+      "status": "available",
+      "source": "oikos",
+      "partnerAgencyId": null,
+      "category": "house",
+      "type": "villa",
+      "subtype": "villa",
+      "price": {
+        "value": 2400000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Tremezzina",
+        "province": "CO",
+        "region": "lake-como",
+        "area": "West shore"
+      },
+      "rooms": 10,
+      "bedrooms": 5,
+      "bathrooms": 5,
+      "area": {
+        "value": 380,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 2500,
+        "unit": "m2"
+      },
+      "pool": true,
+      "poolPossible": true,
+      "seaView": false,
+      "distances": {
+        "sea": 200,
+        "airport": 85,
+        "town": 1
+      },
+      "airportName": "Milan Malpensa",
+      "condition": "renovation",
+      "energyClass": "G",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Lakefront villa in Tremezzina",
+          "subtitle": "Five bedrooms, pool and direct lake access, to renovate",
+          "comment": "A 1930s villa with its own stretch of shoreline and a pool on the lower terrace. Systems and interiors need a full renovation; the structure and position are the reason to buy."
+        },
+        {
+          "language": "de",
+          "title": "Villa am Seeufer in Tremezzina",
+          "subtitle": "Fünf Schlafzimmer, Pool, direkter Seezugang, renovierungsbedürftig",
+          "comment": "Villa aus den 1930er Jahren mit eigenem Ufer. Technik und Innenräume müssen komplett erneuert werden."
+        },
+        {
+          "language": "fr",
+          "title": "Villa au bord du lac à Tremezzina",
+          "subtitle": "Cinq chambres, piscine, accès direct au lac, à rénover",
+          "comment": "Villa des années 1930 avec rive privée. Installations et intérieurs à rénover entièrement."
+        },
+        {
+          "language": "nl",
+          "title": "Villa aan het meer in Tremezzina",
+          "subtitle": "Vijf slaapkamers, zwembad, eigen oever, te renoveren",
+          "comment": "Villa uit de jaren dertig met eigen oever. Installaties en interieur moeten volledig worden vernieuwd."
+        },
+        {
+          "language": "es",
+          "title": "Villa junto al lago en Tremezzina",
+          "subtitle": "Cinco dormitorios, piscina y acceso al lago, para reformar",
+          "comment": "Villa de los años treinta con orilla propia. Instalaciones e interiores para reformar por completo."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1009",
+          "rank": 1
+        },
+        {
+          "id": "region-lake-como",
+          "rank": 2
+        },
+        {
+          "id": "interior-a",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-07-02",
+      "updatedAt": "2026-09-19"
+    },
+    {
+      "id": 1010,
+      "reference": "OIK-LI-1010",
+      "slug": "sea-view-apartment-in-camogli",
+      "status": "available",
+      "source": "oikos",
+      "partnerAgencyId": null,
+      "category": "apartment",
+      "type": "apartment",
+      "subtype": "apartment",
+      "price": {
+        "value": 850000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Camogli",
+        "province": "GE",
+        "region": "liguria",
+        "area": "Riviera di Levante"
+      },
+      "rooms": 5,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "area": {
+        "value": 125,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 0,
+        "unit": "m2"
+      },
+      "pool": false,
+      "poolPossible": false,
+      "seaView": true,
+      "distances": {
+        "sea": 0.3,
+        "airport": 28,
+        "town": 0.3
+      },
+      "airportName": "Genoa",
+      "condition": "move-in",
+      "energyClass": "D",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Sea-view apartment in Camogli",
+          "subtitle": "Three bedrooms above the harbour, steps from the beach",
+          "comment": "A top-floor apartment in one of Camogli's tall painted houses, looking over the harbour and the Golfo Paradiso. Renovated, with a lift. The train station for Genoa is a five-minute walk."
+        },
+        {
+          "language": "de",
+          "title": "Wohnung mit Meerblick in Camogli",
+          "subtitle": "Drei Schlafzimmer über dem Hafen",
+          "comment": "Dachgeschosswohnung in einem der bemalten Häuser Camoglis, renoviert, mit Aufzug."
+        },
+        {
+          "language": "fr",
+          "title": "Appartement vue mer à Camogli",
+          "subtitle": "Trois chambres au-dessus du port",
+          "comment": "Dernier étage d'une maison peinte de Camogli, rénové, avec ascenseur."
+        },
+        {
+          "language": "nl",
+          "title": "Appartement met zeezicht in Camogli",
+          "subtitle": "Drie slaapkamers boven de haven",
+          "comment": "Bovenste verdieping van een beschilderd huis in Camogli, gerenoveerd, met lift."
+        },
+        {
+          "language": "es",
+          "title": "Apartamento con vistas al mar en Camogli",
+          "subtitle": "Tres dormitorios sobre el puerto",
+          "comment": "Último piso de una casa pintada de Camogli, reformado y con ascensor."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1010",
+          "rank": 1
+        },
+        {
+          "id": "region-liguria",
+          "rank": 2
+        },
+        {
+          "id": "interior-b",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-09-11",
+      "updatedAt": "2026-10-09"
+    },
+    {
+      "id": 1011,
+      "reference": "PA2-LI-0077",
+      "slug": "villa-with-sea-view-above-sanremo",
+      "status": "available",
+      "source": "partner",
+      "partnerAgencyId": "pa-02",
+      "category": "house",
+      "type": "villa",
+      "subtype": "villa",
+      "price": {
+        "value": 1150000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "Sanremo",
+        "province": "IM",
+        "region": "liguria",
+        "area": "Riviera di Ponente"
+      },
+      "rooms": 8,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "area": {
+        "value": 260,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 3000,
+        "unit": "m2"
+      },
+      "pool": true,
+      "poolPossible": true,
+      "seaView": true,
+      "distances": {
+        "sea": 3,
+        "airport": 60,
+        "town": 3
+      },
+      "airportName": "Nice",
+      "condition": "light-refresh",
+      "energyClass": "E",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Villa with sea view above Sanremo",
+          "subtitle": "Four bedrooms, pool and terraced garden",
+          "comment": "A 1970s villa on the hillside above Sanremo with terraces of olive and citrus trees, a pool and an open view of the coast. Nice airport is about an hour away."
+        },
+        {
+          "language": "de",
+          "title": "Villa mit Meerblick oberhalb von Sanremo",
+          "subtitle": "Vier Schlafzimmer, Pool, Terrassengarten",
+          "comment": "Villa aus den 1970er Jahren am Hang mit Oliven- und Zitrusterrassen und Pool."
+        },
+        {
+          "language": "fr",
+          "title": "Villa vue mer au-dessus de Sanremo",
+          "subtitle": "Quatre chambres, piscine, jardin en terrasses",
+          "comment": "Villa des années 1970 à flanc de colline, terrasses d'oliviers et d'agrumes, piscine."
+        },
+        {
+          "language": "nl",
+          "title": "Villa met zeezicht boven Sanremo",
+          "subtitle": "Vier slaapkamers, zwembad en terrastuin",
+          "comment": "Villa uit de jaren zeventig op de helling, met olijf- en citrusterrassen en zwembad."
+        },
+        {
+          "language": "es",
+          "title": "Villa con vistas al mar sobre Sanremo",
+          "subtitle": "Cuatro dormitorios, piscina y jardín en terrazas",
+          "comment": "Villa de los años setenta en la ladera, con terrazas de olivos y cítricos y piscina."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1011",
+          "rank": 1
+        },
+        {
+          "id": "region-liguria",
+          "rank": 2
+        },
+        {
+          "id": "interior-a",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-08-14",
+      "updatedAt": "2026-09-26"
+    },
+    {
+      "id": 1012,
+      "reference": "OIK-SA-1012",
+      "slug": "villa-near-the-beach-in-san-teodoro",
+      "status": "available",
+      "source": "oikos",
+      "partnerAgencyId": null,
+      "category": "house",
+      "type": "villa",
+      "subtype": "villa",
+      "price": {
+        "value": 1600000,
+        "currency": "EUR",
+        "hide": false
+      },
+      "city": {
+        "name": "San Teodoro",
+        "province": "SS",
+        "region": "sardinia",
+        "area": "Gallura"
+      },
+      "rooms": 7,
+      "bedrooms": 4,
+      "bathrooms": 4,
+      "area": {
+        "value": 230,
+        "unit": "m2"
+      },
+      "landArea": {
+        "value": 1800,
+        "unit": "m2"
+      },
+      "pool": true,
+      "poolPossible": true,
+      "seaView": true,
+      "distances": {
+        "sea": 1.5,
+        "airport": 30,
+        "town": 2
+      },
+      "airportName": "Olbia",
+      "condition": "move-in",
+      "energyClass": "C",
+      "comments": [
+        {
+          "language": "en",
+          "title": "Villa near the beach in San Teodoro",
+          "subtitle": "Four en-suite bedrooms, pool and granite garden",
+          "comment": "A single-storey villa built in granite and plaster, with four en-suite bedrooms, a pool and a view across to Tavolara island. Olbia airport is about half an hour by car."
+        },
+        {
+          "language": "de",
+          "title": "Villa nahe dem Strand in San Teodoro",
+          "subtitle": "Vier Schlafzimmer mit Bad, Pool, Granitgarten",
+          "comment": "Ebenerdige Villa mit Pool und Blick auf die Insel Tavolara."
+        },
+        {
+          "language": "fr",
+          "title": "Villa près de la plage à San Teodoro",
+          "subtitle": "Quatre suites, piscine et jardin de granit",
+          "comment": "Villa de plain-pied avec piscine et vue sur l'île de Tavolara."
+        },
+        {
+          "language": "nl",
+          "title": "Villa bij het strand in San Teodoro",
+          "subtitle": "Vier slaapkamers met badkamer, zwembad, granieten tuin",
+          "comment": "Gelijkvloerse villa met zwembad en uitzicht op het eiland Tavolara."
+        },
+        {
+          "language": "es",
+          "title": "Villa cerca de la playa en San Teodoro",
+          "subtitle": "Cuatro suites, piscina y jardín de granito",
+          "comment": "Villa de una planta con piscina y vistas a la isla de Tavolara."
+        }
+      ],
+      "pictures": [
+        {
+          "id": "prop-1012",
+          "rank": 1
+        },
+        {
+          "id": "region-sardinia",
+          "rank": 2
+        },
+        {
+          "id": "interior-b",
+          "rank": 3
+        }
+      ],
+      "createdAt": "2026-07-29",
+      "updatedAt": "2026-10-02"
+    }
+  ]
+}

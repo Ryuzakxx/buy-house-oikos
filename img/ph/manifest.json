@@ -1,0 +1,110 @@
+{
+  "hero-puglia": {
+    "aspect": 0.8,
+    "widths": [
+      {
+        "w": 480,
+        "h": 600
+      },
+      {
+        "w": 960,
+        "h": 1200
+      }
+    ],
+    "label": "Placeholder photo: Ostuni, Puglia"
+  },
+  "region-puglia": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "label": "Placeholder photo: Puglia"
+  },
+  "region-tuscany": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "label": "Placeholder photo: Tuscany"
+  },
+  "region-sicily": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "label": "Placeholder photo: Sicily"
+  },
+  "region-lake-como": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "label": "Placeholder photo: Lake Como"
+  },
+  "region-liguria": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "label": "Placeholder photo: Liguria"
+  },
+  "region-sardinia": {
+    "aspect": 1.5,
+    "widths": [
+      {
+        "w": 640,
+        "h": 427
+      },
+      {
+        "w": 1280,
+        "h": 853
+      }
+    ],
+    "label": "Placeholder photo: Sardinia"
+  },
+  "og-default": {
+    "aspect": 1.9048,
+    "widths": [
+      {
+        "w": 1200,
+        "h": 630
+      }
+    ],
+    "label": "Placeholder image: Buy House in Italy"
+  }
+}

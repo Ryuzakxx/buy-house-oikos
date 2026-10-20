@@ -1,0 +1,6 @@
+{
+  "meta": { "description": "Sample sale for the prototype." },
+  "sales": [
+    { "id": "sale-demo-1", "propertyId": 1007, "buyerId": "b-demo-2", "saleDate": "2026-09-30", "value": 675000, "recordedAt": "2026-10-01T09:12:00.000Z" }
+  ]
+}

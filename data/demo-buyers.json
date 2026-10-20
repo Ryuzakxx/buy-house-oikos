@@ -1,0 +1,145 @@
+{
+  "meta": { "description": "Sample buyers for the consultant area demo. Not real people; emails use the reserved example.com domain." },
+  "buyers": [
+    {
+      "id": "b-demo-1",
+      "createdAt": "2026-09-12T08:41:00.000Z",
+      "updatedAt": "2026-10-02T15:20:00.000Z",
+      "status": "shortlist-sent",
+      "source": "chat",
+      "contact": { "name": "Sample buyer 1", "email": "buyer1@example.com", "phone": "", "country": "Germany", "language": "de" },
+      "buyerCountry": "DE",
+      "leadSource": {
+        "consent": { "analytics": true, "marketing": true },
+        "firstTouch": { "utm": { "utm_source": "google", "utm_medium": "cpc", "utm_campaign": "puglia-de" }, "referrer": "https://www.google.com/", "landingPage": "/en/buying-property-in-italy-from-germany/", "at": "2026-09-12T08:30:00.000Z" },
+        "adClick": { "gclid": "sample-gclid-value", "at": "2026-09-12T08:30:00.000Z" },
+        "buyerCountry": "DE",
+        "submittedFrom": "/en/start/wishlist/"
+      },
+      "consents": {
+        "processing": { "granted": true, "at": "2026-09-12T08:41:00.000Z", "text": "Processing of my data (required)" },
+        "recording": { "granted": true, "at": "2026-09-15T10:02:00.000Z", "text": "Recording and transcription of the call (optional)" },
+        "marketing": { "granted": false, "at": "2026-09-12T08:41:00.000Z", "text": "News and new properties by email (optional)" }
+      },
+      "wishlist": {
+        "mustHave": [
+          { "key": "region", "op": "in", "value": ["puglia"] },
+          { "key": "price", "op": "lte", "value": 1400000 },
+          { "key": "bedrooms", "op": "gte", "value": 4 },
+          { "key": "pool", "op": "eq", "value": true }
+        ],
+        "niceToHave": [
+          { "key": "seaView", "op": "eq", "value": true },
+          { "key": "distanceSea", "op": "lte", "value": 10 }
+        ],
+        "dealBreakers": [
+          { "key": "condition", "op": "in", "value": ["move-in", "light-refresh"] }
+        ],
+        "context": { "use": "Holiday home", "timeline": "In 3 to 6 months", "mortgage": "No, buying with my own funds", "renovate": "Only light work" },
+        "status": "confirmed",
+        "confirmedAt": "2026-09-16T09:00:00.000Z"
+      },
+      "shortlist": [ { "propertyId": 1001, "addedAt": "2026-09-18T11:00:00.000Z", "score": 100, "status": "visit-planned" } ],
+      "feedback": [],
+      "interactions": [
+        { "id": "i-d1-1", "at": "2026-09-12T08:41:00.000Z", "type": "interview", "summary": "Guided chat completed and brief sent", "by": "buyer" },
+        { "id": "i-d1-2", "at": "2026-09-15T10:02:00.000Z", "type": "webcall", "summary": "Video call booked for 16 September, German", "by": "buyer" },
+        { "id": "i-d1-3", "at": "2026-09-16T09:00:00.000Z", "type": "wishlist", "summary": "Brief confirmed with the buyer after the call", "by": "consultant" },
+        { "id": "i-d1-4", "at": "2026-09-18T11:00:00.000Z", "type": "shortlist", "summary": "Shortlist sent: 1 property", "by": "consultant" }
+      ],
+      "bookings": [ { "id": "bk-d1", "startsAt": "2026-09-16T08:00:00.000Z", "timeZone": "Europe/Berlin", "language": "de", "recordingConsent": true, "notes": "" } ],
+      "transcripts": []
+    },
+    {
+      "id": "b-demo-2",
+      "createdAt": "2026-07-03T17:05:00.000Z",
+      "updatedAt": "2026-09-30T16:00:00.000Z",
+      "status": "bought",
+      "source": "webcall",
+      "contact": { "name": "Sample buyer 2", "email": "buyer2@example.com", "phone": "", "country": "United Kingdom", "language": "en" },
+      "buyerCountry": "GB",
+      "leadSource": {
+        "consent": { "analytics": true, "marketing": false },
+        "firstTouch": { "utm": {}, "referrer": "https://www.bing.com/", "landingPage": "/en/buying-property-in-italy-from-the-uk/", "at": "2026-07-03T16:50:00.000Z" },
+        "adClick": null,
+        "buyerCountry": "GB",
+        "submittedFrom": "/en/start/webcall/"
+      },
+      "consents": {
+        "processing": { "granted": true, "at": "2026-07-03T17:05:00.000Z", "text": "Processing of my data (required)" },
+        "recording": { "granted": false, "at": "2026-07-03T17:05:00.000Z", "text": "Recording and transcription of the call (optional)" },
+        "marketing": { "granted": true, "at": "2026-07-03T17:05:00.000Z", "text": "News and new properties by email (optional)" }
+      },
+      "wishlist": {
+        "mustHave": [
+          { "key": "region", "op": "in", "value": ["sicily", "liguria"] },
+          { "key": "price", "op": "lte", "value": 750000 },
+          { "key": "seaView", "op": "eq", "value": true },
+          { "key": "distanceTown", "op": "lte", "value": 1 }
+        ],
+        "niceToHave": [
+          { "key": "type", "op": "in", "value": ["apartment", "townhouse"] },
+          { "key": "distanceAirport", "op": "lte", "value": 60 }
+        ],
+        "dealBreakers": [],
+        "context": { "use": "Holiday home, Rental income", "timeline": "Within 3 months", "mortgage": "No, buying with my own funds" },
+        "status": "confirmed",
+        "confirmedAt": "2026-07-06T10:00:00.000Z"
+      },
+      "shortlist": [
+        { "propertyId": 1006, "addedAt": "2026-07-08T09:00:00.000Z", "score": 88, "status": "rejected" },
+        { "propertyId": 1007, "addedAt": "2026-07-08T09:00:00.000Z", "score": 100, "status": "offer" }
+      ],
+      "feedback": [
+        { "id": "f-d2-1", "propertyId": 1006, "at": "2026-08-02T18:00:00.000Z", "verdict": "rejected", "reasons": ["far-airport"], "note": "Lovely house, but the drive from Catania felt long.", "changes": ["Distance to an airport: now must have, airport within 60 km"] }
+      ],
+      "interactions": [
+        { "id": "i-d2-1", "at": "2026-07-03T17:05:00.000Z", "type": "webcall", "summary": "Video call booked, English, no recording", "by": "buyer" },
+        { "id": "i-d2-2", "at": "2026-07-06T10:00:00.000Z", "type": "wishlist", "summary": "Brief written from call notes and confirmed", "by": "consultant" },
+        { "id": "i-d2-3", "at": "2026-07-08T09:00:00.000Z", "type": "shortlist", "summary": "Shortlist sent: 2 properties", "by": "consultant" },
+        { "id": "i-d2-4", "at": "2026-08-02T18:00:00.000Z", "type": "feedback", "summary": "Visited Noto palazzetto: rejected (too far from the airport)", "by": "consultant" },
+        { "id": "i-d2-5", "at": "2026-09-30T16:00:00.000Z", "type": "sale", "summary": "Deed signed for the Taormina apartment", "by": "consultant" }
+      ],
+      "bookings": [],
+      "transcripts": []
+    },
+    {
+      "id": "b-demo-3",
+      "createdAt": "2026-10-09T21:14:00.000Z",
+      "updatedAt": "2026-10-09T21:14:00.000Z",
+      "status": "new",
+      "source": "voice",
+      "contact": { "name": "Sample buyer 3", "email": "buyer3@example.com", "phone": "", "country": "United States", "language": "en" },
+      "buyerCountry": "US",
+      "leadSource": {
+        "consent": { "analytics": false, "marketing": false },
+        "firstTouch": null,
+        "adClick": null,
+        "buyerCountry": "US",
+        "submittedFrom": "/en/start/wishlist/"
+      },
+      "consents": {
+        "processing": { "granted": true, "at": "2026-10-09T21:14:00.000Z", "text": "Processing of my data (required)" },
+        "marketing": { "granted": false, "at": "2026-10-09T21:14:00.000Z", "text": "News and new properties by email (optional)" }
+      },
+      "wishlist": {
+        "mustHave": [
+          { "key": "region", "op": "in", "value": ["lake-como"] },
+          { "key": "price", "op": "lte", "value": 500000 },
+          { "key": "bedrooms", "op": "gte", "value": 3 }
+        ],
+        "niceToHave": [ { "key": "distanceTown", "op": "lte", "value": 1 } ],
+        "dealBreakers": [ { "key": "condition", "op": "in", "value": ["move-in"] } ],
+        "context": { "use": "Holiday home", "timeline": "In 6 to 12 months", "mortgage": "Not sure yet", "notes": "Would love a balcony over the lake." },
+        "status": "submitted"
+      },
+      "shortlist": [],
+      "feedback": [],
+      "interactions": [
+        { "id": "i-d3-1", "at": "2026-10-09T21:14:00.000Z", "type": "interview", "summary": "Voice interview completed and brief sent", "by": "buyer" }
+      ],
+      "bookings": [],
+      "transcripts": []
+    }
+  ]
+}

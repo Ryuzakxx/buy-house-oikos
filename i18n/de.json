@@ -1,0 +1,315 @@
+{
+  "lang": "de",
+  "name": "Deutsch",
+  "locale": "de_DE",
+  "dir": "ltr",
+  "site": {
+    "name": "Buy House in Italy",
+    "by": "von Oikos Immobiliare",
+    "description": "Ein Suchservice für internationale Käufer, die ein Haus in Italien kaufen möchten, betrieben von Oikos Immobiliare."
+  },
+  "a11y": {
+    "skip": "Zum Inhalt springen",
+    "menu": "Menü",
+    "mainNav": "Hauptnavigation",
+    "breadcrumb": "Seitenpfad",
+    "language": "Sprache",
+    "currentLanguage": "Aktuelle Sprache",
+    "darkTheme": "Dunkles Design"
+  },
+  "nav": [
+    {
+      "id": "how-it-works",
+      "label": "So funktioniert es"
+    },
+    {
+      "id": "services",
+      "label": "Leistungen"
+    },
+    {
+      "id": "regions",
+      "label": "Regionen"
+    },
+    {
+      "id": "guides",
+      "label": "Ratgeber"
+    },
+    {
+      "id": "about",
+      "label": "Über uns"
+    },
+    {
+      "id": "contact",
+      "label": "Kontakt"
+    }
+  ],
+  "langMenu": {
+    "notTranslated": "Startseite",
+    "notTranslatedTitle": "Diese Seite ist noch nicht übersetzt; der Link öffnet die Startseite in dieser Sprache."
+  },
+  "enHint": "EN",
+  "enHintTitle": "Seite auf Englisch",
+  "cta": {
+    "start": "Suche starten",
+    "chat": "Geführten Chat starten",
+    "chatNote": "18 kurze Fragen, zum Tippen",
+    "voice": "Per Sprache antworten",
+    "voiceNote": "Dieselben Fragen, gesprochen",
+    "call": "Videogespräch buchen",
+    "callNote": "Mit unserem Beratungsteam besprechen",
+    "inEnglish": "auf Englisch"
+  },
+  "breadcrumb": {
+    "home": "Startseite"
+  },
+  "phases": {
+    "find": {
+      "title": "Finden",
+      "note": "die Suche"
+    },
+    "check": {
+      "title": "Prüfen",
+      "note": "vor der Unterschrift"
+    },
+    "pay": {
+      "title": "Bezahlen",
+      "note": "Geld und Verträge"
+    },
+    "settle": {
+      "title": "Ankommen",
+      "note": "nach der Schlüsselübergabe"
+    }
+  },
+  "briefExample": {
+    "title": "Beispiel-Briefing",
+    "note": "zur Veranschaulichung",
+    "mustLabel": "Muss",
+    "must": "Valle d'Itria oder die Küste bei Ostuni. Drei Schlafzimmer. Bis 650.000 €.",
+    "niceLabel": "Wäre schön",
+    "nice": "Ein Pool oder Platz für einen. Meerblick.",
+    "neverLabel": "Ausschlusskriterium",
+    "never": "Ein komplettes Restaurierungsprojekt. Direkt an einer Hauptstraße."
+  },
+  "testimonials": [
+    {
+      "title": "[Echte Kundenstimme]",
+      "text": "Ein Zitat von jemandem, der mit uns gekauft hat: Vorname, Herkunftsland, Gegend des Kaufs. Nur mit schriftlicher Zustimmung veröffentlicht."
+    },
+    {
+      "title": "[Echte Kundenstimme]",
+      "text": "Eine zweite Geschichte, am besten von jemandem, der anders angefangen hat (Videogespräch oder ein Haus über eine Partneragentur)."
+    }
+  ],
+  "consult": {
+    "title": "Sprechen Sie mit uns",
+    "text": "Jede Situation ist anders. Im Gespräch klären wir, welche dieser Punkte für Sie gelten und wen Sie hinzuziehen sollten.",
+    "call": "Videogespräch buchen",
+    "chat": "Geführten Chat starten"
+  },
+  "faqTitle": "Häufige Fragen",
+  "toc": "Auf dieser Seite",
+  "related": "Weitere Seiten",
+  "updated": "Zuletzt geprüft",
+  "legalNote": {
+    "title": "Unverbindliche Information",
+    "text": "Diese Seite erklärt, wie die Dinge in der Regel ablaufen, und nennt Sätze aus dem italienischen Recht nach unserem Stand am angegebenen Datum. Regeln und Sätze ändern sich, und jeder Kauf ist anders: Lassen Sie die Zahlen für Ihren Fall vom Notar, von einer Anwältin oder einem Anwalt oder von Ihrer Steuerberatung bestätigen."
+  },
+  "draft": {
+    "title": "Entwurf",
+    "text": "Diese Seite ist eine Vorlage. Abschnitte mit [REAL DATA] brauchen noch Angaben von Oikos. Bis dahin ist sie für Suchmaschinen gesperrt."
+  },
+  "footer": {
+    "statement": "Sagen Sie uns, was Sie suchen. Wir finden es und begleiten Sie durch den Kauf.",
+    "company": "Buy House in Italy ist ein Service von Oikos Immobiliare.",
+    "address": "[REAL DATA: Anschrift des Firmensitzes]",
+    "vat": "USt-IdNr. [REAL DATA]",
+    "registration": "Maklerregistrierung: [REAL DATA: REA-Nummer der Handelskammer]",
+    "groups": {
+      "services": "Leistungen",
+      "regions": "Regionen",
+      "buyers": "Kauf aus dem Ausland",
+      "guides": "Ratgeber",
+      "company": "Unternehmen",
+      "legal": "Rechtliches"
+    },
+    "enNote": "Seiten auf Englisch",
+    "cookieSettings": "Cookie-Einstellungen",
+    "copyright": "Oikos Immobiliare"
+  },
+  "consent": {
+    "title": "Ihre Datenschutz-Einstellungen",
+    "text": "Wir speichern auf Ihrem Gerät, worum Sie die Website bitten, zum Beispiel Ihre Antworten im Interview. Mit Ihrer Erlaubnis erfassen wir außerdem, woher Ihr Besuch kam (etwa eine Anzeige oder eine Partnerseite), damit wir wissen, welche Kanäle Käufer zu uns bringen. Vor Ihrer Entscheidung läuft kein Tracking.",
+    "acceptAll": "Alle akzeptieren",
+    "rejectAll": "Alle ablehnen",
+    "choose": "Auswählen",
+    "save": "Auswahl speichern",
+    "necessary": "Notwendig",
+    "necessaryText": "Speichert Ihre Datenschutz-Einstellungen und Ihre Antworten im Interview. Immer aktiv.",
+    "analytics": "Herkunft des Besuchs",
+    "analyticsText": "Erfasst Kampagne, verweisende Website und erste Seite Ihres Besuchs und hängt sie an Ihre Anfrage an.",
+    "marketing": "Werbung",
+    "marketingText": "Erfasst Klick-Kennungen von Anzeigen (Google, Meta), damit wir messen können, welche Anzeigen Anfragen bringen.",
+    "policy": "Cookie-Richtlinie",
+    "saved": "Ihre Auswahl ist gespeichert."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "text": "Diese Seite gibt es hier nicht.",
+    "home": "Zur Startseite"
+  },
+  "noscript": "Dieser Teil der Seite braucht JavaScript.",
+  "pages": {
+    "services": {
+      "label": "Leistungen"
+    },
+    "regions": {
+      "label": "Regionen"
+    },
+    "guides": {
+      "label": "Ratgeber"
+    },
+    "buying-from-abroad": {
+      "label": "Kauf aus dem Ausland"
+    },
+    "about": {
+      "label": "Über uns"
+    },
+    "partner-agencies": {
+      "label": "Partneragenturen"
+    },
+    "contact": {
+      "label": "Kontakt"
+    },
+    "privacy": {
+      "label": "Datenschutz"
+    },
+    "cookies": {
+      "label": "Cookie-Richtlinie"
+    },
+    "terms": {
+      "label": "Nutzungsbedingungen"
+    },
+    "services/property-search": {
+      "label": "Immobiliensuche",
+      "desc": "Wir suchen das Haus aus Ihrem Briefing, in unseren Angeboten und darüber hinaus."
+    },
+    "services/visits": {
+      "label": "Besichtigungen",
+      "desc": "Besichtigungsreisen rund um Ihre Auswahlliste, mit Videorundgängen für den ersten Eindruck."
+    },
+    "services/negotiation": {
+      "label": "Verhandlung",
+      "desc": "Preis, Bedingungen und Termine, auf Italienisch mit der Verkäuferseite verhandelt."
+    },
+    "services/legal-assistance": {
+      "label": "Rechtsberatung",
+      "desc": "Eine unabhängige Anwältin oder ein Anwalt auf Ihrer Seite für Verträge und Sonderfälle."
+    },
+    "services/due-diligence": {
+      "label": "Due Diligence",
+      "desc": "Grundbuch, Genehmigungen, Belastungen, Energieausweis und Bauzustand, geprüft vor der Bindung."
+    },
+    "services/notary": {
+      "label": "Notar",
+      "desc": "Notarwahl, Vorbereitung der Urkunde und Unterschrift, persönlich oder per Vollmacht."
+    },
+    "services/codice-fiscale": {
+      "label": "Codice fiscale",
+      "desc": "Ihre italienische Steuernummer, beantragt im Konsulat oder in Italien."
+    },
+    "services/translations": {
+      "label": "Übersetzungen",
+      "desc": "Angebote, Verträge und Gutachten übersetzt; Dolmetscher beim Notar, wenn vorgeschrieben."
+    },
+    "services/mortgages": {
+      "label": "Hypotheken",
+      "desc": "Banken und Vermittler, die an Nichtansässige leihen, und ein passender Zeitplan."
+    },
+    "services/currency-exchange": {
+      "label": "Devisen",
+      "desc": "Geld aus Dollar, Pfund oder Franken umtauschen, zu einem planbaren Kurs."
+    },
+    "services/escrow": {
+      "label": "Treuhand",
+      "desc": "Der Notar hält den Kaufpreis, bis der Verkauf sauber eingetragen ist."
+    },
+    "services/architects-surveyors-builders": {
+      "label": "Architekten, Geometer, Bauunternehmen",
+      "desc": "Die Fachleute für eine Renovierung, von der Machbarkeit bis zum Bauende."
+    },
+    "services/utilities-after-sale": {
+      "label": "Versorger und Nachbetreuung",
+      "desc": "Strom, Gas, Wasser, Internet, Müllgebühr und das erste Jahr im Haus."
+    },
+    "services/relocation": {
+      "label": "Umzug nach Italien",
+      "desc": "Wohnsitz, Visa, Gesundheitsversorgung, Schulen und die Formalitäten des Umzugs."
+    },
+    "buying-property-in-puglia": {
+      "label": "Apulien",
+      "desc": "Trulli, Masserien und weiße Städte, zwei Flughäfen und Küste an zwei Meeren."
+    },
+    "buying-property-in-tuscany": {
+      "label": "Toskana",
+      "desc": "Sanfte Hügel, steinerne Bauernhäuser, Kunststädte und die Küste."
+    },
+    "buying-property-in-sicily": {
+      "label": "Sizilien",
+      "desc": "Barocke Städte, Vulkanhänge und Meer auf allen Seiten."
+    },
+    "buying-property-on-lake-como": {
+      "label": "Comer See",
+      "desc": "Villen und Wohnungen über dem Wasser, eine Stunde von Mailand."
+    },
+    "buying-property-in-liguria": {
+      "label": "Ligurien",
+      "desc": "Bunte Hafenorte und Terrassenhänge zwischen Frankreich und der Toskana."
+    },
+    "buying-property-in-sardinia": {
+      "label": "Sardinien",
+      "desc": "Granitküsten und klares Wasser, Villen nahe den Stränden."
+    },
+    "buying-property-in-italy-from-the-usa": {
+      "label": "Aus den USA",
+      "desc": "Gegenseitigkeit, 90-Tage-Regel, Dollar überweisen, FBAR und die Steuerabkommen."
+    },
+    "buying-property-in-italy-from-the-uk": {
+      "label": "Aus dem Vereinigten Königreich",
+      "desc": "Kauf als Nicht-EU-Bürger nach dem Brexit, Pfund umtauschen, Doppelbesteuerungsabkommen."
+    },
+    "buying-property-in-italy-from-germany": {
+      "label": "Aus Deutschland",
+      "desc": "Kauf als EU-Bürger, ein vertrautes Notarsystem und eine Erbschaftsteuerlücke."
+    },
+    "buying-property-in-italy-from-the-netherlands": {
+      "label": "Aus den Niederlanden",
+      "desc": "EU-Bürger, Zahlung in Euro und die niederländische Box 3 für Immobilien im Ausland."
+    },
+    "buying-property-in-italy-from-france": {
+      "label": "Aus Frankreich",
+      "desc": "EU-Bürger, ein vertrautes Notarsystem und Erbregeln auf beiden Seiten."
+    },
+    "buying-property-in-italy-from-switzerland": {
+      "label": "Aus der Schweiz",
+      "desc": "Freizügigkeit mit der EU, Franken umtauschen und die Schweizer Steuer auf Auslandsimmobilien."
+    },
+    "guides/italian-property-taxes": {
+      "label": "Immobiliensteuern in Italien"
+    },
+    "guides/italian-notary": {
+      "label": "So arbeitet der italienische Notar"
+    },
+    "guides/financing-a-property-in-italy": {
+      "label": "Finanzierung einer Immobilie in Italien"
+    },
+    "guides/legal-due-diligence": {
+      "label": "Rechtliche Prüfung"
+    },
+    "guides/mortgages-for-foreign-buyers": {
+      "label": "Hypotheken für ausländische Käufer"
+    },
+    "how-it-works": {
+      "label": "So funktioniert es"
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "lang": "en",
+  "name": "English",
+  "locale": "en_GB",
+  "dir": "ltr",
+  "site": {
+    "name": "Buy House in Italy",
+    "by": "by Oikos Immobiliare",
+    "description": "A property-finding service for international buyers who want a home in Italy, run by Oikos Immobiliare."
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "menu": "Menu",
+    "mainNav": "Main",
+    "breadcrumb": "Breadcrumb",
+    "language": "Language",
+    "currentLanguage": "Current language",
+    "darkTheme": "Dark theme"
+  },
+  "nav": [
+    {
+      "id": "how-it-works",
+      "label": "How it works"
+    },
+    {
+      "id": "services",
+      "label": "Services"
+    },
+    {
+      "id": "regions",
+      "label": "Where to buy"
+    },
+    {
+      "id": "guides",
+      "label": "Guides"
+    },
+    {
+      "id": "about",
+      "label": "About"
+    },
+    {
+      "id": "contact",
+      "label": "Contact"
+    }
+  ],
+  "langMenu": {
+    "notTranslated": "home page",
+    "notTranslatedTitle": "This page is not translated yet; the link opens the home page in this language."
+  },
+  "enHint": "EN",
+  "enHintTitle": "Page in English",
+  "cta": {
+    "start": "Start your search",
+    "chat": "Start the guided chat",
+    "chatNote": "18 short questions, typed",
+    "voice": "Answer by voice",
+    "voiceNote": "The same questions, spoken",
+    "call": "Book a video call",
+    "callNote": "Talk it through with a consultant",
+    "inEnglish": "in English"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "phases": {
+    "find": {
+      "title": "Finding",
+      "note": "the search"
+    },
+    "check": {
+      "title": "Checking",
+      "note": "before you sign"
+    },
+    "pay": {
+      "title": "Paying",
+      "note": "money and contracts"
+    },
+    "settle": {
+      "title": "Settling in",
+      "note": "after the keys"
+    }
+  },
+  "briefExample": {
+    "title": "Example brief",
+    "note": "for illustration",
+    "mustLabel": "Must have",
+    "must": "Valle d'Itria or the coast near Ostuni. Three bedrooms. Up to €650,000.",
+    "niceLabel": "Nice to have",
+    "nice": "A pool, or room to add one. Sea view.",
+    "neverLabel": "Deal breaker",
+    "never": "A full restoration project. Next to a main road."
+  },
+  "testimonials": [
+    {
+      "title": "[Real client testimonial]",
+      "text": "A quote from a buyer who completed a purchase with us: first name, home country, the area they bought in. Published only with their written consent."
+    },
+    {
+      "title": "[Real client testimonial]",
+      "text": "A second story, ideally from a buyer who started differently (a video call, or a home found through a partner agency)."
+    }
+  ],
+  "consult": {
+    "title": "Talk to a consultant",
+    "text": "Every situation is different. A consultant can look at yours and tell you which of these points apply, and who you need to involve.",
+    "call": "Book a video call",
+    "chat": "Start the guided chat"
+  },
+  "faqTitle": "Questions buyers ask",
+  "toc": "On this page",
+  "related": "Related pages",
+  "updated": "Last reviewed",
+  "legalNote": {
+    "title": "Indicative information",
+    "text": "This page explains how things usually work and quotes rates from Italian law as we understand them on the date shown. Rules and rates change and every purchase is different: confirm the figures for your case with the notary, a lawyer or a tax adviser before you rely on them."
+  },
+  "draft": {
+    "title": "Draft page",
+    "text": "This page is a template. Sections marked [REAL DATA] still need local figures and notes from Oikos before it is published. It is excluded from search engines until then."
+  },
+  "footer": {
+    "statement": "Tell us what you're looking for. We'll find it and guide you through the purchase.",
+    "company": "Buy House in Italy is a service of Oikos Immobiliare.",
+    "address": "[REAL DATA: registered office address]",
+    "vat": "VAT no. [REAL DATA]",
+    "registration": "Estate agent registration: [REAL DATA: REA / Chamber of Commerce number]",
+    "groups": {
+      "services": "Services",
+      "regions": "Where to buy",
+      "buyers": "Buying from abroad",
+      "guides": "Guides",
+      "company": "Company",
+      "legal": "Legal"
+    },
+    "enNote": "Pages in English",
+    "cookieSettings": "Cookie settings",
+    "copyright": "Oikos Immobiliare"
+  },
+  "consent": {
+    "title": "Your privacy choices",
+    "text": "We use storage on your device for what you ask the site to do, such as saving your interview answers. With your permission we also record where your visit came from (for example an ad or a partner site) so we know which channels bring buyers to us. No tracking runs until you choose.",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all",
+    "choose": "Choose",
+    "save": "Save my choices",
+    "necessary": "Necessary",
+    "necessaryText": "Remembers your privacy choices and the answers you give in the interview. Always on.",
+    "analytics": "Visit source",
+    "analyticsText": "Records the campaign, referring site and first page of your visit, and attaches them to your enquiry.",
+    "marketing": "Advertising",
+    "marketingText": "Records ad click identifiers (Google, Meta) so we can measure which ads bring enquiries.",
+    "policy": "Cookie policy",
+    "saved": "Your choices are saved."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you asked for isn't here. It may have moved, or the link may have a typo.",
+    "home": "Go to the home page"
+  },
+  "noscript": "This part of the page needs JavaScript. You can still reach us through the contact page."
+}

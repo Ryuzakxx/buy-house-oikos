@@ -1,0 +1,8 @@
+{
+  "meta": { "description": "Sample partner agencies for the prototype. Not real companies." },
+  "agencies": [
+    { "id": "pa-01", "name": "Partner agency A (sample)", "town": "Lecce", "province": "LE", "region": "puglia", "agreementSignedAt": "2026-03-02", "listingSoftware": "apimo" },
+    { "id": "pa-02", "name": "Partner agency B (sample)", "town": "Sanremo", "province": "IM", "region": "liguria", "agreementSignedAt": "2026-05-18", "listingSoftware": "apimo" },
+    { "id": "pa-03", "name": "Partner agency C (sample)", "town": "Taormina", "province": "ME", "region": "sicily", "agreementSignedAt": "2026-06-07", "listingSoftware": "other" }
+  ]
+}

@@ -1,0 +1,103 @@
+---
+parent: start
+title: Book a video call with a consultant | Buy House in Italy
+description: Book a video call about buying a home in Italy. Pick a time shown in your own time zone and the language you prefer. Recording only with your consent.
+h1: Book a video call
+crumb: Video call
+lede: Pick a day and a time in your own time zone. A consultant will go through what you're looking for with you and draft your brief from the conversation.
+noCtaBar: yes
+wrap: container
+css: start
+js: webcall
+---
+<div class="booking">
+  <form class="form" id="webcall-form" novalidate>
+    <p class="form-status" id="webcall-status" role="status" tabindex="-1"></p>
+
+    <fieldset>
+      <legend>When</legend>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="wc-date">Day</label>
+          <input type="date" id="wc-date" name="date" required aria-describedby="wc-date-hint wc-date-error">
+          <span class="hint" id="wc-date-hint">Monday to Friday.</span>
+          <span class="field-error" id="wc-date-error"></span>
+        </div>
+        <div class="field">
+          <label for="wc-time">Time</label>
+          <select id="wc-time" name="time" required aria-describedby="wc-time-hint wc-time-error" disabled>
+            <option value="">Choose a day first</option>
+          </select>
+          <span class="hint" id="wc-time-hint">Shown in your time zone: <strong id="wc-tz-label">detecting…</strong></span>
+          <span class="field-error" id="wc-time-error"></span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="wc-tz">Your time zone</label>
+        <select id="wc-tz" name="timeZone" aria-describedby="wc-tz-hint"></select>
+        <span class="hint" id="wc-tz-hint">Detected from your device. Change it if you'll take the call from somewhere else.</span>
+      </div>
+      <p class="hint">In this demo the available times are weekday slots from 09:00 to 17:30 Italian time. In production they come from the consultants' calendars.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>About you</legend>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="wc-name">Name</label>
+          <input type="text" id="wc-name" name="name" autocomplete="name" required aria-describedby="wc-name-error" placeholder="Your name">
+          <span class="field-error" id="wc-name-error"></span>
+        </div>
+        <div class="field">
+          <label for="wc-email">Email</label>
+          <input type="email" id="wc-email" name="email" autocomplete="email" required aria-describedby="wc-email-error" placeholder="email@example.com">
+          <span class="field-error" id="wc-email-error"></span>
+        </div>
+      </div>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="wc-phone">Phone <span class="optional">(optional)</span></label>
+          <input type="tel" id="wc-phone" name="phone" autocomplete="tel" aria-describedby="wc-phone-hint">
+          <span class="hint" id="wc-phone-hint">With country code, in case the video link fails.</span>
+        </div>
+        <div class="field">
+          <label for="wc-country">Country you live in</label>
+          <input type="text" id="wc-country" name="country" autocomplete="country-name" required list="country-list" aria-describedby="wc-country-error">
+          <datalist id="country-list">
+            <option value="United States"><option value="United Kingdom"><option value="Germany"><option value="Netherlands"><option value="France"><option value="Switzerland"><option value="Belgium"><option value="Austria"><option value="Sweden"><option value="Norway"><option value="Denmark"><option value="Canada"><option value="Australia"><option value="Spain"><option value="Ireland">
+          </datalist>
+          <span class="field-error" id="wc-country-error"></span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="wc-language">Language for the call</label>
+        <select id="wc-language" name="language" required>
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="nl">Nederlands</option>
+          <option value="es">Español</option>
+          <option value="it">Italiano</option>
+        </select>
+        <span class="hint">We'll confirm by email which consultant can take the call in this language.</span>
+      </div>
+      <div class="field">
+        <label for="wc-notes">Anything we should know before the call? <span class="optional">(optional)</span></label>
+        <textarea id="wc-notes" name="notes" placeholder="Areas you're considering, timing, who else is buying with you…"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset class="consents">
+      <legend>Your consents</legend>
+      <label class="check"><input type="checkbox" name="consentProcessing" required aria-describedby="wc-consent-error"><span><strong>Processing of my data (required)</strong>Oikos Immobiliare may use these details to arrange the call and to search for a property for me, as described in the <a href="{{link id=privacy}}">privacy policy</a>.</span></label>
+      <span class="field-error" id="wc-consent-error"></span>
+      <label class="check"><input type="checkbox" name="consentRecording"><span><strong>Recording and transcription of the call (optional)</strong>The call is recorded and transcribed so the consultant can draft my brief from it. Without this, the consultant takes notes by hand.</span></label>
+      <label class="check"><input type="checkbox" name="consentMarketing"><span><strong>News and new properties by email (optional)</strong>Occasional emails about properties and buying in Italy. Unsubscribe at any time.</span></label>
+    </fieldset>
+
+    <div class="form-actions">
+      <button class="btn btn--primary" type="submit">Book the call</button>
+    </div>
+  </form>
+  <noscript><p class="noscript-note">Booking needs JavaScript in this version of the site. You can write to us from the <a href="{{link id=contact}}">contact page</a> instead.</p></noscript>
+</div>

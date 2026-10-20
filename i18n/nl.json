@@ -1,0 +1,315 @@
+{
+  "lang": "nl",
+  "name": "Nederlands",
+  "locale": "nl_NL",
+  "dir": "ltr",
+  "site": {
+    "name": "Buy House in Italy",
+    "by": "door Oikos Immobiliare",
+    "description": "Een zoekservice voor buitenlandse kopers die een huis in Italië willen kopen, verzorgd door Oikos Immobiliare."
+  },
+  "a11y": {
+    "skip": "Naar de inhoud",
+    "menu": "Menu",
+    "mainNav": "Hoofdnavigatie",
+    "breadcrumb": "Kruimelpad",
+    "language": "Taal",
+    "currentLanguage": "Huidige taal",
+    "darkTheme": "Donker thema"
+  },
+  "nav": [
+    {
+      "id": "how-it-works",
+      "label": "Zo werkt het"
+    },
+    {
+      "id": "services",
+      "label": "Diensten"
+    },
+    {
+      "id": "regions",
+      "label": "Regio's"
+    },
+    {
+      "id": "guides",
+      "label": "Gidsen"
+    },
+    {
+      "id": "about",
+      "label": "Over ons"
+    },
+    {
+      "id": "contact",
+      "label": "Contact"
+    }
+  ],
+  "langMenu": {
+    "notTranslated": "startpagina",
+    "notTranslatedTitle": "Deze pagina is nog niet vertaald; de link opent de startpagina in deze taal."
+  },
+  "enHint": "EN",
+  "enHintTitle": "Pagina in het Engels",
+  "cta": {
+    "start": "Start je zoektocht",
+    "chat": "Start de begeleide chat",
+    "chatNote": "18 korte vragen, getypt",
+    "voice": "Antwoord met je stem",
+    "voiceNote": "Dezelfde vragen, gesproken",
+    "call": "Plan een videogesprek",
+    "callNote": "Bespreek het met een adviseur",
+    "inEnglish": "in het Engels"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "phases": {
+    "find": {
+      "title": "Vinden",
+      "note": "de zoektocht"
+    },
+    "check": {
+      "title": "Controleren",
+      "note": "voor je tekent"
+    },
+    "pay": {
+      "title": "Betalen",
+      "note": "geld en contracten"
+    },
+    "settle": {
+      "title": "Je thuis voelen",
+      "note": "na de sleutels"
+    }
+  },
+  "briefExample": {
+    "title": "Voorbeeld van een zoekprofiel",
+    "note": "ter illustratie",
+    "mustLabel": "Must-have",
+    "must": "Valle d'Itria of de kust bij Ostuni. Drie slaapkamers. Tot € 650.000.",
+    "niceLabel": "Nice-to-have",
+    "nice": "Een zwembad, of ruimte om er een aan te leggen. Zeezicht.",
+    "neverLabel": "Dealbreaker",
+    "never": "Een volledige restauratie. Aan een doorgaande weg."
+  },
+  "testimonials": [
+    {
+      "title": "[Echte klantervaring]",
+      "text": "Een citaat van een koper die via ons kocht: voornaam, land van herkomst, waar ze kochten. Alleen met schriftelijke toestemming."
+    },
+    {
+      "title": "[Echte klantervaring]",
+      "text": "Een tweede verhaal, liefst van een koper die anders begon (videogesprek, of een huis via een partnerkantoor)."
+    }
+  ],
+  "consult": {
+    "title": "Praat met een adviseur",
+    "text": "Elke situatie is anders. Een adviseur kijkt naar de jouwe en vertelt welke van deze punten gelden en wie je erbij moet halen.",
+    "call": "Plan een videogesprek",
+    "chat": "Start de begeleide chat"
+  },
+  "faqTitle": "Veelgestelde vragen",
+  "toc": "Op deze pagina",
+  "related": "Gerelateerde pagina's",
+  "updated": "Laatst gecontroleerd",
+  "legalNote": {
+    "title": "Indicatieve informatie",
+    "text": "Deze pagina legt uit hoe het meestal gaat en noemt tarieven uit de Italiaanse wet zoals wij die begrijpen op de vermelde datum. Regels en tarieven veranderen en elke aankoop is anders: laat de cijfers voor jouw situatie bevestigen door de notaris, een advocaat of een belastingadviseur."
+  },
+  "draft": {
+    "title": "Concept",
+    "text": "Deze pagina is een sjabloon. Onderdelen met [REAL DATA] wachten op gegevens van Oikos. Tot dan is ze uitgesloten van zoekmachines."
+  },
+  "footer": {
+    "statement": "Vertel ons wat je zoekt. Wij vinden het en begeleiden je bij de aankoop.",
+    "company": "Buy House in Italy is een dienst van Oikos Immobiliare.",
+    "address": "[REAL DATA: adres van de vestiging]",
+    "vat": "Btw-nummer [REAL DATA]",
+    "registration": "Inschrijving als makelaar: [REAL DATA: REA-nummer Kamer van Koophandel]",
+    "groups": {
+      "services": "Diensten",
+      "regions": "Regio's",
+      "buyers": "Kopen vanuit het buitenland",
+      "guides": "Gidsen",
+      "company": "Bedrijf",
+      "legal": "Juridisch"
+    },
+    "enNote": "Pagina's in het Engels",
+    "cookieSettings": "Cookie-instellingen",
+    "copyright": "Oikos Immobiliare"
+  },
+  "consent": {
+    "title": "Jouw privacykeuzes",
+    "text": "We bewaren op je apparaat wat je de site laat doen, zoals je antwoorden in het interview. Met je toestemming leggen we ook vast waar je bezoek vandaan kwam (bijvoorbeeld een advertentie of een partnersite), zodat we weten welke kanalen kopers naar ons brengen. Er draait geen tracking voordat je kiest.",
+    "acceptAll": "Alles accepteren",
+    "rejectAll": "Alles weigeren",
+    "choose": "Kiezen",
+    "save": "Mijn keuzes opslaan",
+    "necessary": "Noodzakelijk",
+    "necessaryText": "Onthoudt je privacykeuzes en je antwoorden in het interview. Altijd aan.",
+    "analytics": "Herkomst van het bezoek",
+    "analyticsText": "Legt de campagne, de verwijzende site en de eerste pagina van je bezoek vast en voegt die toe aan je aanvraag.",
+    "marketing": "Advertenties",
+    "marketingText": "Legt advertentieklik-ID's vast (Google, Meta) zodat we kunnen meten welke advertenties aanvragen opleveren.",
+    "policy": "Cookiebeleid",
+    "saved": "Je keuzes zijn opgeslagen."
+  },
+  "notFound": {
+    "title": "Pagina niet gevonden",
+    "text": "Deze pagina bestaat niet.",
+    "home": "Naar de startpagina"
+  },
+  "noscript": "Dit deel van de pagina heeft JavaScript nodig.",
+  "pages": {
+    "services": {
+      "label": "Diensten"
+    },
+    "regions": {
+      "label": "Regio's"
+    },
+    "guides": {
+      "label": "Gidsen"
+    },
+    "buying-from-abroad": {
+      "label": "Kopen vanuit het buitenland"
+    },
+    "about": {
+      "label": "Over ons"
+    },
+    "partner-agencies": {
+      "label": "Partnerkantoren"
+    },
+    "contact": {
+      "label": "Contact"
+    },
+    "privacy": {
+      "label": "Privacy"
+    },
+    "cookies": {
+      "label": "Cookiebeleid"
+    },
+    "terms": {
+      "label": "Gebruiksvoorwaarden"
+    },
+    "services/property-search": {
+      "label": "Woningzoektocht",
+      "desc": "We zoeken het huis uit je zoekprofiel, binnen en buiten ons eigen aanbod."
+    },
+    "services/visits": {
+      "label": "Bezichtigingen",
+      "desc": "Bezichtigingsreizen rond je selectie, met videorondleidingen vooraf."
+    },
+    "services/negotiation": {
+      "label": "Onderhandelen",
+      "desc": "Prijs, voorwaarden en data, in het Italiaans onderhandeld met de verkoper."
+    },
+    "services/legal-assistance": {
+      "label": "Juridische bijstand",
+      "desc": "Een onafhankelijke advocaat aan jouw kant voor contracten en bijzonderheden."
+    },
+    "services/due-diligence": {
+      "label": "Due diligence",
+      "desc": "Kadaster, vergunningen, hypotheken, energielabel en bouwkundige staat, gecontroleerd voor je je bindt."
+    },
+    "services/notary": {
+      "label": "Notaris",
+      "desc": "Notariskeuze, voorbereiding van de akte en ondertekening, zelf of met volmacht."
+    },
+    "services/codice-fiscale": {
+      "label": "Codice fiscale",
+      "desc": "Je Italiaanse fiscale nummer, aangevraagd bij het consulaat of in Italië."
+    },
+    "services/translations": {
+      "label": "Vertalingen",
+      "desc": "Biedingen, contracten en rapporten vertaald; tolk bij de notaris als dat moet."
+    },
+    "services/mortgages": {
+      "label": "Hypotheken",
+      "desc": "Banken en adviseurs die aan niet-ingezetenen lenen, met een passende planning."
+    },
+    "services/currency-exchange": {
+      "label": "Valutawissel",
+      "desc": "Dollars, ponden of franken wisselen tegen een voorspelbare koers."
+    },
+    "services/escrow": {
+      "label": "Derdengelden",
+      "desc": "De notaris houdt de koopsom vast tot de verkoop zonder problemen is ingeschreven."
+    },
+    "services/architects-surveyors-builders": {
+      "label": "Architecten, landmeters, aannemers",
+      "desc": "De vakmensen voor een renovatie, van haalbaarheid tot oplevering."
+    },
+    "services/utilities-after-sale": {
+      "label": "Nutsvoorzieningen en nazorg",
+      "desc": "Stroom, gas, water, internet, afvalheffing en het eerste jaar in huis."
+    },
+    "services/relocation": {
+      "label": "Verhuizen naar Italië",
+      "desc": "Inschrijving, visa, zorg, scholen en het papierwerk van de verhuizing."
+    },
+    "buying-property-in-puglia": {
+      "label": "Apulië",
+      "desc": "Trulli, masserie en witte stadjes, twee luchthavens en twee zeeën."
+    },
+    "buying-property-in-tuscany": {
+      "label": "Toscane",
+      "desc": "Glooiende heuvels, stenen boerderijen, kunststeden en de kust."
+    },
+    "buying-property-in-sicily": {
+      "label": "Sicilië",
+      "desc": "Barokke stadjes, vulkaanhellingen en zee aan alle kanten."
+    },
+    "buying-property-on-lake-como": {
+      "label": "Comomeer",
+      "desc": "Villa's en appartementen boven het water, een uur van Milaan."
+    },
+    "buying-property-in-liguria": {
+      "label": "Ligurië",
+      "desc": "Kleurige havenplaatsjes en terrasheuvels tussen Frankrijk en Toscane."
+    },
+    "buying-property-in-sardinia": {
+      "label": "Sardinië",
+      "desc": "Granieten kusten en helder water, villa's vlak bij de stranden."
+    },
+    "buying-property-in-italy-from-the-usa": {
+      "label": "Vanuit de VS",
+      "desc": "Wederkerigheid, de 90-dagenregel, dollars overmaken en de belastingverdragen."
+    },
+    "buying-property-in-italy-from-the-uk": {
+      "label": "Vanuit het VK",
+      "desc": "Kopen als niet-EU-burger na de Brexit, ponden wisselen, belastingverdrag."
+    },
+    "buying-property-in-italy-from-germany": {
+      "label": "Vanuit Duitsland",
+      "desc": "EU-burgers, een vertrouwd notarissysteem en een gat in de erfbelasting."
+    },
+    "buying-property-in-italy-from-the-netherlands": {
+      "label": "Vanuit Nederland",
+      "desc": "EU-burgers, betalen in euro's en box 3 voor woningen in het buitenland."
+    },
+    "buying-property-in-italy-from-france": {
+      "label": "Vanuit Frankrijk",
+      "desc": "EU-burgers, een vertrouwd notarissysteem en erfrecht aan beide kanten."
+    },
+    "buying-property-in-italy-from-switzerland": {
+      "label": "Vanuit Zwitserland",
+      "desc": "Vrij verkeer met de EU, franken wisselen en Zwitserse belasting op buitenlands vastgoed."
+    },
+    "guides/italian-property-taxes": {
+      "label": "Belastingen op vastgoed in Italië"
+    },
+    "guides/italian-notary": {
+      "label": "Zo werkt de Italiaanse notaris"
+    },
+    "guides/financing-a-property-in-italy": {
+      "label": "Een woning in Italië financieren"
+    },
+    "guides/legal-due-diligence": {
+      "label": "Juridisch onderzoek"
+    },
+    "guides/mortgages-for-foreign-buyers": {
+      "label": "Hypotheken voor buitenlandse kopers"
+    },
+    "how-it-works": {
+      "label": "Zo werkt het"
+    }
+  }
+}

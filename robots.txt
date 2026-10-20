@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /internal/
+
+Sitemap: https://buyhouseinitaly.example/sitemap.xml
