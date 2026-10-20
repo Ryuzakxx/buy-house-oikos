@@ -14,6 +14,7 @@ Sito statico (HTML, CSS e JavaScript vanilla, nessuna dipendenza a runtime) per 
 | Banner consensi e tracciamento origine lead | Pronto lato client | Il salvataggio server dei consensi va fatto nel backend |
 | Chat guidata, intervista vocale, riepilogo brief, prenotazione videochiamata, contatto, form partner | Funzionanti in demo | I dati restano in `localStorage`: nessun invio a server |
 | Matching | Pronto (funzioni pure, testate) | Stesse regole in produzione |
+| Mappa delle regioni ("Dove comprare") | Pronta | Le 20 regioni con capoluogo, aeroporti e case tipiche, in inglese e italiano; vedi "Mappa delle regioni" |
 | Catalogo immobili | Assente per scelta | Nessuna scheda pubblica; i 12 immobili di esempio in `data/properties.json` alimentano solo matching e area consulente |
 | Adapter Apimo, CRM, trascrizione, partner | Mock | Vedi "Collegare i servizi reali" |
 | Area consulente `/internal/` | Demo | Richiede autenticazione reale prima di andare online |
@@ -49,11 +50,12 @@ content/internal/     sorgenti dell'area consulente
 i18n/<lingua>.json    stringhe di interfaccia (header, footer, banner, etichette)
 css/                  tokens.css, base.css, layout.css, components.css, pages/*.css
 js/                   main.js, api/ (adapter), core/ (modello dati), ui/, pages/
-data/                 properties.json, partner-agencies.json, demo-buyers.json, demo-sales.json
+data/                 properties.json, partner-agencies.json, demo-buyers.json, demo-sales.json;
+                      italy-regions.json (geometria della mappa, generata da tools/map.py)
 img/photos/           foto in AVIF, WebP, JPEG a due larghezze + manifest.json e CREDITS.md (generati da tools/photos.py)
 img/ph/               segnaposto disegnati, usati solo dove manca una foto
 fonts/                Prata (unico font self-hosted, licenza OFL), lo stesso dei titoli del sito Oikos
-tools/                build.py, check.py, placeholders.py, test-core.mjs, e2e.mjs, pages-audit.mjs
+tools/                build.py, check.py, map.py, photos.py, placeholders.py, test-core.mjs, e2e.mjs, pages-audit.mjs
 DESIGN.md             direzione visiva e motivazioni delle scelte
 ```
 
@@ -109,12 +111,13 @@ Chiavi del front matter:
 | `related` | Elenco di `id` mostrati in fondo |
 | `updated`, `published` | Data di revisione (guide e pagine con dati legali) |
 | `serviceType`, `region`, `country` | JSON-LD Service, immobili per regione, paese del buyer (`?country=` nei link Start e `buyerCountry`) |
+| `mapRegion` | Nelle guide `region` in inglese: la regione della mappa che porta a questa guida (chiave di `data/italy-regions.json`, per esempio `toscana`) |
 | `draft: yes`, `noindex: yes` | Avviso "Draft" visibile, `noindex`, esclusione da sitemap e llms.txt |
 | `wrap` | `prose` (default), `container`, `none` |
 | `css`, `js` | Foglio in `css/pages/` e modulo in `js/pages/` |
 | `noCtaBar: yes` | Nasconde la barra "Start your search" su mobile (home e pagine del percorso Start, che mostrano già i modi per iniziare) |
 
-Segnaposto nel corpo: `{{link id=...}}` (con `lang=de` punta alla versione in un'altra lingua), `{{start-paths}}`, `{{brief-example}}`, `{{picture name=... alt="..." sizes="..." eager}}`, `{{regions-grid}}`, `{{countries}}`, `{{services-grouped level=2}}`, `{{pages type=guide style=cols}}`, `{{consult}}`, `{{legal-note}}`, `{{testimonial-slots}}`, `{{faq}}`. Un `id` sconosciuto blocca il build: i link interni non possono rompersi.
+Segnaposto nel corpo: `{{link id=...}}` (con `lang=de` punta alla versione in un'altra lingua), `{{start-paths}}`, `{{brief-example}}`, `{{picture name=... alt="..." sizes="..." eager}}`, `{{italy-map}}`, `{{countries}}`, `{{services-grouped level=2}}`, `{{pages type=guide style=cols}}`, `{{consult}}`, `{{legal-note}}`, `{{testimonial-slots}}`, `{{faq}}`. Un `id` sconosciuto blocca il build: i link interni non possono rompersi.
 
 ### Aggiungere una lingua
 
@@ -137,6 +140,15 @@ Per usare foto proprie (per esempio di immobili o del team Oikos): sostituire la
 Da cancellare a mano: i file `img/ph/prop-*` e `img/ph/interior-*` (84 file) servivano alle schede immobile, ora rimosse, e non sono più usati né elencati in `manifest.json`. Anche gli altri file di `img/ph/` non sono più mostrati, perché ogni slot ha una foto: si possono tenere come riserva o cancellare.
 
 `img/favicon.svg` è ancora un segnaposto: un quadrato verde oliva rimasto dalla prima palette, da sostituire con un'icona ricavata dal logo.
+
+## Mappa delle regioni
+
+La pagina "Dove comprare" (`{{italy-map}}`) mostra le 20 regioni. Passando con il mouse su una regione compare il nome; un clic, o un nome nell'elenco, apre la scheda con capoluogo, aeroporti più vicini, case tipiche e il link alla guida, se c'è, altrimenti alla pagina "Inizia". La regione scelta va nell'indirizzo (`/it/dove-comprare/#toscana`), quindi si può linkare. All'apertura è scelta la prima regione con una guida, secondo `order` (oggi la Puglia).
+
+- Geometria: `tools/map.py` scarica Natural Earth 1:10m (province italiane, pubblico dominio, nessuna attribuzione richiesta) in `~/.cache/buyhouseinitaly-map/`, unisce le province in regioni, proietta e semplifica ogni confine una volta sola, così due regioni vicine combaciano sempre. Scrive `data/italy-regions.json` (11 KB); le isole sotto i 30 km² restano fuori. Serve solo per cambiare la geometria: `python3 tools/map.py`, poi ricostruire.
+- Testi: blocco `italy` in `i18n/en.json` e `i18n/it.json` (nome, testo, capoluogo, aeroporti, case tipiche e, per le regioni con una guida, `guide`, il testo del link). Le altre lingue usano l'inglese.
+- Guide: una pagina inglese `type: region` con `mapRegion: <chiave>` diventa la guida di quella regione, che sulla mappa prende l'oro chiaro.
+- Accessibilità: la mappa è nascosta agli screen reader; l'elenco dei nomi è il comando per tastiera e lettori di schermo (Tab illumina la regione sulla mappa, Invio apre la scheda e ci porta il focus). Senza JavaScript tutte le schede sono visibili e i nomi le raggiungono come ancore.
 
 ## Modello dati della wishlist
 

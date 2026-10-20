@@ -267,16 +267,70 @@ def start_paths(site: Site, lang: str, extra_query: str = "") -> str:
     return '<ul class="paths">' + "".join(rows) + "</ul>"
 
 
-def regions_grid(site: Site, lang: str) -> str:
-    items = []
-    for page in site.of_type(lang, "region"):
-        label, desc = site.label(lang, page)
-        key = page.meta.get("region")
-        items.append(f'<li><a class="region" href="{page.href}"{link_attrs(lang, page)}>'
-                     f'<span class="region__media">{picture(site, "region-" + key, "", "(min-width: 48em) 30vw, 78vw")}</span>'
-                     f'<span class="region__name">{esc(label)}{en_hint(site, lang, page)}</span>'
-                     f'<span class="region__note">{esc(desc)}</span></a></li>')
-    return '<ul class="regions">' + "".join(items) + "</ul>"
+# Index under the map: the regions in ISTAT order, in the three groups Italians use.
+ITALY_GROUPS = {
+    "north": ("piemonte", "valle-d-aosta", "lombardia", "trentino-alto-adige", "veneto", "friuli-venezia-giulia", "liguria", "emilia-romagna"),
+    "centre": ("toscana", "umbria", "marche", "lazio"),
+    "south": ("abruzzo", "molise", "campania", "puglia", "basilicata", "calabria", "sicilia", "sardegna"),
+}
+
+
+def italy_map(site: Site, lang: str) -> str:
+    """Map of the regions (data/italy-regions.json, drawn by tools/map.py), one panel per region and an index of names.
+    The first region with a guide (by "order") is shown when the page opens, so the panel is never empty.
+    Without JavaScript every panel shows and the names jump to them; js/pages/italy-map.js shows one panel at a time."""
+    t = site.t(lang).get("italy") or site.t(DEFAULT_LANG)["italy"]
+    geo = json.loads((ROOT / "data" / "italy-regions.json").read_text(encoding="utf-8"))
+    if sorted(k for keys in ITALY_GROUPS.values() for k in keys) != sorted(geo["regions"]):
+        sys.exit("ITALY_GROUPS and data/italy-regions.json list different regions")
+    guides = {p.meta["mapRegion"]: site.resolve(lang, p.id) for p in site.of_type(DEFAULT_LANG, "region") if p.meta.get("mapRegion")}
+    first = next(iter(guides), next(iter(geo["regions"])))
+    start = site.resolve(lang, "start")
+    info = t["regions"]
+    ids = {key: slugify(info[key]["name"]) for key in geo["regions"]}
+    swatch = '<span class="italy__swatch" aria-hidden="true"></span>'
+
+    shapes, cards = [], []
+    for key, shape in geo["regions"].items():
+        region, guide = info[key], guides.get(key)
+        x, y = shape["label"]
+        cls = "italy__region" + (" has-guide" if guide else "") + (" is-current" if key == first else "")
+        shapes.append((key == first, f'<a class="{cls}" href="#{ids[key]}" tabindex="-1" data-region="{key}" data-x="{x}" data-y="{y}">'
+                                     f'<path d="{shape["d"]}"/></a>'))
+        facts = "".join(f"<div><dt>{esc(t[f])}</dt><dd>{esc(region[f])}</dd></div>" for f in ("capital", "airports", "homes"))
+        if guide:
+            status = f'<p class="region-info__guide">{swatch}{esc(t["legend"])}</p>'
+            action = (f'<a class="btn" href="{guide.href}"{link_attrs(lang, guide)}>'
+                      f'{esc(region.get("guide", t["guideLink"]))}{en_hint(site, lang, guide)}</a>')
+        else:
+            status = ""
+            action = f'<p>{esc(t["noGuide"])}</p><a class="btn" href="{start.href}"{link_attrs(lang, start)}>{esc(t["brief"])}</a>'
+        current = " is-current" if key == first else ""
+        cards.append(f'<article class="region-info{current}" id="{ids[key]}" data-region="{key}" aria-labelledby="{ids[key]}-name">'
+                     f'<h3 id="{ids[key]}-name" tabindex="-1">{esc(region["name"])}</h3>{status}<p>{esc(region["text"])}</p>'
+                     f'<dl class="region-info__facts">{facts}</dl><div class="region-info__action">{action}</div></article>')
+
+    groups = []
+    for group, keys in ITALY_GROUPS.items():
+        items = []
+        for key in keys:
+            tag = (f'<span class="italy__tag" aria-hidden="true">{esc(t["tag"])}</span>'
+                   f'<span class="visually-hidden"> ({esc(t["listGuide"])})</span>') if key in guides else ""
+            current = ' aria-current="true"' if key == first else ""
+            items.append(f'<li><a href="#{ids[key]}" data-region="{key}"{current}>{esc(info[key]["name"])}{tag}</a></li>')
+        groups.append(f'<div class="italy__group"><h3>{esc(t["groups"][group])}</h3><ul>{"".join(items)}</ul></div>')
+
+    # The chosen region is drawn last, so the neighbours do not cover its outline (the sort keeps the others in order).
+    drawn = "".join(markup for _, markup in sorted(shapes, key=lambda s: s[0]))
+    width, height = geo["width"], geo["height"]
+    return (f'<section class="italy" data-italy data-guide-label="{esc(t["legend"])}" aria-labelledby="italy-title">'
+            f'<h2 id="italy-title" class="visually-hidden">{esc(t["heading"])}</h2>'
+            f'<div class="italy__figure"><div class="italy__map">'
+            f'<svg class="italy__svg" viewBox="0 0 {width} {height}" width="{width}" height="{height}" aria-hidden="true" focusable="false">'
+            f'<g>{drawn}</g></svg><p class="italy__tip" aria-hidden="true" hidden></p></div>'
+            f'<p class="italy__legend" aria-hidden="true">{swatch}{esc(t["legend"])}</p></div>'
+            f'<div class="italy__panel">{"".join(cards)}</div>'
+            f'<nav class="italy__index" aria-label="{esc(t["listLabel"])}">{"".join(groups)}</nav></section>')
 
 
 def countries_list(site: Site, lang: str) -> str:
@@ -387,8 +441,8 @@ def expand(site: Site, page: Page, text: str) -> str:
             return brief_example(site, lang)
         if name == "picture":
             return picture(site, args["name"], args.get("alt", ""), args.get("sizes", "100vw"), "eager" in args, args.get("class", ""))
-        if name == "regions-grid":
-            return regions_grid(site, lang)
+        if name == "italy-map":
+            return italy_map(site, lang)
         if name == "countries":
             return countries_list(site, lang)
         if name == "services-grouped":

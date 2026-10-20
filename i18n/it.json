@@ -158,6 +158,172 @@
     "home": "Vai alla home"
   },
   "noscript": "Questa parte della pagina richiede JavaScript.",
+  "italy": {
+    "heading": "Regioni d'Italia",
+    "legend": "Guida all'acquisto sul sito",
+    "listLabel": "Tutte le regioni",
+    "listGuide": "guida all'acquisto sul sito",
+    "tag": "guida",
+    "groups": {
+      "north": "Nord",
+      "centre": "Centro",
+      "south": "Sud e isole"
+    },
+    "capital": "Capoluogo",
+    "airports": "Aeroporti più vicini",
+    "homes": "Case tipiche",
+    "noGuide": "Per questa regione non abbiamo ancora una guida, ma è il tuo brief a decidere dove cerchiamo.",
+    "brief": "Dicci cosa cerchi qui",
+    "guideLink": "Leggi la guida all'acquisto",
+    "regions": {
+      "piemonte": {
+        "name": "Piemonte",
+        "text": "Alpi su tre lati e colline del vino a sud: Langhe, Roero e Monferrato. Qui ci sono anche la sponda occidentale del Lago Maggiore e il Lago d'Orta.",
+        "capital": "Torino",
+        "airports": "Torino (TRN); per i laghi Milano Malpensa (MXP)",
+        "homes": "Cascine tra i vigneti, ville sui laghi, case in montagna"
+      },
+      "valle-d-aosta": {
+        "name": "Valle d'Aosta",
+        "text": "La regione più piccola d'Italia, sulle Alpi ai piedi del Monte Bianco, del Monte Rosa e del Cervino. Il francese è lingua ufficiale insieme all'italiano.",
+        "capital": "Aosta",
+        "airports": "Torino (TRN), Milano Malpensa (MXP), Ginevra (GVA)",
+        "homes": "Chalet e appartamenti nelle località sciistiche come Courmayeur e Cervinia, case in pietra nelle valli laterali"
+      },
+      "lombardia": {
+        "name": "Lombardia",
+        "text": "Milano e i laghi: Como, Iseo, la sponda orientale del Lago Maggiore e quella occidentale del Garda, con le Alpi a nord.",
+        "capital": "Milano",
+        "airports": "Milano Malpensa (MXP), Milano Linate (LIN), Bergamo (BGY)",
+        "homes": "Ville e appartamenti sui laghi, appartamenti a Milano, chalet in Valtellina",
+        "guide": "Leggi la guida sul Lago di Como"
+      },
+      "trentino-alto-adige": {
+        "name": "Trentino-Alto Adige",
+        "text": "Due province autonome tra le Dolomiti, Trento e Bolzano. In Alto Adige la maggior parte degli abitanti parla tedesco; la punta nord del Lago di Garda è in Trentino.",
+        "capital": "Trento",
+        "airports": "Verona (VRN), Innsbruck (INN) in Austria",
+        "homes": "Appartamenti e chalet in montagna, case sul Garda intorno a Riva"
+      },
+      "veneto": {
+        "name": "Veneto",
+        "text": "Dalle Dolomiti di Cortina fino a Venezia e alla laguna, con la sponda orientale del Garda, le ville palladiane e le colline del Prosecco.",
+        "capital": "Venezia",
+        "airports": "Venezia (VCE), Treviso (TSF), Verona (VRN)",
+        "homes": "Appartamenti a Venezia e Verona, ville di campagna, case al lago e in montagna"
+      },
+      "friuli-venezia-giulia": {
+        "name": "Friuli Venezia Giulia",
+        "text": "L'angolo nord-est, tra Austria, Slovenia e Adriatico: Trieste, le colline del Collio e le spiagge di Grado e Lignano.",
+        "capital": "Trieste",
+        "airports": "Trieste (TRS); è comodo anche Venezia (VCE)",
+        "homes": "Appartamenti a Trieste e Udine, case di campagna tra i vigneti, appartamenti al mare"
+      },
+      "liguria": {
+        "name": "Liguria",
+        "text": "Un arco di costa stretto tra Francia e Toscana, con colline ripide a terrazze alle spalle: la Riviera, Portofino e le Cinque Terre.",
+        "capital": "Genova",
+        "airports": "Genova (GOA); Nizza (NCE) per la Riviera di Ponente, Pisa (PSA) per il Levante",
+        "homes": "Appartamenti nei paesi sul mare, case nei borghi in collina con vista mare",
+        "guide": "Leggi la guida sulla Liguria"
+      },
+      "emilia-romagna": {
+        "name": "Emilia-Romagna",
+        "text": "Bologna, Parma e Modena in pianura, i borghi dell'Appennino a sud e le spiagge dell'Adriatico intorno a Rimini.",
+        "capital": "Bologna",
+        "airports": "Bologna (BLQ), Rimini (RMI)",
+        "homes": "Appartamenti in città, casali in collina, appartamenti al mare"
+      },
+      "toscana": {
+        "name": "Toscana",
+        "text": "Firenze, Siena e Lucca, le colline del Chianti e della Val d'Orcia e una lunga costa dalla Versilia alla Maremma, con l'Isola d'Elba.",
+        "capital": "Firenze",
+        "airports": "Pisa (PSA), Firenze (FLR)",
+        "homes": "Casali in pietra, ville, appartamenti nei centri storici",
+        "guide": "Leggi la guida sulla Toscana"
+      },
+      "umbria": {
+        "name": "Umbria",
+        "text": "Verde e senza mare, tra Toscana, Lazio e Marche: Perugia, Assisi, Orvieto e il Lago Trasimeno.",
+        "capital": "Perugia",
+        "airports": "Perugia (PEG); Roma Fiumicino (FCO) ha più collegamenti",
+        "homes": "Casali in pietra in campagna, case nei borghi in collina"
+      },
+      "marche": {
+        "name": "Marche",
+        "text": "Colline che scendono dall'Appennino all'Adriatico, con Urbino, Ascoli Piceno e la costa del Conero vicino ad Ancona.",
+        "capital": "Ancona",
+        "airports": "Ancona (AOI)",
+        "homes": "Casali in campagna, case nei borghi in collina, appartamenti al mare"
+      },
+      "lazio": {
+        "name": "Lazio",
+        "text": "Roma e, intorno, i laghi di Bolsena e di Bracciano, le colline della Tuscia vicino a Viterbo e una costa che scende fino a Sperlonga e Gaeta.",
+        "capital": "Roma",
+        "airports": "Roma Fiumicino (FCO), Roma Ciampino (CIA)",
+        "homes": "Appartamenti a Roma, casali nella Tuscia e in Sabina, case al mare"
+      },
+      "abruzzo": {
+        "name": "Abruzzo",
+        "text": "Montagne e parchi nazionali a poca strada dalle spiagge dell'Adriatico, con Pescara sulla costa e borghi in pietra nell'interno.",
+        "capital": "L'Aquila",
+        "airports": "Pescara (PSR); Roma Fiumicino (FCO) ha più collegamenti",
+        "homes": "Case nei borghi di collina e di montagna, spesso da ristrutturare, e appartamenti sulla costa"
+      },
+      "molise": {
+        "name": "Molise",
+        "text": "Una delle regioni più piccole d'Italia: borghi tranquilli in collina tra l'Appennino e un breve tratto di costa adriatica a Termoli.",
+        "capital": "Campobasso",
+        "airports": "Nessuno in regione: Pescara (PSR), Napoli (NAP) o Bari (BRI)",
+        "homes": "Case nei borghi in collina"
+      },
+      "campania": {
+        "name": "Campania",
+        "text": "Napoli e il suo golfo, Sorrento e la Costiera Amalfitana, le isole di Capri e Ischia e, più a sud, il Cilento.",
+        "capital": "Napoli",
+        "airports": "Napoli (NAP), Salerno (QSR)",
+        "homes": "Appartamenti vista mare, case sulle isole e nel Cilento"
+      },
+      "puglia": {
+        "name": "Puglia",
+        "text": "Il tacco d'Italia, con la costa su due mari, gli uliveti, i trulli della Valle d'Itria e il Salento in punta.",
+        "capital": "Bari",
+        "airports": "Bari (BRI), Brindisi (BDS)",
+        "homes": "Trulli, masserie, case nei paesi bianchi",
+        "guide": "Leggi la guida sulla Puglia"
+      },
+      "basilicata": {
+        "name": "Basilicata",
+        "text": "Tra Puglia e Calabria: i Sassi di Matera, le montagne del Pollino e due brevi coste, Maratea sul Tirreno e Metaponto sullo Ionio.",
+        "capital": "Potenza",
+        "airports": "Nessuno in regione: Bari (BRI) o Napoli (NAP)",
+        "homes": "Case a Matera e nei paesi dell'interno, appartamenti al mare a Maratea"
+      },
+      "calabria": {
+        "name": "Calabria",
+        "text": "La punta dello stivale, quasi tutta coste e montagne: Tropea e la Costa degli Dei sul Tirreno, la Sila e l'Aspromonte nell'interno.",
+        "capital": "Catanzaro",
+        "airports": "Lamezia Terme (SUF), Reggio Calabria (REG), Crotone (CRV)",
+        "homes": "Appartamenti e ville al mare"
+      },
+      "sicilia": {
+        "name": "Sicilia",
+        "text": "L'isola più grande del Mediterraneo: Palermo, Catania e l'Etna, le città barocche del sud-est e isole minori come le Eolie.",
+        "capital": "Palermo",
+        "airports": "Palermo (PMO), Catania (CTA), Trapani (TPS), Comiso (CIY)",
+        "homes": "Case nei centri storici, ville al mare, case di campagna",
+        "guide": "Leggi la guida sulla Sicilia"
+      },
+      "sardegna": {
+        "name": "Sardegna",
+        "text": "La seconda isola del Mediterraneo, con coste di granito e acqua limpida: la Costa Smeralda a nord-est, Alghero a nord-ovest, Cagliari a sud.",
+        "capital": "Cagliari",
+        "airports": "Cagliari (CAG), Olbia (OLB), Alghero (AHO)",
+        "homes": "Ville e appartamenti vicino alle spiagge, stazzi (case di campagna) in Gallura",
+        "guide": "Leggi la guida sulla Sardegna"
+      }
+    }
+  },
   "pages": {
     "how-it-works": {
       "label": "Come funziona"

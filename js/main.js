@@ -19,6 +19,7 @@ const PAGES = {
   'webcall-confirmed': () => import('./pages/webcall-confirmed.js'),
   contact: () => import('./pages/contact.js'),
   partner: () => import('./pages/partner.js'),
+  'italy-map': () => import('./pages/italy-map.js'),
   'internal-buyers': () => import('./pages/internal-buyers.js'),
   'internal-buyer': () => import('./pages/internal-buyer.js'),
   'internal-partners': () => import('./pages/internal-partners.js'),

@@ -21,6 +21,8 @@ Revisioni del 15 ottobre 2026 (sostituiscono le indicazioni precedenti dove dive
 - Team: Flavio Moretto, Alessandra Toniolo, Diego Moretto.
 - Revisione del 16 ottobre 2026: logo Oikos Immobiliare e foto del team forniti dal committente.
 - Revisione del 16 ottobre 2026 (home): la home deve essere semplice e minimale e far capire subito che il sito serve a dire cosa vuoi. Titolo scelto dal committente: "Dicci cosa vuoi."
+- Revisione del 20 ottobre 2026: il sito si apre sempre nel tema chiaro.
+- Revisione del 20 ottobre 2026 (Dove comprare): al posto della griglia di schede, una mappa interattiva dell'Italia; con il cursore ci si sposta sulle regioni e si seleziona, con nomi e informazioni di ogni regione.
 
 Dial: ENERGY 2 / RHYTHM 3 / MOTION 1 (la home è una sola schermata, quindi il RHYTHM vale per le altre pagine)
 
@@ -52,6 +54,13 @@ Dial: ENERGY 2 / RHYTHM 3 / MOTION 1 (la home è una sola schermata, quindi il R
 | Variante chiara del logo per i fondi scuri | Il grigio delle lettere sparisce sul carbone: nel tema scuro e nel footer diventa il colore del testo chiaro, la "k" resta oro (6,6:1 sul carbone). |
 | Foto del team in cerchio, 5rem, con filetto sottile | Prendono il posto delle iniziali con la stessa forma; il filetto dà un bordo alle foto su fondo bianco. Ritagli con il viso alla stessa scala per tutti e tre. |
 | MOTION 1: solo hover, focus e transizioni di stato | Micro-interazioni leggere richieste; con `prefers-reduced-motion` anche quelle si fermano. |
+| Mappa delle 20 regioni in "Dove comprare" al posto delle schede con foto | Richiesta del committente; fa vedere dove sta ogni zona e copre anche le regioni senza guida, che il brief può comunque chiedere. |
+| Regioni vaniglia con filetto grigio caldo, oro chiaro per quelle con una guida, oro pieno con bordo inchiostro per quella scelta | L'oro resta "la cosa che conta": la regione scelta. Il filetto `--ink-2` separa le regioni con almeno 3,8:1 in tema chiaro; in tema scuro hover e scelta si staccano dalle vicine per riempimento (4,5:1 e 7,8:1). |
+| Nessun pallino sulla mappa per le guide | Il pallino oro è già il segno "Must have" del brief; per le guide bastano tinta, legenda e la parola "guida" nell'elenco. |
+| Elenco dei nomi accanto alla mappa (sotto, su telefono) | È il modo di usare la mappa con tastiera e screen reader, e il bersaglio comodo per le regioni piccole (Molise, Valle d'Aosta) sul telefono. |
+| All'apertura è già scelta la Puglia | È la prima guida in ordine e la zona in cui lavora Oikos; un pannello vuoto lasciava un buco accanto alla mappa. |
+| Pulsante della scheda regionale secondario (bordo inchiostro) | Nella scheda l'oro è già la regione scelta; l'azione principale della pagina resta "Inizia la ricerca". |
+| Confini da Natural Earth, pubblico dominio | Stessa regola delle foto: niente materiale con obblighi di attribuzione. |
 
 ## Segnaposto ancora da sostituire
 

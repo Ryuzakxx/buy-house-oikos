@@ -1,0 +1,125 @@
+/* Where to buy: the map of Italy's regions, the panel of the chosen region and the index of names.
+   Markup from italy_map() in tools/build.py, behaviour in js/pages/italy-map.js. */
+
+.italy {
+  /* Regions with a buying guide get a light gold; pointing at a region deepens it; the chosen one is full gold. */
+  --guide-fill: color-mix(in srgb, var(--gold) 40%, var(--vanilla));
+  --lit-fill: color-mix(in srgb, var(--gold) 70%, var(--vanilla));
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-5);
+}
+
+/* Map: the whole country fits on one screen, below the sticky header. */
+.italy__figure { display: grid; gap: var(--space-3); justify-items: center; align-content: start; }
+.italy__map { position: relative; width: 100%; }
+.italy__svg {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100svh - var(--header-h) - var(--space-8));
+  margin-inline: auto;
+}
+.italy__region { cursor: pointer; }
+.italy__region path {
+  fill: var(--vanilla);
+  fill-rule: evenodd;
+  stroke: var(--ink-2);
+  stroke-width: 1;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition: fill var(--dur-1) var(--ease);
+}
+.italy__region.has-guide path { fill: var(--guide-fill); }
+/* The script lights the region under the mouse (.is-lit); this covers the moments before it runs. */
+@media (any-hover: hover) {
+  .italy__region:hover path { fill: var(--lit-fill); }
+}
+.italy__region.is-lit path { fill: var(--lit-fill); }
+.italy__region.is-current path { fill: var(--gold); stroke: var(--ink); stroke-width: 2; }
+
+/* Name of the region under the pointer, or of the name focused in the index. */
+.italy__tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--r-s);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: var(--step--1);
+  line-height: 1.35;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.italy__tip small { display: block; font-size: 0.8125rem; }
+
+.italy__legend { display: flex; align-items: center; gap: var(--space-2); margin: 0; font-size: var(--step--1); color: var(--ink-2); }
+.italy__swatch { flex: none; width: 0.875rem; height: 0.875rem; border: 1px solid var(--ink-2); border-radius: 2px; background: var(--guide-fill); }
+
+/* Panel. Without JavaScript every region is listed here; with it only the chosen one shows. */
+.italy__panel { display: grid; gap: var(--space-8); align-content: start; }
+.js .italy__panel > * { grid-area: 1 / 1; }
+.js .italy__panel > :not(.is-current) { display: none; }
+/* Until the script has started, or if it fails, a name in the index still opens its region through the address. */
+.js .italy:not(.is-ready) .italy__panel > :target { display: block; visibility: visible; }
+.js .italy:not(.is-ready) .italy__panel:has(> :target) > .is-current:not(:target) { display: none; }
+
+.region-info { scroll-margin-top: calc(var(--header-h) + var(--space-4)); }
+.region-info h3 { margin-bottom: var(--space-3); font-size: var(--step-4); }
+.region-info > p { max-width: var(--measure); }
+.region-info__guide { display: flex; align-items: center; gap: var(--space-2); font-size: var(--step--1); font-weight: 650; color: var(--gold-ink); }
+.region-info__facts { display: grid; margin: var(--space-5) 0; border-top: 1px solid var(--line); }
+.region-info__facts div { display: grid; gap: var(--space-1); padding-block: var(--space-3); border-bottom: 1px solid var(--line); }
+.region-info__facts dt { font-size: var(--step--1); color: var(--ink-2); }
+.region-info__facts dd { margin: 0; }
+.region-info__action { display: grid; gap: var(--space-3); justify-items: start; }
+.region-info__action p { max-width: var(--measure); color: var(--ink-2); }
+@media (min-width: 30em) {
+  .region-info__facts div { grid-template-columns: 10rem minmax(0, 1fr); gap: var(--space-4); align-items: baseline; }
+}
+
+/* Index: the keyboard and screen reader way through the map, and the easy target for small regions on a phone. */
+.italy__index { display: grid; gap: var(--space-5) var(--space-6); }
+.italy__group h3 { margin-bottom: var(--space-1); font-family: var(--font-sans); font-size: var(--step--1); font-weight: 650; color: var(--ink-2); }
+.italy__group ul { margin: 0; padding: 0; list-style: none; columns: 2; column-gap: var(--space-5); }
+.italy__group li { margin: 0; break-inside: avoid; }
+.italy__group a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: var(--space-1) var(--space-2);
+  margin-inline: calc(-1 * var(--space-2));
+  border-radius: var(--r-s);
+  color: var(--ink);
+  line-height: 1.25;
+  text-decoration: none;
+}
+.italy__group a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 0.2em; }
+.italy__group a[aria-current="true"] { background: var(--vanilla); font-weight: 650; }
+.italy__tag { font-size: 0.75rem; font-weight: 650; color: var(--gold-ink); }
+
+@media (min-width: 40em) {
+  .italy__index { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .italy__group ul { columns: auto; }
+}
+
+/* Wide screens: the map stays in view on the left while the panel and the index sit on the right. Every region's
+   panel keeps its place in the shared cell, only hidden, so the panel has the height of the longest and the names
+   below it do not move between two clicks. */
+@media (min-width: 56em) {
+  .italy { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: var(--space-8); row-gap: var(--space-7); align-items: start; }
+  .italy__figure { grid-row: 1 / span 2; position: sticky; top: calc(var(--header-h) + var(--space-4)); }
+  .italy__index { grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); }
+  .js .italy__panel > :not(.is-current) { display: block; visibility: hidden; }
+  .js .italy:not(.is-ready) .italy__panel:has(> :target) > .is-current:not(:target) { display: block; visibility: hidden; }
+}
+
+@media (forced-colors: active) {
+  .italy__region path { fill: Canvas; stroke: CanvasText; }
+  .italy__region.is-lit path, .italy__region.is-current path { fill: Highlight; }
+}
