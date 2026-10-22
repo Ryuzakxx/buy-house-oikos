@@ -1,14 +1,167 @@
 # Buy House in Italy
 
+Il sito di Oikos Immobiliare per chi vuole comprare casa in Italia dall'estero. Oggi è online in versione di prova: https://ryuzakxx.github.io/buy-house-oikos/it/
+
+Questo documento ha due parti:
+
+- **[Guida per chi usa il sito](#guida-per-chi-usa-il-sito)**: cosa fa il sito, cosa è ancora una prova, come si usa l'area consulenti. Non servono conoscenze tecniche.
+- **[Parte tecnica](#parte-tecnica)**: come è fatto il sito, come si modifica, come si prova e come si mette in produzione.
+
+## Guida per chi usa il sito
+
+### Cosa fa il sito
+
+Il sito è pensato per acquirenti stranieri. Non è un catalogo di case: serve a capire bene cosa cerca il cliente e a passarlo a un consulente Oikos, che poi cerca la casa giusta.
+
+- Il cliente racconta cosa cerca in uno di tre modi: una **chat guidata** (18 domande), un'**intervista a voce** con le stesse domande, oppure una **videochiamata** con un consulente.
+- Il risultato è il **brief**: la scheda di quello che il cliente cerca, divisa in tre colonne: **Indispensabile**, **Gradito** e **Da escludere**.
+- Il cliente rivede il brief e lo invia. Il consulente lo trova nell'**area consulenti**, lo controlla insieme al cliente e parte con la ricerca.
+- Intorno a questo ci sono le pagine informative: come funziona il servizio, i servizi offerti, le guide (tasse, notaio, mutui, verifiche legali), la mappa delle regioni, le pagine per chi compra da un certo paese, chi siamo, contatti e la pagina per le agenzie che vogliono diventare partner.
+
+### Attenzione: oggi è una versione di prova
+
+Il sito funziona, ma non è ancora collegato a nessun sistema di Oikos. In pratica:
+
+- **Quello che i clienti inviano non arriva a Oikos.** Brief, prenotazioni di videochiamata, messaggi dal modulo contatti e richieste delle agenzie restano salvati solo nel browser di chi li ha compilati. Non parte nessuna email.
+- **L'area consulenti mostra dati di prova**: alcuni clienti di esempio, più quello che è stato inserito da quel browser. Ogni computer, e su uno stesso computer ogni browser, vede solo i suoi dati.
+- **L'area consulenti non ha ancora una password.** Chiunque abbia il link può aprirla, anche se vede solo i dati di prova del proprio browser. Non inserire dati veri dei clienti finché non c'è un accesso protetto.
+- **Le case nei "Matches" sono 12 esempi inventati.** Le case vere di Oikos e delle agenzie partner arriveranno con il collegamento al gestionale (Apimo).
+- **Alcuni testi vanno fatti rivedere:** le pagine su tasse e leggi sono indicative; Privacy, Cookie e Termini sono bozze da far controllare a un legale.
+
+Cosa serve per passare dalla prova al sito vero è nell'elenco [Prima di andare online](#prima-di-andare-online).
+
+### Il percorso del cliente
+
+1. Dalla pagina **[Inizia](https://ryuzakxx.github.io/buy-house-oikos/it/inizia/)** sceglie come rispondere: chat guidata, voce o videochiamata.
+2. Risponde alle domande: zone, budget, tipo di casa, camere, bagni, stato della casa, lavori, piscina, terreno, vista mare, distanza da mare, aeroporto e negozi, uso della casa, tempi, mutuo, questioni fiscali, note libere. Per ogni criterio dice quanto conta: **Indispensabile**, **Gradito** o **Da escludere**.
+3. Nella pagina **Il tuo brief** rivede tutto: può spostare un criterio da una colonna all'altra, toglierlo o cambiare la risposta.
+4. Lo invia a un consulente, con nome, email, paese, lingua preferita e i consensi che sceglie.
+
+Da sapere:
+
+- Le risposte si salvano man mano sul dispositivo del cliente: può chiudere e riprendere più tardi.
+- L'intervista a voce funziona con Chrome, Edge e Safari. Con gli altri browser il sito propone la chat, con le stesse domande.
+- La videochiamata si prenota dal lunedì al venerdì, dalle 9:00 alle 17:30 ora italiana; il cliente vede gli orari nel proprio fuso orario e sceglie se autorizzare la registrazione della chiamata.
+
+### L'area consulenti
+
+Si apre da https://ryuzakxx.github.io/buy-house-oikos/internal/ (il sito pubblico non ha link verso di essa). È in inglese e ha due pagine, raggiungibili dal menu in alto: **Buyers** e **Partners and sales**.
+
+**Buyers** è l'elenco dei clienti, dal più recente. Per ognuno: cosa cerca, quante case corrispondono, a che punto è, da dove è arrivato. Si filtra per stato e si cerca per nome, email o paese. "Add a buyer by hand" crea la scheda di un cliente arrivato per telefono o di persona.
+
+**La scheda del cliente** si apre cliccando un nome e ha questi riquadri:
+
+| Riquadro | A cosa serve |
+|---|---|
+| Brief | I criteri del cliente: si modificano, si spostano tra Indispensabile, Gradito e Da escludere, si aggiungono o si tolgono. Le modifiche valgono solo dopo "Save the brief". Dopo averlo rivisto con il cliente si preme "Mark as confirmed with the buyer". |
+| Call transcript | Si incolla la trascrizione di una chiamata e "Generate brief from transcript" propone un brief da controllare. Oggi è una dimostrazione: capisce solo frasi semplici in inglese. |
+| Matches | Le case che conosciamo (oggi i 12 esempi) confrontate con il brief, con punteggio e motivi. "Add to shortlist" aggiunge una casa alla lista del cliente. |
+| Found on the web | La ricerca di case sui portali con l'intelligenza artificiale: vedi [Cercare case sul web con l'AI](#cercare-case-sul-web-con-lai). |
+| Shortlist | Le case scelte per il cliente, ognuna con il suo stato (proposta, visita in programma, visitata, offerta, scartata). "Record feedback" registra cosa ne pensa il cliente: i motivi di un no aggiornano il brief da soli (per esempio "troppo lontana dal mare" rende la distanza dal mare indispensabile e più stretta). "Record shortlist as sent" segna che la lista è stata inviata. |
+| Contact and status | Contatti del cliente e a che punto è: nuovo, brief confermato, ricerca, lista inviata, visite, offerta, acquistato, in pausa. |
+| Lead source | Da dove è arrivato il cliente (campagna pubblicitaria, sito di provenienza, prima pagina vista), se ha dato il permesso di registrarlo. |
+| Consents | Cosa ha autorizzato: trattamento dei dati, registrazione delle chiamate, email promozionali. |
+| History | Tutto quello che è successo, in ordine di data. |
+
+**Partners and sales** raccoglie le agenzie partner con un accordo, le richieste di partnership arrivate dal sito, le vendite concluse e la quota di provvigione che spetta da ogni agenzia: 1% se non si cambia, ed è una cifra indicativa visibile solo in quella pagina.
+
+"Reset demo data", in cima a ogni pagina dell'area, riporta tutto ai dati di esempio.
+
+**Come leggere il punteggio** (vale sia per "Matches" sia per "Found on the web"):
+
+- Va da 0 a 100 e dice quanto una casa rispetta il brief. Un criterio Indispensabile pesa tre volte un Gradito.
+- Da 60 in su la casa è compatibile. Sotto 60 compare "Weak match". Se la casa viola un criterio Da escludere compare "Ruled out".
+- Accanto a ogni criterio: ✓ rispettato, ~ rispettato in parte (per esempio un po' sopra il budget), ✗ non rispettato, ? da verificare.
+- Un dato che manca non esclude mai una casa: compare come "To check" e va controllato.
+
+### Cercare case sul web con l'AI
+
+Nella scheda di un cliente, il riquadro **Found on the web** cerca case in vendita sui portali immobiliari partendo dal brief e propone da 5 a 10 annunci. È gratuito.
+
+**La prima volta** va collegato il servizio di ricerca: lo fa una volta sola chi segue la parte tecnica, in circa 10 minuti (istruzioni in [Ricerca immobili sul web](#ricerca-immobili-sul-web)). Poi nel riquadro si inseriscono l'indirizzo del servizio e la chiave di accesso e si preme "Connect". Restano salvati in quel browser: su un altro computer vanno inseriti di nuovo.
+
+**Per usarla:**
+
+1. Controlla che il brief sia completo: zone, budget e tipo di casa sono i criteri che contano di più.
+2. Premi "Find 5 to 10 properties" e aspetta circa un minuto. L'agente cerca nelle località tipiche delle zone del brief, legge gli annunci e dà un punteggio a ciascuno.
+3. Ogni risultato mostra titolo, località, prezzo, metri quadri, portale, punteggio e motivi. Il titolo apre l'annuncio originale in una nuova scheda.
+4. "Add to shortlist" porta la casa nella lista del cliente, insieme al link dell'annuncio.
+
+Se modifichi il brief, i risultati si riordinano da soli. Se cambi zona o tipo di casa, premi "Search again" per cercare di nuovo.
+
+**Prima di proporre una casa al cliente:**
+
+- apri l'annuncio e controlla i dati segnati "To check": camere, piscina, stato e distanze spesso non sono scritti nella parte che l'agente riesce a leggere;
+- verifica che la casa sia ancora in vendita;
+- sono case di altre agenzie: prendi accordi con l'agenzia che le pubblica;
+- non copiare testi e foto degli annunci sul sito.
+
+**Limiti:**
+
+- In pratica cerca su casa.it. Le case pubblicate solo su immobiliare.it o idealista non le trova, perché quei portali non si lasciano leggere in automatico.
+- È gratis, con un tetto: circa 125-250 ricerche al mese e almeno 25 al giorno. Quando il tetto è raggiunto, il riquadro mostra un errore e si riprova il giorno o il mese dopo. Non c'è nessun costo, nemmeno in quel caso.
+- Il cliente non vede questi risultati: li vede solo il consulente.
+- Al servizio di ricerca arrivano solo i criteri (zona, tipo di casa, piscina...), mai il nome o i contatti del cliente.
+
+### Lingue
+
+- **Italiano e inglese:** tutto il sito. L'area consulenti è solo in inglese.
+- **Tedesco, francese, olandese e spagnolo:** home, pagine principali, la guida all'acquisto passo per passo e tutta l'intervista (chat, voce, videochiamata, brief). Le altre pagine (singoli servizi, guide per regione e per paese, altre guide, pagine legali) non sono ancora tradotte: dalle pagine tradotte si arriva alla versione inglese, con un avviso.
+- Le risposte a voce vengono capite in tutte e sei le lingue.
+
+### Prima di andare online
+
+Cosa manca per passare dalla prova al sito vero:
+
+- [ ] Collegare un server, per ricevere davvero brief, prenotazioni e messaggi, mandare le email di conferma e conservare i consensi.
+- [ ] Mettere una password all'area consulenti, con un accesso personale per ogni consulente.
+- [ ] Collegare il gestionale (Apimo) con le case vere di Oikos e delle agenzie partner, al posto dei 12 esempi.
+- [ ] Collegare le videochiamate ai calendari veri dei consulenti e a una piattaforma video.
+- [ ] Scegliere il dominio definitivo.
+- [ ] Inserire i dati reali dove oggi c'è `[REAL DATA]`: indirizzo, partita IVA, compensi.
+- [ ] Completare il team: ruoli di Flavio e Alessandra e lingue parlate (oggi c'è `[Ruolo]`).
+- [ ] Far controllare Privacy, Cookie e Termini a un legale, e far rivedere i testi su tasse e leggi.
+- [ ] Completare le pagine in bozza: Toscana, Sicilia, Lago di Como, Liguria, Sardegna, e chi compra da Paesi Bassi, Francia e Svizzera (mancano i dati locali).
+- [ ] Rifare l'icona del sito (quella che compare nella scheda del browser) partendo dal logo.
+- [ ] Aggiungere le testimonianze di clienti veri, quando ci sono.
+- [ ] Attivare la ricerca di case sul web (gratis, circa 10 minuti).
+
+### Domande frequenti
+
+**Un cliente dice di aver inviato il brief, ma nell'area consulenti non c'è.**
+È normale finché il sito è in prova: il brief resta nel browser del cliente.
+
+**Come provo il sito come farebbe un cliente?**
+Apri la pagina Inizia, completa la chat e invia il brief. Poi apri l'area consulenti dallo stesso browser: il nuovo cliente è in cima all'elenco.
+
+**Ho fatto confusione con i dati di prova.**
+Premi "Reset demo data" in cima all'area consulenti: tutto torna ai dati di esempio.
+
+**La voce non funziona.**
+Servono Chrome, Edge o Safari e il permesso di usare il microfono. Altrimenti il sito propone la chat, con le stesse domande e le risposte già date.
+
+**Perché compare un banner sui cookie?**
+Alla prima visita il sito chiede il permesso di registrare da dove arriva il visitatore (campagna, sito di provenienza) e i clic sulle pubblicità. "Rifiuta tutto", "Accetta tutto" e "Scegli" hanno lo stesso peso; "Impostazioni cookie", in fondo a ogni pagina, riapre la scelta. Oggi il sito non usa strumenti di statistica o di pubblicità.
+
+**Il sito si vede scuro.**
+Il sito si apre sempre chiaro. Il pulsante del tema in alto (su telefono, dentro il menu) passa allo scuro, e la scelta resta su quel dispositivo.
+
+**Voglio cambiare un testo o una foto.**
+Testi e foto stanno nei file del progetto: chiedi a chi segue la parte tecnica. Le foto dei luoghi sono libere da diritti; quelle del team le ha fornite Oikos.
+
+---
+
+## Parte tecnica
+
 Sito statico (HTML, CSS e JavaScript vanilla, nessuna dipendenza a runtime) per il servizio di property finding di Oikos Immobiliare rivolto ad acquirenti stranieri. Il sito serve prima di tutto a capire cosa vuole il cliente: intervista (chat guidata, voce o videochiamata), wishlist strutturata in Must have / Nice to have / Deal breaker, matching con gli immobili e area consulente. Non pubblica cataloghi di immobili: gli immobili servono solo al matching e all'area consulente.
 
-## Stato: cosa è pronto e cosa è demo
+### Stato: cosa è pronto e cosa è demo
 
 | Parte | Stato | Note |
 |---|---|---|
-| Pagine pubbliche (112 pagine generate, 88 indicizzabili) | Pronte, testi da rivedere | Testi fiscali e legali indicativi, con riferimento normativo e data di revisione |
+| Pagine pubbliche (168 pagine generate, 136 indicizzabili) | Pronte, testi da rivedere | Testi fiscali e legali indicativi, con riferimento normativo e data di revisione |
 | Pagine IT | Tutto il sito pubblico, compresi intervista (chat e voce), riepilogo del brief e prenotazione | L'area consulente `/internal/` resta in inglese |
-| Pagine DE, FR, NL, ES | Home + guida "acquisto passo per passo" | Le altre pagine rimandano all'inglese, segnalato in modo visibile |
+| Pagine DE, FR, NL, ES | Home, pagine principali, guida "acquisto passo per passo" e intervista completa (chat, voce, videochiamata, brief) | Le altre pagine rimandano all'inglese, segnalato in modo visibile |
 | Template regioni (Toscana, Sicilia, Lago di Como, Liguria, Sardegna) e nazionalità (NL, FR, CH), in inglese e italiano | Bozze `noindex` | Struttura pronta; mancano i dati locali `[REAL DATA]` |
 | SEO tecnico (canonical, hreflang, sitemap, JSON-LD, robots, llms.txt) | Pronto | Oggi su GitHub Pages; per il dominio di produzione cambiare `SITE_URL` e ricostruire |
 | Banner consensi e tracciamento origine lead | Pronto lato client | Il salvataggio server dei consensi va fatto nel backend |
@@ -27,7 +180,7 @@ Sito statico (HTML, CSS e JavaScript vanilla, nessuna dipendenza a runtime) per 
 | Indirizzo, P.IVA, compensi | Segnaposto visibili | `[REAL DATA]` |
 | Testimonianze | Non mostrate | Gli spazi vuoti erano nella vecchia home; con storie reali si rimettono in una pagina con `{{testimonial-slots}}` |
 
-## Avvio in locale
+### Avvio in locale
 
 Il sito generato vive sotto `/buy-house-oikos/` (vedi "Generatore"), quindi il server va avviato dalla cartella che contiene il progetto:
 
@@ -39,7 +192,7 @@ Aprire http://localhost:8000/buy-house-oikos/ (reindirizza a `/buy-house-oikos/e
 
 L'area consulente demo è su http://localhost:8000/buy-house-oikos/internal/ (non linkata dal sito pubblico).
 
-## Struttura
+### Struttura
 
 ```
 index.html            redirect a /en/ (meta refresh + link + canonical)
@@ -61,7 +214,7 @@ worker/               servizio della ricerca sul web (Cloudflare Worker): tiene 
 DESIGN.md             direzione visiva e motivazioni delle scelte
 ```
 
-## Generatore (opzionale)
+### Generatore (opzionale)
 
 Le pagine HTML in `en/`, `it/`, `de/`… sono il sito: si possono pubblicare così come sono. Il generatore serve solo a non duplicare a mano header, footer, JSON-LD e sitemap.
 
@@ -79,7 +232,7 @@ Requisiti: Python 3.10+ (solo libreria standard). Il build cancella e riscrive l
 
 Il CSS di ogni pagina viene inserito inline nell'`<head>` (tokens, base, layout, components più l'eventuale `css/pages/*.css` della pagina): nessuna richiesta CSS bloccante e nessun salto di layout. Il JavaScript è caricato come modulo (`type="module"`, quindi differito); ogni pagina carica solo il modulo indicato da `data-page`.
 
-### Scrivere una pagina
+#### Scrivere una pagina
 
 File in `content/<lingua>/percorso.html`. Il percorso diventa l'URL (`content/en/services/notary.html` → `/en/services/notary/`).
 
@@ -121,11 +274,11 @@ Chiavi del front matter:
 
 Segnaposto nel corpo: `{{link id=...}}` (con `lang=de` punta alla versione in un'altra lingua), `{{start-paths}}`, `{{brief-example}}`, `{{picture name=... alt="..." sizes="..." eager}}`, `{{italy-map}}`, `{{countries}}`, `{{services-grouped level=2}}`, `{{pages type=guide style=cols}}`, `{{consult}}`, `{{legal-note}}`, `{{testimonial-slots}}`, `{{faq}}`. Un `id` sconosciuto blocca il build: i link interni non possono rompersi.
 
-### Aggiungere una lingua
+#### Aggiungere una lingua
 
 Vedi `i18n/README.md`.
 
-## Immagini
+### Immagini
 
 Le foto dei luoghi vengono da Wikimedia Commons e sono tutte **CC0 o di pubblico dominio**: si possono usare senza permessi né attribuzione. Le foto della Puglia (regione, intestazione della pagina Puglia, immagine di condivisione) sono di Alberobello; le altre regioni hanno una foto propria. La home non mostra più foto: `hero-puglia` resta generata ma non è usata da nessuna pagina, e si può cancellare (file in `img/photos/` e voce in `data/photos.json`) o riusare. Autori e link sono in `img/photos/CREDITS.md`.
 
@@ -143,7 +296,7 @@ Da cancellare a mano: i file `img/ph/prop-*` e `img/ph/interior-*` (84 file) ser
 
 `img/favicon.svg` è ancora un segnaposto: un quadrato verde oliva rimasto dalla prima palette, da sostituire con un'icona ricavata dal logo.
 
-## Mappa delle regioni
+### Mappa delle regioni
 
 La pagina "Dove comprare" (`{{italy-map}}`) mostra le 20 regioni. Passando con il mouse su una regione compare il nome; un clic, o un nome nell'elenco, apre la scheda con capoluogo, aeroporti più vicini, case tipiche e il link alla guida, se c'è, altrimenti alla pagina "Inizia". La regione scelta va nell'indirizzo (`/it/dove-comprare/#toscana`), quindi si può linkare. All'apertura è scelta la prima regione con una guida, secondo `order` (oggi la Puglia).
 
@@ -152,7 +305,7 @@ La pagina "Dove comprare" (`{{italy-map}}`) mostra le 20 regioni. Passando con i
 - Guide: una pagina inglese `type: region` con `mapRegion: <chiave>` diventa la guida di quella regione, che sulla mappa prende l'oro chiaro.
 - Accessibilità: la mappa è nascosta agli screen reader; l'elenco dei nomi è il comando per tastiera e lettori di schermo (Tab illumina la regione sulla mappa, Invio apre la scheda e ci porta il focus). Senza JavaScript tutte le schede sono visibili e i nomi le raggiungono come ancore.
 
-## Modello dati della wishlist
+### Modello dati della wishlist
 
 ```js
 {
@@ -176,9 +329,9 @@ Regole di matching (`js/api/matching.js`, funzioni pure):
 
 Il feedback dopo una proposta o una visita (`applyFeedback`) aggiorna il brief: per esempio "too far from the sea" porta la distanza dal mare tra i must have e la stringe al 60% della distanza dell'immobile rifiutato.
 
-## Ricerca immobili sul web
+### Ricerca immobili sul web
 
-Nella scheda di un buyer dell'area consulente, il riquadro "Found on the web" lancia un agente che cerca il brief sui portali immobiliari e restituisce da 5 a 10 annunci, ognuno con link, punteggio e motivi. Costa zero: usa solo piani gratuiti, senza carta di credito.
+Il riquadro "Found on the web" della scheda buyer lancia un agente che cerca il brief sui portali immobiliari e restituisce da 5 a 10 annunci, ognuno con link, punteggio e motivi. L'uso dal punto di vista del consulente è in [Cercare case sul web con l'AI](#cercare-case-sul-web-con-lai); qui come funziona, quanto consuma e come si attiva. Costa zero: usa solo piani gratuiti, senza carta di credito.
 
 Come lavora (`js/api/web-search.js`, `js/core/web-listings.js`):
 
@@ -189,7 +342,7 @@ Come lavora (`js/api/web-search.js`, `js/core/web-listings.js`):
 
 I risultati restano nella scheda del buyer (`webSearch` nel CRM) e si ricalcolano mentre si modifica il brief; "Add to shortlist" li porta nella shortlist con una copia dei dati e il link.
 
-### Cosa serve, tutto gratuito
+#### Cosa serve, tutto gratuito
 
 | Servizio | Piano gratuito | Consumo di una ricerca |
 |---|---|---|
@@ -199,7 +352,7 @@ I risultati restano nella scheda del buyer (`webSearch` nel CRM) e si ricalcolan
 
 Per restare a costo zero: non aggiungere un metodo di pagamento su Cloudflare e su Tavily e non passare al piano Workers Paid. Senza carta, quando una quota finisce le richieste vengono rifiutate (il riquadro mostra l'errore) e non arriva nessun addebito.
 
-### Attivarla (una volta, circa 10 minuti)
+#### Attivarla (una volta, circa 10 minuti)
 
 1. Creare un account gratuito su [tavily.com](https://tavily.com) e copiare la chiave API (`tvly-...`).
 2. Creare un account gratuito su [Cloudflare](https://dash.cloudflare.com/sign-up), poi dal terminale:
@@ -222,19 +375,18 @@ node tools/web-search.mjs --buyer b-demo-1             # senza chiavi: Tavily se
 SEARCH_SERVICE_URL=https://oikos-web-search.<nome>.workers.dev SEARCH_SERVICE_KEY=<ACCESS_KEY> node tools/web-search.mjs --brief brief.json
 ```
 
-`--brief` accetta un file JSON con `{ mustHave, niceToHave, dealBreakers }` o un buyer intero; `--json` stampa i risultati come JSON.
+`--brief` accetta un file JSON con `{ mustHave, niceToHave, dealBreakers }` o un buyer intero; `--json` stampa i risultati come JSON. Senza account Tavily ha anche un limite orario: per più di qualche prova serve la chiave gratuita.
 
-### Limiti da conoscere
+#### Limiti tecnici
 
 - **Fonti.** In pratica la fonte principale è casa.it, l'unico grande portale le cui pagine il servizio di ricerca riesce ad aprire. Immobiliare.it e idealista bloccano la lettura automatica e l'agente non prova ad aggirarli; gate-away.com e wikicasa entrano solo quando la ricerca trova direttamente un singolo annuncio. Un immobile in vendita solo su immobiliare.it non viene trovato.
 - **Dati incompleti.** Dalle pagine di elenco si leggono prezzo, superficie, locali e bagni; camere, piscina, stato e distanze ci sono solo se compaiono nelle prime righe della descrizione. Per questo molti criteri risultano "To check" e il punteggio va letto come una prima selezione.
-- **Annunci di altre agenzie.** Prima di proporli al buyer: verificare che siano ancora disponibili e accordarsi con l'agenzia che li pubblica. Testi e foto degli annunci non vanno ripubblicati sul sito.
 - **Uso dei portali.** L'agente non visita i portali: usa un motore di ricerca che restituisce pagine già indicizzate, pochi accessi alla volta, e porta sempre all'annuncio originale. È ricerca interna dell'agenzia, come la farebbe un consulente a mano; se l'uso cresce molto, conviene chiedere ai portali un accesso ufficiale.
 - **Privacy.** Al servizio arrivano solo i criteri di ricerca (zona, tipo, piscina, vista mare) e i testi degli annunci; mai nome, contatti o note del buyer. Cloudflare non usa i dati di Workers AI per addestrare i modelli.
 - **Perché non Gemini gratuito.** I termini del piano gratuito di Google (in vigore dal 23 marzo 2026) consentono solo i servizi a pagamento per applicazioni offerte a utenti nello Spazio economico europeo, e sul piano gratuito i dati servono a migliorare i prodotti Google. La ricerca Google gratuita inclusa nell'API c'era solo per i modelli Gemini 2.5, in dismissione.
 - **Solo area consulente.** I risultati non vanno al buyer in automatico: il sito non pubblica immobili, e il consulente sceglie cosa proporre. Mostrarli sul sito richiederebbe un servizio aperto a tutti, quindi una protezione dagli abusi (le quote gratuite finirebbero in fretta).
 
-## Collegare i servizi reali
+### Collegare i servizi reali
 
 Tutti gli adapter in `js/api/` sono asincroni e restituiscono già le forme definitive: per passare alla produzione si sostituisce il corpo delle funzioni con chiamate a un backend, senza toccare le pagine.
 
@@ -250,25 +402,25 @@ Tutti gli adapter in `js/api/` sono asincroni e restituiscono già le forme defi
 
 **Form**. Senza JavaScript i form mostrano un avviso; in produzione dare a ogni form un `action` verso il backend, così funzionano anche senza JS.
 
-## Tema chiaro e scuro
+### Tema chiaro e scuro
 
 Il sito si apre sempre nel tema chiaro, anche se il sistema operativo è impostato sullo scuro. Il pulsante nell'header (su telefono dentro il menu) passa da chiaro a scuro e salva la scelta sul dispositivo (`bhi.theme`, elencato nella Cookie Policy come necessario). Uno script inline nell'`<head>` applica la scelta prima che la pagina venga disegnata, così non si vede mai un lampo del tema sbagliato. I colori scuri sono in `css/tokens.css`, nel blocco `data-theme="dark"`.
 
-## Consensi e origine del lead
+### Consensi e origine del lead
 
 - Il banner (`js/ui/consent.js`) offre "Reject all", "Accept all" e "Choose" con pari evidenza; le scelte (necessari, origine visita, pubblicità) sono salvate in `localStorage` (`bhi.consent.v1`) e scadono dopo 6 mesi. Riapribile dal footer ("Cookie settings").
 - Nessuno script di tracciamento è presente. Per aggiungerne uno senza violare il consenso, inserirlo inerte: `<script type="text/plain" data-consent="analytics" data-src="https://..."></script>`; viene attivato solo dopo il consenso della categoria. Aggiornare la Cookie Policy.
 - `js/ui/lead-source.js` legge a ogni visita UTM, `gclid`/`fbclid`, referrer esterno e landing page, li tiene in memoria e li salva (`bhi.lead.v1`) solo per le categorie consentite: UTM, referrer e landing con "Visit source", gli ID dei clic pubblicitari con "Advertising". Revocando il consenso i dati vengono cancellati. `getLeadSource()` è allegato a ogni invio (brief, prenotazione, contatto, partner) e all'avvio dell'intervista; contiene anche `buyerCountry` (dalle pagine per nazionalità o dal parametro `?country=` dei link "Start").
 - Ogni consenso dei form (trattamento dati, registrazione e trascrizione, marketing) è salvato separatamente con data e testo esatto mostrato.
 
-## SEO
+### SEO
 
 - `canonical`, `hreflang` reciproci con `x-default`, Open Graph e Twitter card su ogni pagina; breadcrumb visibili e in JSON-LD.
 - JSON-LD: `RealEstateAgent` (sitewide), `WebSite` (home), `WebPage`/`AboutPage`/`ContactPage`/`CollectionPage`, `BreadcrumbList`, `FAQPage`, `Service`, `Article`. Niente `RealEstateListing`, perché non ci sono più schede immobile pubbliche.
 - `sitemap.xml` con alternate hreflang (solo pagine indicizzabili), `robots.txt` con riferimento alla sitemap, `llms.txt` generato dagli stessi metadati.
 - Bozze, pagine personali (brief, conferma) e area interna sono `noindex` e fuori dalla sitemap.
 
-## Test
+### Test
 
 ```sh
 python3 tools/check.py      # link e ancore, id duplicati, tag, H1 e gerarchia titoli, title/description unici e lunghezza,
@@ -290,7 +442,7 @@ TOOLS_DIR=~/.cache/oikos-tools CHROME=<...> node tools/pages-audit.mjs          
 
 Risultati dell'ultima esecuzione (16 ottobre 2026): `check.py` 0 problemi su 113 pagine e 88 URL in sitemap; 17/17 test unitari; 28/28 percorsi end-to-end (compresi navigazione e chat in italiano), senza errori in console; 0 problemi di console o overflow orizzontale su tutte le pagine a 320, 360, 390, 768, 1024 e 1280 px; Lighthouse 95-100 in tutte le categorie, mobile e desktop, su home IT, Chi siamo IT e EN, Puglia, Servizi, chat, videochiamata e guida imposte in italiano (performance su mobile: home 99 dopo la versione minimale, videochiamata 95; build con `SITE_URL` locale).
 
-## Messa in produzione: cosa serve lato backend
+### Messa in produzione: cosa serve lato backend
 
 1. **Dominio**: impostare `SITE_URL` in `tools/build.py` (o variabile d'ambiente) e in `robots.txt`, poi ricostruire. Oggi punta a GitHub Pages; lì `robots.txt` sta in `/buy-house-oikos/robots.txt` e i motori di ricerca non lo leggono (lo cercano solo alla radice del dominio), quindi per `/internal/` vale solo il `noindex`.
 2. **Autenticazione per `/internal/`** (accesso consulenti con account personali, idealmente SSO o 2FA), oppure spostare l'area consulente in un'applicazione separata. Oggi è protetta solo da `noindex` e `Disallow`, cioè non protetta.
@@ -300,9 +452,9 @@ Risultati dell'ultima esecuzione (16 ottobre 2026): `check.py` 0 problemi su 113
 6. **Hosting**: servire `404.html` per le pagine mancanti (Netlify e GitHub Pages lo fanno da soli; Apache `ErrorDocument 404 /404.html`; Nginx `error_page 404 /404.html;`), HTTPS, compressione, cache lunga per `img/` e `fonts/`, intestazioni di sicurezza. Per una Content Security Policy stretta: il sito usa un solo script inline (aggiunge la classe `js` a `<html>` e applica il tema scelto) più i blocchi JSON-LD; servono il suo hash o un nonce.
 7. **Contenuti**: compilare i `[REAL DATA]`, far verificare a un legale Privacy, Cookie e Termini, far rivedere i testi fiscali e legali e aggiornare la data `updated`; completare i template e togliere `draft`.
 
-## Limiti noti
+### Limiti noti
 
-- L'intervista (chat, voce), il riepilogo del brief e la prenotazione esistono in inglese e italiano. In tedesco, francese, olandese e spagnolo portano alla versione inglese, segnalata; per tradurli basta aggiungere un dizionario in `js/i18n/` e le pagine `content/<lingua>/` (vedi `i18n/README.md`).
-- Il riconoscimento delle risposte a voce capisce inglese e italiano (`SPOKEN` in `js/core/interview.js`).
+- L'intervista (chat, voce), il riepilogo del brief e la prenotazione esistono in tutte e sei le lingue. In tedesco, francese, olandese e spagnolo mancano ancora le pagine dei singoli servizi, le guide per regione e nazionalità, le altre guide e le pagine legali, che portano alla versione inglese, segnalata; per tradurle vedi `i18n/README.md`.
+- Il riconoscimento delle risposte a voce capisce inglese, italiano, tedesco, francese, olandese e spagnolo (`SPOKEN` in `js/core/interview.js`).
 - L'intervista vocale funziona dove esiste SpeechRecognition (Chrome, Edge, Safari); altrove porta alla chat. In Chrome l'audio è elaborato dai server di Google: è scritto nella pagina e nell'informativa.
 - `generateWishlistFromTranscript` riconosce solo frasi in inglese e formulazioni comuni: è una dimostrazione del flusso, non un estrattore affidabile.
