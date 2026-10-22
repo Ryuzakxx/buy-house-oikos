@@ -2,7 +2,8 @@
 import { getBuyer, updateBuyer, updateWishlist, addInteraction, addTranscript } from '../api/crm.js';
 import { listProperties } from '../api/apimo.js';
 import { listAgencies } from '../api/partners.js';
-import { matchProperties } from '../api/matching.js';
+import { matchProperties, pickCandidates } from '../api/matching.js';
+import { findOnWeb, serviceClient, loadService, saveService } from '../api/web-search.js';
 import { generateWishlistFromTranscript, SAMPLE_TRANSCRIPT } from '../api/transcription.js';
 import { CRITERIA, PRIORITIES, LIST_OF, MARK_CLASS, FEEDBACK_REASONS, allCriteria, describeCriterion, setCriterion, removeCriterion, applyFeedback, formatEuro } from '../core/wishlist.js';
 import { describeLeadSource } from '../ui/lead-source.js';
@@ -25,6 +26,7 @@ let showExcluded = false;
 let proposal = null;
 let openFeedback = null;
 let lastChanges = [];
+let web = { running: false, progress: '', error: '', settings: false };
 
 export async function init() {
   app = $('#buyer-app');
@@ -54,7 +56,7 @@ function render(focusId) {
   app.replaceChildren(
     head(),
     h('div', { class: 'buyer-grid' },
-      h('div', {}, briefPanel(), transcriptPanel(), matchesPanel()),
+      h('div', {}, briefPanel(), transcriptPanel(), matchesPanel(), webPanel()),
       h('div', {}, shortlistPanel(), contactPanel(), sourcePanel(), consentsPanel(), historyPanel())));
   if (focusId) document.getElementById(focusId)?.focus();
 }
@@ -244,28 +246,14 @@ function matchesPanel() {
 
   const item = (m) => {
     const p = m.property;
-    const on = shortlisted.has(String(p.id));
-    const reasons = [
-      ...m.excludedBy.map((r) => h('li', { class: 'r-missed' }, `Ruled out by deal breaker: ${r.text}`)),
-      ...m.met.map((r) => h('li', { class: 'r-met' }, r.text)),
-      ...m.partial.map((r) => h('li', { class: 'r-partial' }, `Partly: ${r.text}`)),
-      ...m.missed.map((r) => h('li', { class: 'r-missed' }, `Missed: ${r.text}`)),
-      ...m.unknown.map((r) => h('li', { class: 'r-unknown' }, `To check: ${r.text}`)),
-    ];
     return h('li', { class: `match${m.excluded ? ' match--excluded' : ''}` },
       h('div', { class: 'match__head' },
         h('div', {},
           h('p', { class: 'match__title' }, p.title),
           h('p', { class: 'match__sub' }, [p.reference, `${p.city}, ${p.area}`, p.price != null ? formatEuro(p.price) : 'Price on request', propertySource(p)].join(' · '))),
-        m.excluded
-          ? h('span', { class: 'status' }, 'Ruled out')
-          : m.score < MIN_SCORE ? h('span', { class: 'status' }, `Weak match, ${m.score}`)
-          : h('div', { class: 'score', 'aria-label': `Compatibility ${m.score} out of 100` },
-            h('span', { class: 'score__bar', 'aria-hidden': 'true' }, h('span', { style: `width:${m.score}%` })),
-            h('span', { class: 'score__num', 'aria-hidden': 'true' }, String(m.score)))),
-      h('ul', { class: 'reasons' }, ...reasons),
-      m.excluded || m.score < MIN_SCORE ? null : h('div', { class: 'match__actions' },
-        h('button', { class: on ? 'btn btn--small' : 'btn btn--primary btn--small', type: 'button', id: `sl-${p.id}`, 'aria-pressed': String(on), onClick: () => toggleShortlist(p, m.score) }, on ? 'On the shortlist' : 'Add to shortlist')));
+        scoreBadge(m)),
+      h('ul', { class: 'reasons' }, ...reasonItems(m)),
+      m.excluded || m.score < MIN_SCORE ? null : h('div', { class: 'match__actions' }, shortlistButton(p, m.score, shortlisted)));
   };
 
   let body;
@@ -283,25 +271,172 @@ function matchesPanel() {
     visible.length ? h('ol', { class: 'match-list' }, ...visible.map(item)) : null);
 }
 
+function reasonItems(m) {
+  return [
+    ...m.excludedBy.map((r) => h('li', { class: 'r-missed' }, `Ruled out by deal breaker: ${r.text}`)),
+    ...m.met.map((r) => h('li', { class: 'r-met' }, r.text)),
+    ...m.partial.map((r) => h('li', { class: 'r-partial' }, `Partly: ${r.text}`)),
+    ...m.missed.map((r) => h('li', { class: 'r-missed' }, `Missed: ${r.text}`)),
+    ...m.unknown.map((r) => h('li', { class: 'r-unknown' }, `To check: ${r.text}`)),
+  ];
+}
+
+function scoreBadge(m) {
+  if (m.excluded) return h('span', { class: 'status' }, 'Ruled out');
+  if (m.score < MIN_SCORE) return h('span', { class: 'status' }, `Weak match, ${m.score}`);
+  return h('div', { class: 'score', 'aria-label': `Compatibility ${m.score} out of 100` },
+    h('span', { class: 'score__bar', 'aria-hidden': 'true' }, h('span', { style: `width:${m.score}%` })),
+    h('span', { class: 'score__num', 'aria-hidden': 'true' }, String(m.score)));
+}
+
+function shortlistButton(p, score, shortlisted) {
+  const on = shortlisted.has(String(p.id));
+  return h('button', { class: on ? 'btn btn--small' : 'btn btn--primary btn--small', type: 'button', id: `sl-${p.id}`, 'aria-pressed': String(on), onClick: () => toggleShortlist(p, score) }, on ? 'On the shortlist' : 'Add to shortlist');
+}
+
 function toggleShortlist(p, score) {
   const on = (buyer.shortlist || []).some((s) => String(s.propertyId) === String(p.id));
+  // A listing found on the web is not in the feed, so the shortlist keeps a copy of it.
+  const entry = { propertyId: p.id, addedAt: new Date().toISOString(), score, status: 'proposed', ...(p.source === 'web' ? { property: p } : {}) };
   save(() => updateBuyer(buyer.id, (b) => ({
     ...b,
-    shortlist: on ? b.shortlist.filter((s) => String(s.propertyId) !== String(p.id)) : [...(b.shortlist || []), { propertyId: p.id, addedAt: new Date().toISOString(), score, status: 'proposed' }],
+    shortlist: on ? b.shortlist.filter((s) => String(s.propertyId) !== String(p.id)) : [...(b.shortlist || []), entry],
   })), `sl-${p.id}`);
+}
+
+const listingLink = (p, text) => h('a', { href: p.url, target: '_blank', rel: 'noopener noreferrer' }, text, h('span', { class: 'visually-hidden' }, ' (opens in a new tab)'));
+
+// Web search: an AI agent looks for the draft brief on Italian property portals and brings back 5 to 10 listings,
+// scored like the matches above. Setup of the free search service: README, "Ricerca immobili sul web".
+const WEB_PROGRESS = {
+  search: (p) => `${p.round ? 'Not enough yet: searching more towns' : 'Searching the portals'} (${p.total} searches)…`,
+  open: (p) => `Opening ${p.total} pages of listings…`,
+  read: (p) => `Reading ${p.total} listings…`,
+  done: () => 'Scoring…',
+};
+
+function webPanel() {
+  const service = loadService();
+  const saved = buyer.webSearch;
+  const shortlisted = new Set((buyer.shortlist || []).map((s) => String(s.propertyId)));
+  const picked = saved ? pickCandidates(matchProperties(draft, saved.properties), { minScore: MIN_SCORE }) : [];
+  const strong = picked.filter((m) => m.score >= MIN_SCORE).length;
+
+  const item = (m) => {
+    const p = m.property;
+    return h('li', { class: 'match' },
+      h('div', { class: 'match__head' },
+        h('div', {},
+          h('p', { class: 'match__title' }, listingLink(p, p.title)),
+          h('p', { class: 'match__sub' }, [p.city, p.price != null ? formatEuro(p.price) : 'Price not read', p.surface ? `${p.surface} m²` : null, p.portal].filter(Boolean).join(' · '))),
+        scoreBadge(m)),
+      p.summary ? h('p', {}, p.summary) : null,
+      h('ul', { class: 'reasons' }, ...reasonItems(m)),
+      h('div', { class: 'match__actions' }, shortlistButton(p, m.score, shortlisted)));
+  };
+
+  let results = null;
+  if (saved) {
+    const partly = saved.stats.readByModel < saved.stats.read ? ' Some were read without the language model, so fewer details are known.' : '';
+    results = [
+      h('p', { class: 'hint' }, `Searched ${formatDate(saved.at, { dateStyle: 'medium', timeStyle: 'short' })}: ${saved.stats.searches} searches, ${saved.properties.length} listings read.${partly}${dirty ? ' Scored against the unsaved draft.' : ''}`),
+      saved.stats.errors?.length ? h('p', { class: 'note', role: 'note' }, `Part of the search failed, so this list may be incomplete: ${saved.stats.errors[0]}`) : null,
+      picked.length && strong < 5 ? h('p', { class: 'note', role: 'note' }, strong
+        ? `Only ${strong} of these fit the brief well; the others are the closest found. Widen the area or the budget for more.`
+        : 'None fits the brief well; these are the closest found. Widen the area or the budget for more.') : null,
+      picked.length
+        ? h('ol', { class: 'match-list' }, ...picked.map(item))
+        : h('p', { class: 'crit-empty' }, 'None of the listings found fits this brief. Widen the area or the budget and search again.'),
+      h('details', {}, h('summary', {}, 'What was searched'), h('ul', {}, ...saved.queries.map((q) => h('li', {}, q)))),
+    ];
+  }
+
+  const actions = h('div', { class: 'panel__actions' },
+    h('button', { class: 'btn btn--primary', type: 'button', id: 'web-run', disabled: web.running || !allCriteria(draft).length, onClick: runWebSearch }, web.running ? 'Searching…' : saved ? 'Search again' : 'Find 5 to 10 properties'),
+    h('button', { class: 'btn btn--quiet btn--small', type: 'button', disabled: web.running, onClick: () => { web.settings = true; render('web-endpoint'); } }, 'Change the search service'));
+
+  return h('section', { class: 'panel', 'aria-labelledby': 'web-title' },
+    h('h2', { id: 'web-title', tabindex: '-1' }, 'Found on the web'),
+    h('p', { class: 'panel__intro' }, "An AI agent turns the brief into searches on Italian property portals, reads the listings it finds and scores them with the same rules as the matches above, then keeps the best 5 to 10. They are other agencies' listings, and some details are only in the full ad: check each one before proposing it."),
+    !service || web.settings ? serviceForm(service) : actions,
+    h('p', { class: 'hint', id: 'web-progress', role: 'status' }, web.running ? web.progress : ''),
+    web.error ? h('p', { class: 'note', role: 'alert' }, web.error) : null,
+    results);
+}
+
+function serviceForm(service) {
+  const endpoint = h('input', { type: 'url', id: 'web-endpoint', name: 'endpoint', required: true, placeholder: 'https://oikos-web-search.example.workers.dev' });
+  const key = h('input', { type: 'password', id: 'web-key', name: 'key', required: true, autocomplete: 'off' });
+  endpoint.value = service?.endpoint || '';
+  key.value = service?.key || '';
+  const problem = h('p', { class: 'field-error', role: 'alert' });
+  const form = h('form', { class: 'form', id: 'web-service' },
+    h('div', { class: 'form-row form-row--2' },
+      h('div', { class: 'field' }, h('label', { for: 'web-endpoint' }, 'Search service address'), endpoint),
+      h('div', { class: 'field' }, h('label', { for: 'web-key' }, 'Access key'), key)),
+    h('p', { class: 'hint' }, 'The free service in the worker folder of the project; the README explains how to set it up. Address and key are kept in this browser only.'),
+    problem,
+    h('div', { class: 'form-actions' },
+      h('button', { class: 'btn', type: 'submit' }, 'Connect'),
+      service ? h('button', { class: 'btn btn--quiet', type: 'button', onClick: () => { web.settings = false; render('web-run'); } }, 'Cancel') : null));
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const next = { endpoint: endpoint.value.trim(), key: key.value.trim() };
+    const button = form.querySelector('[type="submit"]');
+    button.disabled = true;
+    problem.textContent = '';
+    try {
+      await serviceClient(next).status();
+    } catch (error) {
+      problem.textContent = `The service did not answer (${error.message}). Check the address and the key, and that this site is listed in ALLOWED_ORIGINS.`;
+      button.disabled = false;
+      return;
+    }
+    saveService(next);
+    web = { ...web, settings: false, error: '' };
+    render('web-run');
+  });
+  return form;
+}
+
+async function runWebSearch() {
+  const service = loadService();
+  if (!service || web.running) return;
+  web = { ...web, running: true, error: '', progress: 'Starting…' };
+  render('web-run');
+  const onProgress = (p) => {
+    web.progress = WEB_PROGRESS[p.step](p);
+    const el = document.getElementById('web-progress');
+    if (el) el.textContent = web.progress;
+  };
+  try {
+    const { properties: found, queries, stats } = await findOnWeb(draft, { ...serviceClient(service), minScore: MIN_SCORE, onProgress });
+    if (stats.failedSearches === stats.searches) throw new Error(stats.searchErrors[0] || 'no search answered');
+    const fit = pickCandidates(matchProperties(draft, found), { minScore: MIN_SCORE }).filter((m) => m.score >= MIN_SCORE).length;
+    web.running = false;
+    const errors = [...new Set([...stats.searchErrors, ...stats.modelErrors])].slice(0, 2);
+    const kept = { searches: stats.searches, listings: stats.listings, read: stats.read, readByModel: stats.readByModel, errors };
+    await save(async () => {
+      await updateBuyer(buyer.id, (b) => ({ ...b, webSearch: { at: new Date().toISOString(), queries, stats: kept, properties: found } }));
+      return addInteraction(buyer.id, { type: 'search', summary: `Web search: ${found.length} listings read on property portals, ${fit} fit the brief` });
+    }, 'web-title');
+  } catch (error) {
+    web = { ...web, running: false, error: `The search did not finish: ${error.message}.` };
+    render('web-run');
+  }
 }
 
 // Shortlist and feedback
 function shortlistPanel() {
   const list = buyer.shortlist || [];
   const items = list.map((s) => {
-    const p = properties.find((x) => String(x.id) === String(s.propertyId));
+    const p = properties.find((x) => String(x.id) === String(s.propertyId)) || s.property;
     const title = p ? p.title : `Property ${s.propertyId}`;
     const statusId = `sls-${s.propertyId}`;
     const feedback = (buyer.feedback || []).filter((f) => String(f.propertyId) === String(s.propertyId));
     return h('li', { class: 'match' },
       h('p', { class: 'match__title' }, title),
-      h('p', { class: 'match__sub' }, `Added ${formatDate(s.addedAt)}, score ${s.score}`),
+      h('p', { class: 'match__sub' }, `Added ${formatDate(s.addedAt)}, score ${s.score}`, p?.url ? [' · ', listingLink(p, `See it on ${p.portal}`)] : null),
       h('div', { class: 'match__actions' },
         h('label', { class: 'visually-hidden', for: statusId }, `Status of ${title}`),
         h('select', { id: statusId, onChange: (e) => save(() => updateBuyer(buyer.id, (b) => ({ ...b, shortlist: b.shortlist.map((x) => (String(x.propertyId) === String(s.propertyId) ? { ...x, status: e.target.value } : x)) })), statusId) },

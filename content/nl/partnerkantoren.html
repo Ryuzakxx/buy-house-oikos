@@ -1,0 +1,85 @@
+---
+id: partner-agencies
+short: Partnerkantoren
+crumb: Partnerkantoren
+title: Voor makelaars: deel je aanbod met buitenlandse kopers | Buy House in Italy
+description: Makelaarskantoren in Italië kunnen hun aanbod gratis delen met Buy House in Italy. Koopt een koper die wij hebben voorgesteld, dan deelt het kantoor zijn courtage.
+h1: Voor partnerkantoren
+lede: Onze kopers komen met een geschreven zoekprofiel en een budget. Heb jij het huis dat een van hen zoekt, dan willen we het hem laten zien.
+wrap: container
+js: partner
+---
+<div class="split partners">
+  <div class="prose">
+    <h2>Zo werkt de samenwerking</h2>
+    <ol>
+      <li><strong>Je deelt je aanbod,</strong> via je Apimo-account of een feed die we samen afspreken. Plaatsen is gratis en zonder exclusiviteit.</li>
+      <li><strong>Wij koppelen het aan de zoekprofielen van kopers.</strong> Je woningen komen naast het aanbod van Oikos in onze vergelijking. Ze verschijnen niet in een openbare catalogus: we laten ze alleen zien aan kopers bij wier zoekprofiel ze passen, en alleen met jouw toestemming.</li>
+      <li><strong>Wij stellen de koper voor.</strong> We leggen vast welke koper welke woning heeft gezien, en wanneer, zodat de introductie aan beide kanten is vastgelegd.</li>
+      <li><strong>Bij de overdracht deel je de courtage.</strong> Als een koper die wij hebben voorgesteld een van jouw woningen koopt, krijgen wij een deel van je courtage, als richtlijn 1% van de verkoopprijs. De precieze voorwaarden leggen we vóór elke introductie schriftelijk vast.</li>
+    </ol>
+
+    <h2>Wat het je oplevert</h2>
+    <ul>
+      <li>Kopers die al weten wat ze willen, met een geschreven zoekprofiel en een budget.</li>
+      <li>Het taalwerk wordt voor je gedaan: wij handelen de vragen van de koper af, de vertalingen en het overleg met zijn advocaat of vertaler.</li>
+      <li>Geen kosten zolang er geen verkoop is.</li>
+    </ul>
+
+    <h2>Wat we van je vragen</h2>
+    <ul>
+      <li>Juiste advertenties, en snelle updates als er op een woning een bod ligt of als ze verkocht is.</li>
+      <li>Tijd voor bezichtigingen, ter plaatse of via video.</li>
+      <li>De kadastrale en stedenbouwkundige documenten zodra een koper een bod wil doen.</li>
+    </ul>
+  </div>
+  <section aria-labelledby="partner-form-title">
+    <h2 id="partner-form-title">Partner worden</h2>
+    <form class="form" id="partner-form" novalidate>
+      <p class="form-status" id="partner-status" role="status" tabindex="-1"></p>
+      <div class="field">
+        <label for="pa-agency">Naam van het kantoor</label>
+        <input type="text" id="pa-agency" name="agency" autocomplete="organization" required aria-describedby="pa-agency-error">
+        <span class="field-error" id="pa-agency-error"></span>
+      </div>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="pa-name">Je naam</label>
+          <input type="text" id="pa-name" name="name" autocomplete="name" required aria-describedby="pa-name-error" placeholder="Je naam">
+          <span class="field-error" id="pa-name-error"></span>
+        </div>
+        <div class="field">
+          <label for="pa-email">E-mail</label>
+          <input type="email" id="pa-email" name="email" autocomplete="email" required aria-describedby="pa-email-error" placeholder="email@voorbeeld.nl">
+          <span class="field-error" id="pa-email-error"></span>
+        </div>
+      </div>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="pa-area">Plaats en provincie</label>
+          <input type="text" id="pa-area" name="area" required aria-describedby="pa-area-error">
+          <span class="field-error" id="pa-area-error"></span>
+        </div>
+        <div class="field">
+          <label for="pa-software">Software voor je aanbod</label>
+          <select id="pa-software" name="software">
+            <option value="apimo">Apimo</option>
+            <option value="other">Een ander systeem</option>
+            <option value="none">Geen</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="pa-message">Verder nog iets <span class="optional">(optioneel)</span></label>
+        <textarea id="pa-message" name="message" placeholder="Gebieden die je bedient, soorten woningen, talen die op je kantoor worden gesproken."></textarea>
+      </div>
+      <fieldset class="consents">
+        <legend>Toestemming</legend>
+        <label class="check"><input type="checkbox" name="consentProcessing" required aria-describedby="pa-consent-error"><span><strong>Verwerking van mijn gegevens (verplicht)</strong>Oikos Immobiliare mag deze gegevens gebruiken om contact met mij op te nemen over de samenwerking, zoals beschreven in het <a href="{{link id=privacy}}">privacybeleid</a>.</span></label>
+        <span class="field-error" id="pa-consent-error"></span>
+      </fieldset>
+      <div class="form-actions"><button class="btn btn--primary" type="submit">Aanvraag versturen</button></div>
+    </form>
+    <noscript><p class="noscript-note">In deze versie van de site heeft dit formulier JavaScript nodig.</p></noscript>
+  </section>
+</div>

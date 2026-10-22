@@ -1,0 +1,74 @@
+---
+id: contact
+schema: contact
+short: Kontakt
+crumb: Kontakt
+title: Kontakt zu Buy House in Italy
+description: Schreiben Sie uns zum Hauskauf in Italien oder zu einer bestimmten Immobilie, oder beginnen Sie mit dem geführten Interview oder einem Videogespräch.
+h1: Kontakt
+lede: Eine Frage zu einer Immobilie, zum Kaufablauf oder dazu, ob wir Ihnen bei der Suche helfen können. Schreiben Sie uns hier, wir antworten per E-Mail.
+wrap: container
+js: contact
+---
+<div class="split contact">
+  <div class="prose">
+    <h2>Andere Wege zum Start</h2>
+    <ul>
+      <li><a href="{{link id=start/chat}}">Der geführte Chat</a>: 18 Fragen, aus denen Ihr Briefing entsteht.</li>
+      <li><a href="{{link id=start/webcall}}">Ein Videogespräch</a> mit einer Beraterin oder einem Berater, zu einer Uhrzeit in Ihrer Zeitzone.</li>
+    </ul>
+    <h2>Oikos Immobiliare</h2>
+    <p><span class="ph">[REAL DATA: Adresse des Büros]</span></p>
+    <p><span class="ph">[REAL DATA: Telefon]</span></p>
+    <p><span class="ph">[REAL DATA: E-Mail]</span></p>
+    <p><span class="ph">[REAL DATA: Bürozeiten, italienische Zeit]</span></p>
+  </div>
+  <form class="form" id="contact-form" novalidate>
+    <p class="form-status" id="contact-status" role="status" tabindex="-1"></p>
+    <div class="form-row form-row--2">
+      <div class="field">
+        <label for="ct-name">Name</label>
+        <input type="text" id="ct-name" name="name" autocomplete="name" required aria-describedby="ct-name-error" placeholder="Ihr Name">
+        <span class="field-error" id="ct-name-error"></span>
+      </div>
+      <div class="field">
+        <label for="ct-email">E-Mail</label>
+        <input type="email" id="ct-email" name="email" autocomplete="email" required aria-describedby="ct-email-error" placeholder="email@beispiel.de">
+        <span class="field-error" id="ct-email-error"></span>
+      </div>
+    </div>
+    <div class="form-row form-row--2">
+      <div class="field">
+        <label for="ct-country">Land, in dem Sie leben</label>
+        <input type="text" id="ct-country" name="country" autocomplete="country-name" aria-describedby="ct-country-error" required>
+        <span class="field-error" id="ct-country-error"></span>
+      </div>
+      <div class="field">
+        <label for="ct-subject">Worum geht es</label>
+        <select id="ct-subject" name="subject">
+          <option value="search">Eine Suche beginnen</option>
+          <option value="property">Ein Inserat, das ich gesehen habe</option>
+          <option value="process">Der Kaufablauf</option>
+          <option value="other">Etwas anderes</option>
+        </select>
+      </div>
+    </div>
+    <div class="field" id="ct-property-field">
+      <label for="ct-property">Link oder Referenz des Inserats <span class="optional">(optional)</span></label>
+      <input type="text" id="ct-property" name="property" placeholder="Link oder Referenz einfügen">
+    </div>
+    <div class="field">
+      <label for="ct-message">Nachricht</label>
+      <textarea id="ct-message" name="message" required aria-describedby="ct-message-error" placeholder="Sagen Sie uns, was Sie suchen oder was Sie wissen möchten."></textarea>
+      <span class="field-error" id="ct-message-error"></span>
+    </div>
+    <fieldset class="consents">
+      <legend>Ihre Einwilligungen</legend>
+      <label class="check"><input type="checkbox" name="consentProcessing" required aria-describedby="ct-consent-error"><span><strong>Verarbeitung meiner Daten (erforderlich)</strong>Oikos Immobiliare darf diese Angaben verwenden, um mir zu antworten, wie in der <a href="{{link id=privacy}}">Datenschutzerklärung</a> beschrieben.</span></label>
+      <span class="field-error" id="ct-consent-error"></span>
+      <label class="check"><input type="checkbox" name="consentMarketing"><span><strong>Neuigkeiten und neue Immobilien per E-Mail (optional)</strong>Gelegentliche E-Mails. Abmeldung jederzeit möglich.</span></label>
+    </fieldset>
+    <div class="form-actions"><button class="btn btn--primary" type="submit">Nachricht senden</button></div>
+  </form>
+  <noscript><p class="noscript-note">Dieses Formular braucht in dieser Version der Website JavaScript.</p></noscript>
+</div>

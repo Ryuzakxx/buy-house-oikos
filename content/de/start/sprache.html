@@ -1,0 +1,26 @@
+---
+id: start/voice
+parent: start
+title: Sprachinterview | Buy House in Italy
+description: Beantworten Sie unsere Fragen zum Haus, das Sie in Italien suchen, mündlich. Das Transkript erscheint auf dem Bildschirm, damit Sie es korrigieren können.
+h1: Sprachinterview
+crumb: Sprachinterview
+lede: Wir lesen jede Frage vor; Sie antworten mündlich. Prüfen Sie das Transkript auf dem Bildschirm, korrigieren Sie es bei Bedarf und sagen Sie uns dann, wie wichtig die Antwort ist.
+noCtaBar: yes
+wrap: container
+css: start
+js: voice
+---
+<div class="voice-intro" id="voice-intro">
+  <h2>Bevor Sie beginnen</h2>
+  <ul>
+    <li>Die Spracheingabe funktioniert in Chrome, Edge und Safari. In anderen Browsern bringen wir Sie zum geführten Chat mit denselben Fragen.</li>
+    <li>Der Sprachdienst Ihres Browsers macht aus dem, was Sie sagen, Text. In Chrome wird der Ton auf Servern von Google verarbeitet, Safari nutzt die von Apple. Wir erhalten nur den Text.</li>
+    <li>Ihr Browser fragt nach der Erlaubnis, das Mikrofon zu verwenden.</li>
+    <li>Sie können jederzeit zum Tippen wechseln. Gesprochene Antworten bleiben erhalten.</li>
+  </ul>
+</div>
+<div class="interview" id="interview" data-mode="voice">
+  <p class="interview__loading" id="interview-loading" role="status">Wir prüfen, ob dieser Browser Spracheingabe unterstützt…</p>
+  <noscript><p class="noscript-note">Das Sprachinterview braucht JavaScript. Sie können stattdessen <a href="{{link id=start/webcall}}">ein Videogespräch buchen</a> oder uns über die <a href="{{link id=contact}}">Kontaktseite</a> schreiben.</p></noscript>
+</div>

@@ -1,0 +1,104 @@
+---
+id: start/webcall
+parent: start
+title: Réserver un appel vidéo avec un conseiller | Buy House in Italy
+description: Réservez un appel vidéo sur l'achat d'une maison en Italie. Choisissez une heure dans votre fuseau horaire et votre langue. Enregistrement seulement avec votre accord.
+h1: Réserver un appel vidéo
+crumb: Appel vidéo
+lede: Choisissez un jour et une heure dans votre fuseau horaire. Un conseiller passera en revue avec vous ce que vous cherchez et rédigera votre cahier des charges à partir de la conversation.
+noCtaBar: yes
+wrap: container
+css: start
+js: webcall
+---
+<div class="booking">
+  <form class="form" id="webcall-form" novalidate>
+    <p class="form-status" id="webcall-status" role="status" tabindex="-1"></p>
+
+    <fieldset>
+      <legend>Quand</legend>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="wc-date">Jour</label>
+          <input type="date" id="wc-date" name="date" required aria-describedby="wc-date-hint wc-date-error">
+          <span class="hint" id="wc-date-hint">Du lundi au vendredi.</span>
+          <span class="field-error" id="wc-date-error"></span>
+        </div>
+        <div class="field">
+          <label for="wc-time">Heure</label>
+          <select id="wc-time" name="time" required aria-describedby="wc-time-hint wc-time-error" disabled>
+            <option value="">Choisissez d'abord un jour</option>
+          </select>
+          <span class="hint" id="wc-time-hint">Affichée dans votre fuseau horaire : <strong id="wc-tz-label">détection…</strong></span>
+          <span class="field-error" id="wc-time-error"></span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="wc-tz">Votre fuseau horaire</label>
+        <select id="wc-tz" name="timeZone" aria-describedby="wc-tz-hint"></select>
+        <span class="hint" id="wc-tz-hint">Détecté depuis votre appareil. Changez-le si vous ferez l'appel depuis un autre endroit.</span>
+      </div>
+      <p class="hint">Dans cette démo, les créneaux disponibles vont de 9 h à 17 h 30, heure italienne, en semaine. En conditions réelles, ils viennent des agendas des conseillers.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>À propos de vous</legend>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="wc-name">Nom</label>
+          <input type="text" id="wc-name" name="name" autocomplete="name" required aria-describedby="wc-name-error" placeholder="Votre nom">
+          <span class="field-error" id="wc-name-error"></span>
+        </div>
+        <div class="field">
+          <label for="wc-email">E-mail</label>
+          <input type="email" id="wc-email" name="email" autocomplete="email" required aria-describedby="wc-email-error" placeholder="email@exemple.fr">
+          <span class="field-error" id="wc-email-error"></span>
+        </div>
+      </div>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="wc-phone">Téléphone <span class="optional">(facultatif)</span></label>
+          <input type="tel" id="wc-phone" name="phone" autocomplete="tel" aria-describedby="wc-phone-hint">
+          <span class="hint" id="wc-phone-hint">Avec l'indicatif du pays, au cas où le lien vidéo ne fonctionnerait pas.</span>
+        </div>
+        <div class="field">
+          <label for="wc-country">Pays où vous vivez</label>
+          <input type="text" id="wc-country" name="country" autocomplete="country-name" required list="country-list" aria-describedby="wc-country-error">
+          <datalist id="country-list">
+            <option value="France"><option value="Belgique"><option value="Suisse"><option value="Luxembourg"><option value="Canada"><option value="États-Unis"><option value="Royaume-Uni"><option value="Allemagne"><option value="Pays-Bas"><option value="Autriche"><option value="Suède"><option value="Norvège"><option value="Danemark"><option value="Australie"><option value="Espagne"><option value="Irlande">
+          </datalist>
+          <span class="field-error" id="wc-country-error"></span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="wc-language">Langue de l'appel</label>
+        <select id="wc-language" name="language" required>
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="nl">Nederlands</option>
+          <option value="es">Español</option>
+          <option value="it">Italiano</option>
+        </select>
+        <span class="hint">Nous vous confirmerons par e-mail quel conseiller peut faire l'appel dans cette langue.</span>
+      </div>
+      <div class="field">
+        <label for="wc-notes">Quelque chose à savoir avant l'appel ? <span class="optional">(facultatif)</span></label>
+        <textarea id="wc-notes" name="notes" placeholder="Zones envisagées, calendrier, qui achète avec vous…"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset class="consents">
+      <legend>Vos consentements</legend>
+      <label class="check"><input type="checkbox" name="consentProcessing" required aria-describedby="wc-consent-error"><span><strong>Traitement de mes données (obligatoire)</strong>Oikos Immobiliare peut utiliser ces informations pour organiser l'appel et chercher un bien pour moi, comme décrit dans la <a href="{{link id=privacy}}">politique de confidentialité</a>.</span></label>
+      <span class="field-error" id="wc-consent-error"></span>
+      <label class="check"><input type="checkbox" name="consentRecording"><span><strong>Enregistrement et transcription de l'appel (facultatif)</strong>L'appel est enregistré et transcrit pour que le conseiller rédige mon cahier des charges à partir de lui. Sans cela, le conseiller prend des notes à la main.</span></label>
+      <label class="check"><input type="checkbox" name="consentMarketing"><span><strong>Actualités et nouveaux biens par e-mail (facultatif)</strong>E-mails occasionnels sur les biens et l'achat en Italie. Désinscription à tout moment.</span></label>
+    </fieldset>
+
+    <div class="form-actions">
+      <button class="btn btn--primary" type="submit">Réserver l'appel</button>
+    </div>
+  </form>
+  <noscript><p class="noscript-note">Dans cette version du site, la réservation nécessite JavaScript. Vous pouvez aussi nous écrire depuis la <a href="{{link id=contact}}">page contact</a>.</p></noscript>
+</div>

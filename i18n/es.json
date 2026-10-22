@@ -158,6 +158,172 @@
     "home": "Ir al inicio"
   },
   "noscript": "Esta parte de la página necesita JavaScript.",
+  "italy": {
+    "heading": "Regiones de Italia",
+    "legend": "Guía de compra en esta web",
+    "listLabel": "Todas las regiones",
+    "listGuide": "guía de compra en esta web",
+    "tag": "guía",
+    "groups": {
+      "north": "Norte",
+      "centre": "Centro",
+      "south": "Sur e islas"
+    },
+    "capital": "Capital regional",
+    "airports": "Aeropuertos más cercanos",
+    "homes": "Viviendas típicas",
+    "noGuide": "Todavía no tenemos guía de esta región, pero es tu encargo el que decide dónde buscamos.",
+    "brief": "Dinos qué buscas aquí",
+    "guideLink": "Leer la guía de compra",
+    "regions": {
+      "piemonte": {
+        "name": "Piamonte",
+        "text": "Los Alpes por tres lados y colinas de viñedos al sur: las Langhe, el Roero y el Monferrato. La orilla oeste del lago Mayor y el lago de Orta también están aquí.",
+        "capital": "Turín",
+        "airports": "Turín (TRN); Milán Malpensa (MXP) para los lagos",
+        "homes": "Casas de campo entre viñedos, villas en los lagos, casas de montaña"
+      },
+      "valle-d-aosta": {
+        "name": "Valle de Aosta",
+        "text": "La región más pequeña de Italia, en lo alto de los Alpes, bajo el Mont Blanc, el Monte Rosa y el Cervino. El francés es lengua oficial junto al italiano.",
+        "capital": "Aosta",
+        "airports": "Turín (TRN), Milán Malpensa (MXP), Ginebra (GVA)",
+        "homes": "Chalés y pisos en estaciones de esquí como Courmayeur y Cervinia, casas de piedra en los valles laterales"
+      },
+      "lombardia": {
+        "name": "Lombardía",
+        "text": "Milán y los lagos: Como, Iseo, la orilla este del lago Mayor y la orilla oeste del lago de Garda, con los Alpes al norte.",
+        "capital": "Milán",
+        "airports": "Milán Malpensa (MXP), Milán Linate (LIN), Bérgamo (BGY)",
+        "homes": "Villas y pisos en los lagos, pisos en Milán, chalés en la Valtellina",
+        "guide": "Leer la guía del lago de Como"
+      },
+      "trentino-alto-adige": {
+        "name": "Trentino-Alto Adigio",
+        "text": "Dos provincias autónomas en los Dolomitas, Trento y Bolzano. En el Alto Adigio la mayoría habla alemán, y el extremo norte del lago de Garda está en el Trentino.",
+        "capital": "Trento",
+        "airports": "Verona (VRN), Innsbruck (INN) en Austria",
+        "homes": "Pisos y chalés en la montaña, casas en el lago de Garda alrededor de Riva"
+      },
+      "veneto": {
+        "name": "Véneto",
+        "text": "De los Dolomitas de Cortina a Venecia y su laguna, con la orilla este del lago de Garda, las villas de Palladio y las colinas del prosecco en medio.",
+        "capital": "Venecia",
+        "airports": "Venecia (VCE), Treviso (TSF), Verona (VRN)",
+        "homes": "Pisos en Venecia y Verona, villas de campo, casas en el lago y en la montaña"
+      },
+      "friuli-venezia-giulia": {
+        "name": "Friuli-Venecia Julia",
+        "text": "La esquina noreste, entre Austria, Eslovenia y el Adriático: Trieste, las colinas de viñedos del Collio y las playas de Grado y Lignano.",
+        "capital": "Trieste",
+        "airports": "Trieste (TRS); Venecia (VCE) también queda a mano",
+        "homes": "Pisos en Trieste y Udine, casas de campo entre viñedos, pisos junto al mar"
+      },
+      "liguria": {
+        "name": "Liguria",
+        "text": "Un arco estrecho de costa entre Francia y la Toscana, con colinas empinadas en terrazas detrás: la Riviera, Portofino y las Cinque Terre.",
+        "capital": "Génova",
+        "airports": "Génova (GOA); Niza (NCE) para la Riviera occidental, Pisa (PSA) para el extremo oriental",
+        "homes": "Pisos en pueblos con puerto, casas en pueblos de colina con vistas al mar",
+        "guide": "Leer la guía de Liguria"
+      },
+      "emilia-romagna": {
+        "name": "Emilia-Romaña",
+        "text": "Bolonia, Parma y Módena en la llanura, pueblos de los Apeninos al sur y las playas del Adriático alrededor de Rímini.",
+        "capital": "Bolonia",
+        "airports": "Bolonia (BLQ), Rímini (RMI)",
+        "homes": "Pisos en la ciudad, casas de campo en las colinas, pisos junto al mar"
+      },
+      "toscana": {
+        "name": "Toscana",
+        "text": "Florencia, Siena y Lucca, las colinas del Chianti y del Val d'Orcia, y una larga costa de la Versilia a la Maremma, con la isla de Elba.",
+        "capital": "Florencia",
+        "airports": "Pisa (PSA), Florencia (FLR)",
+        "homes": "Casas de campo de piedra, villas, pisos en ciudades históricas",
+        "guide": "Leer la guía de la Toscana"
+      },
+      "umbria": {
+        "name": "Umbría",
+        "text": "Verde y sin costa, entre la Toscana, el Lacio y las Marcas: Perugia, Asís, Orvieto y el lago Trasimeno.",
+        "capital": "Perugia",
+        "airports": "Perugia (PEG); Roma Fiumicino (FCO) tiene más conexiones",
+        "homes": "Casas de campo de piedra, casas en pueblos de colina"
+      },
+      "marche": {
+        "name": "Marcas",
+        "text": "Colinas que bajan de los Apeninos al Adriático, con Urbino, Ascoli Piceno y la costa del Conero junto a Ancona.",
+        "capital": "Ancona",
+        "airports": "Ancona (AOI)",
+        "homes": "Casas de campo, casas en pueblos de colina, pisos junto al mar"
+      },
+      "lazio": {
+        "name": "Lacio",
+        "text": "Roma y, a su alrededor, los lagos de Bolsena y Bracciano, las colinas de la Tuscia cerca de Viterbo y una costa que baja hasta Sperlonga y Gaeta.",
+        "capital": "Roma",
+        "airports": "Roma Fiumicino (FCO), Roma Ciampino (CIA)",
+        "homes": "Pisos en Roma, casas de campo en la Tuscia y la Sabina, casas junto al mar"
+      },
+      "abruzzo": {
+        "name": "Abruzos",
+        "text": "Montañas y parques nacionales a poca distancia de las playas del Adriático, con Pescara en la costa y pueblos de piedra en el interior.",
+        "capital": "L'Aquila",
+        "airports": "Pescara (PSR); Roma Fiumicino (FCO) tiene más conexiones",
+        "homes": "Casas en pueblos de colina y de montaña, a menudo para reformar, y pisos en la costa"
+      },
+      "molise": {
+        "name": "Molise",
+        "text": "Una de las regiones más pequeñas de Italia: pueblos tranquilos de colina entre los Apeninos y un tramo corto de costa adriática en Termoli.",
+        "capital": "Campobasso",
+        "airports": "Ninguno en la región: Pescara (PSR), Nápoles (NAP) o Bari (BRI)",
+        "homes": "Casas en pueblos de colina"
+      },
+      "campania": {
+        "name": "Campania",
+        "text": "Nápoles y su golfo, Sorrento y la costa de Amalfi, las islas de Capri e Ischia y, más al sur, el Cilento.",
+        "capital": "Nápoles",
+        "airports": "Nápoles (NAP), Salerno (QSR)",
+        "homes": "Pisos con vistas al mar, casas en las islas y en el Cilento"
+      },
+      "puglia": {
+        "name": "Apulia",
+        "text": "El tacón de Italia, con costa en dos mares, olivares, los trulli del valle de Itria y el Salento en la punta.",
+        "capital": "Bari",
+        "airports": "Bari (BRI), Brindisi (BDS)",
+        "homes": "Trulli, masserie, casas en los pueblos blancos",
+        "guide": "Leer la guía de Apulia"
+      },
+      "basilicata": {
+        "name": "Basilicata",
+        "text": "Entre Apulia y Calabria: los Sassi de Matera, las montañas del Pollino y dos costas cortas, Maratea en el Tirreno y Metaponto en el Jónico.",
+        "capital": "Potenza",
+        "airports": "Ninguno en la región: Bari (BRI) o Nápoles (NAP)",
+        "homes": "Casas en Matera y en los pueblos del interior, pisos junto al mar en Maratea"
+      },
+      "calabria": {
+        "name": "Calabria",
+        "text": "La punta de la bota, casi todo costa y montañas: Tropea y la Costa degli Dei en el lado del Tirreno, la Sila y el Aspromonte en el interior.",
+        "capital": "Catanzaro",
+        "airports": "Lamezia Terme (SUF), Reggio Calabria (REG), Crotone (CRV)",
+        "homes": "Pisos y villas junto al mar"
+      },
+      "sicilia": {
+        "name": "Sicilia",
+        "text": "La isla más grande del Mediterráneo: Palermo, Catania y el Etna, las ciudades barrocas del sureste e islas menores como las Eolias.",
+        "capital": "Palermo",
+        "airports": "Palermo (PMO), Catania (CTA), Trapani (TPS), Comiso (CIY)",
+        "homes": "Casas en cascos históricos, villas junto al mar, casas de campo",
+        "guide": "Leer la guía de Sicilia"
+      },
+      "sardegna": {
+        "name": "Cerdeña",
+        "text": "La segunda isla del Mediterráneo, con costas de granito y agua transparente: la Costa Esmeralda al noreste, Alghero al noroeste, Cagliari al sur.",
+        "capital": "Cagliari",
+        "airports": "Cagliari (CAG), Olbia (OLB), Alghero (AHO)",
+        "homes": "Villas y pisos cerca de las playas, stazzi (casas de campo) en la Gallura",
+        "guide": "Leer la guía de Cerdeña"
+      }
+    }
+  },
   "pages": {
     "services": {
       "label": "Servicios"

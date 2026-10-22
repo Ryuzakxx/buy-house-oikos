@@ -63,7 +63,7 @@ export function describeCriterion(c) {
 export function propertyValueText(key, p) {
   const yesNo = (v) => (v == null ? 'unknown' : v ? 'yes' : 'no');
   switch (key) {
-    case 'region': return REGION_LABELS[p.region] || p.region || 'unknown';
+    case 'region': return REGION_LABELS[p.region] || p.region?.replace(/^other:/, '') || 'unknown';
     case 'price': return p.price == null ? 'price on request' : formatEuro(p.price);
     case 'type': return TYPE_LABELS[p.type] || p.type || 'unknown';
     case 'bedrooms': return p.bedrooms == null ? 'unknown' : `${p.bedrooms}`;

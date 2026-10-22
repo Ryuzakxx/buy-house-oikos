@@ -158,6 +158,172 @@
     "home": "Naar de startpagina"
   },
   "noscript": "Dit deel van de pagina heeft JavaScript nodig.",
+  "italy": {
+    "heading": "Regio's van Italië",
+    "legend": "Koopgids op deze site",
+    "listLabel": "Alle regio's",
+    "listGuide": "koopgids op deze site",
+    "tag": "gids",
+    "groups": {
+      "north": "Noord",
+      "centre": "Midden",
+      "south": "Zuid en eilanden"
+    },
+    "capital": "Hoofdstad van de regio",
+    "airports": "Dichtstbijzijnde vliegvelden",
+    "homes": "Typische woningen",
+    "noGuide": "Voor deze regio hebben we nog geen gids, maar jouw zoekprofiel bepaalt waar we zoeken.",
+    "brief": "Vertel ons wat je hier zoekt",
+    "guideLink": "Lees de koopgids",
+    "regions": {
+      "piemonte": {
+        "name": "Piëmont",
+        "text": "De Alpen aan drie kanten en wijnheuvels in het zuiden: de Langhe, de Roero en de Monferrato. Ook de westoever van het Lago Maggiore en het Ortameer liggen hier.",
+        "capital": "Turijn",
+        "airports": "Turijn (TRN); voor de meren Milaan Malpensa (MXP)",
+        "homes": "Boerderijen tussen de wijngaarden, villa's aan de meren, huizen in de bergen"
+      },
+      "valle-d-aosta": {
+        "name": "Valle d'Aosta",
+        "text": "De kleinste regio van Italië, hoog in de Alpen onder de Mont Blanc, de Monte Rosa en de Matterhorn. Frans is er naast Italiaans officiële taal.",
+        "capital": "Aosta",
+        "airports": "Turijn (TRN), Milaan Malpensa (MXP), Genève (GVA)",
+        "homes": "Chalets en appartementen in skidorpen als Courmayeur en Cervinia, stenen huizen in de zijdalen"
+      },
+      "lombardia": {
+        "name": "Lombardije",
+        "text": "Milaan en de meren: het Comomeer, het Iseomeer, de oostoever van het Lago Maggiore en de westoever van het Gardameer, met de Alpen in het noorden.",
+        "capital": "Milaan",
+        "airports": "Milaan Malpensa (MXP), Milaan Linate (LIN), Bergamo (BGY)",
+        "homes": "Villa's en appartementen aan de meren, appartementen in Milaan, chalets in de Valtellina",
+        "guide": "Lees de gids over het Comomeer"
+      },
+      "trentino-alto-adige": {
+        "name": "Trentino-Zuid-Tirol",
+        "text": "Twee autonome provincies in de Dolomieten, Trente en Bolzano. In Zuid-Tirol spreekt de meerderheid Duits, en de noordpunt van het Gardameer ligt in Trentino.",
+        "capital": "Trente",
+        "airports": "Verona (VRN), Innsbruck (INN) in Oostenrijk",
+        "homes": "Appartementen en chalets in de bergen, huizen aan het Gardameer rond Riva"
+      },
+      "veneto": {
+        "name": "Veneto",
+        "text": "Van de Dolomieten rond Cortina tot Venetië en de lagune, met daartussen de oostoever van het Gardameer, de villa's van Palladio en de proseccoheuvels.",
+        "capital": "Venetië",
+        "airports": "Venetië (VCE), Treviso (TSF), Verona (VRN)",
+        "homes": "Appartementen in Venetië en Verona, landhuizen, huizen aan het meer en in de bergen"
+      },
+      "friuli-venezia-giulia": {
+        "name": "Friuli-Venezia Giulia",
+        "text": "De noordoostelijke hoek, tussen Oostenrijk, Slovenië en de Adriatische Zee: Triëst, de wijnheuvels van de Collio en de stranden van Grado en Lignano.",
+        "capital": "Triëst",
+        "airports": "Triëst (TRS); ook Venetië (VCE) is goed bereikbaar",
+        "homes": "Appartementen in Triëst en Udine, landhuizen tussen de wijngaarden, appartementen aan zee"
+      },
+      "liguria": {
+        "name": "Ligurië",
+        "text": "Een smalle kustboog tussen Frankrijk en Toscane, met steile terrasheuvels erachter: de Riviera, Portofino en de Cinque Terre.",
+        "capital": "Genua",
+        "airports": "Genua (GOA); Nice (NCE) voor de westelijke Riviera, Pisa (PSA) voor het oostelijke deel",
+        "homes": "Appartementen in havenstadjes, huizen in heuveldorpen met zeezicht",
+        "guide": "Lees de gids over Ligurië"
+      },
+      "emilia-romagna": {
+        "name": "Emilia-Romagna",
+        "text": "Bologna, Parma en Modena in de vlakte, dorpen in de Apennijnen in het zuiden en de Adriatische stranden rond Rimini.",
+        "capital": "Bologna",
+        "airports": "Bologna (BLQ), Rimini (RMI)",
+        "homes": "Appartementen in de stad, boerderijen in de heuvels, appartementen aan zee"
+      },
+      "toscana": {
+        "name": "Toscane",
+        "text": "Florence, Siena en Lucca, de heuvels van de Chianti en de Val d'Orcia, en een lange kust van de Versilia tot de Maremma, met het eiland Elba.",
+        "capital": "Florence",
+        "airports": "Pisa (PSA), Florence (FLR)",
+        "homes": "Stenen boerderijen, villa's, appartementen in historische steden",
+        "guide": "Lees de gids over Toscane"
+      },
+      "umbria": {
+        "name": "Umbrië",
+        "text": "Groen en zonder kust, tussen Toscane, Lazio en de Marche: Perugia, Assisi, Orvieto en het Trasimeense Meer.",
+        "capital": "Perugia",
+        "airports": "Perugia (PEG); Rome Fiumicino (FCO) heeft meer verbindingen",
+        "homes": "Stenen boerderijen op het platteland, huizen in heuvelstadjes"
+      },
+      "marche": {
+        "name": "Marche",
+        "text": "Heuvels die van de Apennijnen naar de Adriatische Zee lopen, met Urbino, Ascoli Piceno en de Conerokust bij Ancona.",
+        "capital": "Ancona",
+        "airports": "Ancona (AOI)",
+        "homes": "Boerderijen op het platteland, huizen in heuveldorpen, appartementen aan zee"
+      },
+      "lazio": {
+        "name": "Lazio",
+        "text": "Rome, en daaromheen het meer van Bolsena en het meer van Bracciano, de heuvels van de Tuscia bij Viterbo en een kust die zuidwaarts loopt tot Sperlonga en Gaeta.",
+        "capital": "Rome",
+        "airports": "Rome Fiumicino (FCO), Rome Ciampino (CIA)",
+        "homes": "Appartementen in Rome, landhuizen in de Tuscia en de Sabina, huizen aan zee"
+      },
+      "abruzzo": {
+        "name": "Abruzzen",
+        "text": "Bergen en nationale parken op korte afstand van de Adriatische stranden, met Pescara aan de kust en stenen dorpen in het binnenland.",
+        "capital": "L'Aquila",
+        "airports": "Pescara (PSR); Rome Fiumicino (FCO) heeft meer verbindingen",
+        "homes": "Huizen in heuvel- en bergdorpen, vaak op te knappen, en appartementen aan de kust"
+      },
+      "molise": {
+        "name": "Molise",
+        "text": "Een van de kleinste regio's van Italië: rustige heuveldorpen tussen de Apennijnen en een kort stuk Adriatische kust bij Termoli.",
+        "capital": "Campobasso",
+        "airports": "Geen in de regio: Pescara (PSR), Napels (NAP) of Bari (BRI)",
+        "homes": "Huizen in heuveldorpen"
+      },
+      "campania": {
+        "name": "Campanië",
+        "text": "Napels en zijn baai, Sorrento en de Amalfikust, de eilanden Capri en Ischia en verder naar het zuiden de Cilento.",
+        "capital": "Napels",
+        "airports": "Napels (NAP), Salerno (QSR)",
+        "homes": "Appartementen met zeezicht, huizen op de eilanden en in de Cilento"
+      },
+      "puglia": {
+        "name": "Apulië",
+        "text": "De hak van Italië, met kust aan twee zeeën, olijfgaarden, de trulli van de Valle d'Itria en de Salento op de punt.",
+        "capital": "Bari",
+        "airports": "Bari (BRI), Brindisi (BDS)",
+        "homes": "Trulli, masserie, huizen in de witte stadjes",
+        "guide": "Lees de gids over Apulië"
+      },
+      "basilicata": {
+        "name": "Basilicata",
+        "text": "Tussen Apulië en Calabrië: de Sassi van Matera, de bergen van de Pollino en twee korte kusten, Maratea aan de Tyrreense en Metaponto aan de Ionische Zee.",
+        "capital": "Potenza",
+        "airports": "Geen in de regio: Bari (BRI) of Napels (NAP)",
+        "homes": "Huizen in Matera en de stadjes in het binnenland, appartementen aan zee in Maratea"
+      },
+      "calabria": {
+        "name": "Calabrië",
+        "text": "De punt van de laars, bijna alleen kust en bergen: Tropea en de Costa degli Dei aan de Tyrreense kant, de Sila en de Aspromonte in het binnenland.",
+        "capital": "Catanzaro",
+        "airports": "Lamezia Terme (SUF), Reggio Calabria (REG), Crotone (CRV)",
+        "homes": "Appartementen en villa's aan zee"
+      },
+      "sicilia": {
+        "name": "Sicilië",
+        "text": "Het grootste eiland van de Middellandse Zee: Palermo, Catania en de Etna, de barokstadjes in het zuidoosten en kleinere eilanden zoals de Eolische Eilanden.",
+        "capital": "Palermo",
+        "airports": "Palermo (PMO), Catania (CTA), Trapani (TPS), Comiso (CIY)",
+        "homes": "Stadshuizen in historische centra, villa's aan zee, landhuizen",
+        "guide": "Lees de gids over Sicilië"
+      },
+      "sardegna": {
+        "name": "Sardinië",
+        "text": "Het op een na grootste eiland van de Middellandse Zee, met granieten kusten en helder water: de Costa Smeralda in het noordoosten, Alghero in het noordwesten, Cagliari in het zuiden.",
+        "capital": "Cagliari",
+        "airports": "Cagliari (CAG), Olbia (OLB), Alghero (AHO)",
+        "homes": "Villa's en appartementen bij de stranden, stazzi (landhuizen) in de Gallura",
+        "guide": "Lees de gids over Sardinië"
+      }
+    }
+  },
   "pages": {
     "services": {
       "label": "Diensten"

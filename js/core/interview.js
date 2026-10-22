@@ -176,19 +176,64 @@ const SPOKEN = {
     synonyms: { 'lake-como': ['como', 'lago'], farmhouse: ['masseria', 'trull', 'casale', 'campagna'], apartment: ['appartament'], townhouse: ['centro storico', 'casa in centro'], rustic: ['rudere', 'rustico'], 'move-in': ['pronta', 'abitabile', 'subito'], 'light-refresh': ['rinfresc', 'piccoli lavori', 'ritocc'], renovation: ['ristruttur'], restoration: ['restaur'], holiday: ['vacanz'], residence: ['trasferi', 'principale'], rental: ['affitt'], investment: ['investiment'] },
     priority: [['dealbreaker', /da escludere|escluder|non negoziabil|tassativ|irrinunciabil/], ['nice', /gradit|sarebbe bello|bonus|preferibil|se possibile|magari/], ['must', /indispensabil|important|fondamental|necessari|deve/]],
   },
+  // From here on, "stop" lists the words of the answer labels that say nothing about the answer (articles,
+  // "at least", "months"...), so they cannot match a spoken sentence that merely contains them.
+  de: {
+    numbers: { zwei: 2, drei: 3, vier: 4, fünf: 5, sechs: 6, sieben: 7, acht: 8, neun: 9, zehn: 10, eins: 1, ein: 1, eine: 1 },
+    any: /egal|ist mir gleich|nicht wichtig|nicht nötig|keine präferenz|beliebig|spielt keine rolle/,
+    walk: /zu fuß|fußläufig|laufen|spazier/, hectare: /hektar/, space: /platz|nachrüst|anlegen|bauen|möglichkeit/,
+    yes: /(^|\s)ja(\s|$|[,.!])|pool|blick|gerne|unbedingt|natürlich|auf jeden fall/,
+    negative: /(^|\s)(nein|nicht|kein|keine|keinen|ohne|nie)(\s|$|[,.!])/,
+    synonyms: { puglia: ['puglia'], tuscany: ['toscana'], sicily: ['sicilia'], 'lake-como': ['comer see', 'comersee', 'como'], liguria: ['liguria'], sardinia: ['sardegna'], farmhouse: ['bauernhaus', 'landhaus', 'masseria', 'trull', 'gehöft'], apartment: ['wohnung', 'apartment'], townhouse: ['stadthaus', 'altstadt'], rustic: ['ruine', 'rustico'], 'move-in': ['bezugsfertig', 'sofort', 'einziehen'], 'light-refresh': ['auffrisch', 'kleine arbeiten', 'kleinigkeiten'], renovation: ['renovier', 'umbau'], restoration: ['restaurier', 'kernsanier'], holiday: ['urlaub', 'ferien'], residence: ['umzug', 'hauptwohnsitz', 'auswander'], rental: ['vermiet', 'miete'], investment: ['investition', 'anlage'] },
+    stop: ['eine', 'einen', 'einem', 'einer', 'oder', 'nach', 'noch', 'nicht', 'mehr', 'etwa', 'mindestens', 'braucht', 'muss', 'werden', 'möchte', 'italien', 'innerhalb', 'monaten'],
+    priority: [['dealbreaker', /ausschluss|auf keinen fall|kommt nicht in frage|nicht verhandelbar/], ['nice', /wäre schön|schön wäre|bonus|vorzugsweise|wenn möglich/], ['must', /muss|wichtig|unbedingt|unverzichtbar|notwendig|brauche/]],
+  },
+  fr: {
+    numbers: { deux: 2, trois: 3, quatre: 4, cinq: 5, six: 6, sept: 7, huit: 8, neuf: 9, dix: 10, un: 1, une: 1 },
+    any: /peu importe|pas important|pas nécessaire|pas besoin|aucune préférence|n'importe|indifférent|m'est égal|est égal/,
+    walk: /à pied|a pied/, hectare: /hectare/, space: /place|espace|construire|ajouter|aménager/,
+    yes: /(^|\s)oui(\s|$|[,.!])|piscine|vue|volontiers|bien sûr|absolument/,
+    negative: /(^|\s)(non|pas|sans|jamais|aucun|aucune)(\s|$|[,.!])/,
+    synonyms: { puglia: ['puglia', 'pouilles'], tuscany: ['toscana'], sicily: ['sicilia'], 'lake-como': ['côme', 'como'], liguria: ['liguria'], sardinia: ['sardegna'], farmhouse: ['ferme', 'masseria', 'trull', 'campagne'], apartment: ['appartement'], townhouse: ['maison de ville', 'centre historique'], rustic: ['ruine', 'rustico'], 'move-in': ['habiter', 'emménager', 'tout de suite'], 'light-refresh': ['rafraîch', 'petits travaux'], renovation: ['rénov', 'renov'], restoration: ['restaur'], holiday: ['vacances', 'secondaire'], residence: ['principale', 'déménag', "m'installer"], rental: ['louer', 'location', 'locati'], investment: ['investissement', 'placement'] },
+    stop: ['pour', 'avec', 'dans', 'plus', 'moins', 'seulement', 'tout', 'suite', 'italie', 'mois', 'environ', 'prévoir', 'faire', 'veux', "jusqu'à", "d'ici"],
+    priority: [['dealbreaker', /rédhibitoire|redhibitoire|exclu|hors de question|non négociable|surtout pas/], ['nice', /souhaitable|serait bien|bonus|de préférence|si possible|idéalement|un plus/], ['must', /indispensable|important|essentiel|obligatoire|nécessaire|il faut/]],
+  },
+  nl: {
+    numbers: { twee: 2, drie: 3, vier: 4, vijf: 5, zes: 6, zeven: 7, acht: 8, negen: 9, tien: 10, één: 1, een: 1 },
+    any: /maakt niet uit|maakt me niet uit|niet belangrijk|niet nodig|geen voorkeur|om het even|alles is goed/,
+    walk: /lopend|loopafstand|te voet|wandel/, hectare: /hectare/, space: /ruimte|plek|aanleggen|bijbouwen|bijmaken/,
+    yes: /(^|\s)ja(\s|$|[,.!])|zwembad|uitzicht|graag|zeker|natuurlijk/,
+    negative: /(^|\s)(nee|niet|geen|zonder|nooit)(\s|$|[,.!])/,
+    synonyms: { puglia: ['puglia', 'apulie'], tuscany: ['toscana'], sicily: ['sicilia', 'sicilie'], 'lake-como': ['como'], liguria: ['liguria', 'ligurie'], sardinia: ['sardegna', 'sardinie'], farmhouse: ['boerderij', 'landhuis', 'masseria', 'trull'], apartment: ['appartement', 'flat'], townhouse: ['stadshuis', 'herenhuis', 'centrum'], rustic: ['ruïne', 'ruine', 'rustico'], 'move-in': ['instapklaar', 'meteen', 'direct'], 'light-refresh': ['opfris', 'kleine klussen'], renovation: ['renov', 'verbouw'], restoration: ['restaur'], holiday: ['vakantie'], residence: ['verhuiz', 'hoofdverblijf', 'emigr'], rental: ['verhuur', 'huur'], investment: ['investering', 'belegging'] },
+    stop: ['voor', 'naar', 'meer', 'minstens', 'alleen', 'moet', 'worden', 'italië', 'maanden', 'binnen', 'niet'],
+    priority: [['dealbreaker', /deal.?breaker|absoluut niet|uitgesloten|onbespreekbaar|echt niet/], ['nice', /nice.?to.?have|leuk|fijn|bonus|liefst|bij voorkeur|mooi meegenomen/], ['must', /must.?have|moet|belangrijk|essentieel|noodzakelijk|echt nodig/]],
+  },
+  es: {
+    numbers: { dos: 2, tres: 3, cuatro: 4, cinco: 5, seis: 6, siete: 7, ocho: 8, nueve: 9, diez: 10, uno: 1, una: 1, un: 1 },
+    any: /da igual|no importa|no es importante|no hace falta|no necesito|sin preferencia|cualquiera|lo que sea/,
+    walk: /a pie|andando|caminando/, hectare: /hect[aá]rea/, space: /espacio|sitio|construir|añadir|hacer una/,
+    yes: /(^|\s)s[ií](\s|$|[,.!])|piscina|vistas?|claro|por supuesto/,
+    negative: /(^|\s)(no|sin|nunca|ningun[ao]?)(\s|$|[,.!])/,
+    synonyms: { puglia: ['puglia', 'apulia'], tuscany: ['toscana'], sicily: ['sicilia'], 'lake-como': ['lago de como', 'lago como', 'lago'], liguria: ['liguria'], sardinia: ['sardegna', 'cerdeña', 'cerdena'], farmhouse: ['finca', 'cortijo', 'masía', 'masseria', 'trull', 'casa de campo'], apartment: ['piso', 'apartamento'], townhouse: ['casa de pueblo', 'casco antiguo', 'casco histórico'], rustic: ['ruina', 'rústico', 'rustico'], 'move-in': ['entrar a vivir', 'lista para', 'enseguida'], 'light-refresh': ['lavado de cara', 'pequeñas obras', 'retoque'], renovation: ['reform', 'renov'], restoration: ['restaur'], holiday: ['vacacion', 'segunda residencia'], residence: ['mudarme', 'mudanza', 'vivienda habitual'], rental: ['alquil'], investment: ['inversión', 'inversion'] },
+    stop: ['para', 'como', 'menos', 'solo', 'quiero', 'necesita', 'italia', 'meses', 'dentro', 'todavía', 'hasta', 'basta'],
+    priority: [['dealbreaker', /descartable|descart|ni hablar|innegociable|de ninguna manera|para nada/], ['nice', /deseable|estaría bien|sería bueno|un plus|un extra|preferible|si es posible|ideal/], ['must', /imprescindible|importante|esencial|necesari|tiene que|fundamental/]],
+  },
 };
 const rules = (lang) => SPOKEN[lang] || SPOKEN.en;
 
+// Thousands are grouped with a dot in Italian, German, Dutch and Spanish (1.000.000, decimal comma), with a space in
+// French (1 000 000) and with a comma in English. "mil" is a thousand in Spanish and a million elsewhere.
 export function parseAmount(text, lang = LANG) {
   let s = text.toLowerCase();
-  s = lang === 'it'
-    ? s.replace(/(\d)\.(?=\d{3}\b)/g, '$1').replace(/(\d),(\d)/g, '$1.$2')
-    : s.replace(/(\d),(?=\d{3}\b)/g, '$1');
-  const m = s.match(/(\d+(?:\.\d+)?)\s*(milioni|milione|million|mila|mille|mln|mil|thousand|m\b|k\b)?/);
+  if (['it', 'de', 'nl', 'es'].includes(lang)) s = s.replace(/(\d)\.(?=\d{3}\b)/g, '$1').replace(/(\d),(\d)/g, '$1.$2');
+  else if (lang === 'fr') s = s.replace(/(\d)[\s  ](?=\d{3}\b)/g, '$1').replace(/(\d),(\d)/g, '$1.$2');
+  else s = s.replace(/(\d),(?=\d{3}\b)/g, '$1');
+  const m = s.match(/(\d+(?:\.\d+)?)\s*(milioni|milione|millionen|millions|millones|millón|million|miljoen|mila|mille|tausend|duizend|mln|mil|thousand|m\b|k\b)?/);
   if (!m) return null;
   let n = parseFloat(m[1]);
-  if (['milioni', 'milione', 'million', 'mln', 'mil', 'm'].includes(m[2])) n *= 1e6;
-  else if (['mila', 'mille', 'thousand', 'k'].includes(m[2])) n *= 1e3;
+  const unit = m[2];
+  if (['milioni', 'milione', 'millionen', 'millions', 'millones', 'millón', 'million', 'miljoen', 'mln', 'm'].includes(unit) || (unit === 'mil' && lang !== 'es')) n *= 1e6;
+  else if (['mila', 'mille', 'tausend', 'duizend', 'thousand', 'k', 'mil'].includes(unit)) n *= 1e3;
   return n >= 1000 ? Math.round(n) : null;
 }
 
@@ -230,7 +275,7 @@ export function interpretSpoken(step, text, lang = LANG) {
   }
   const matches = step.options.filter((o) => {
     if (o.value === ANY) return false;
-    const words = o.label.toLowerCase().split(/[\s,]+/).filter((w) => w.length > 3);
+    const words = o.label.toLowerCase().split(/[\s,]+/).filter((w) => w.length > 3 && !r.stop?.includes(w));
     return [String(o.value), ...words, ...(r.synonyms[o.value] || [])].some((w) => s.includes(w.toLowerCase()));
   });
   if (step.input === 'multi') return matches.length ? matches.map((o) => o.value) : null;

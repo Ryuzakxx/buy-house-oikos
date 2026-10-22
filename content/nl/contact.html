@@ -1,0 +1,74 @@
+---
+id: contact
+schema: contact
+short: Contact
+crumb: Contact
+title: Contact met Buy House in Italy
+description: Schrijf een adviseur van Buy House in Italy over het kopen van een huis in Italië of over een bepaalde woning, of begin met het begeleide interview of een videogesprek.
+h1: Contact
+lede: Een vraag over een woning, over het aankoopproces of over de vraag of we je kunnen helpen zoeken. Schrijf ons hier en een adviseur antwoordt per e-mail.
+wrap: container
+js: contact
+---
+<div class="split contact">
+  <div class="prose">
+    <h2>Andere manieren om te beginnen</h2>
+    <ul>
+      <li><a href="{{link id=start/chat}}">De begeleide chat</a>: 18 vragen die je zoekprofiel worden.</li>
+      <li><a href="{{link id=start/webcall}}">Een videogesprek</a> met een adviseur, op een tijd in jouw tijdzone.</li>
+    </ul>
+    <h2>Oikos Immobiliare</h2>
+    <p><span class="ph">[REAL DATA: adres van het kantoor]</span></p>
+    <p><span class="ph">[REAL DATA: telefoon]</span></p>
+    <p><span class="ph">[REAL DATA: e-mail]</span></p>
+    <p><span class="ph">[REAL DATA: openingstijden, Italiaanse tijd]</span></p>
+  </div>
+  <form class="form" id="contact-form" novalidate>
+    <p class="form-status" id="contact-status" role="status" tabindex="-1"></p>
+    <div class="form-row form-row--2">
+      <div class="field">
+        <label for="ct-name">Naam</label>
+        <input type="text" id="ct-name" name="name" autocomplete="name" required aria-describedby="ct-name-error" placeholder="Je naam">
+        <span class="field-error" id="ct-name-error"></span>
+      </div>
+      <div class="field">
+        <label for="ct-email">E-mail</label>
+        <input type="email" id="ct-email" name="email" autocomplete="email" required aria-describedby="ct-email-error" placeholder="email@voorbeeld.nl">
+        <span class="field-error" id="ct-email-error"></span>
+      </div>
+    </div>
+    <div class="form-row form-row--2">
+      <div class="field">
+        <label for="ct-country">Land waar je woont</label>
+        <input type="text" id="ct-country" name="country" autocomplete="country-name" aria-describedby="ct-country-error" required>
+        <span class="field-error" id="ct-country-error"></span>
+      </div>
+      <div class="field">
+        <label for="ct-subject">Onderwerp</label>
+        <select id="ct-subject" name="subject">
+          <option value="search">Een zoektocht beginnen</option>
+          <option value="property">Een advertentie die ik heb gezien</option>
+          <option value="process">Het aankoopproces</option>
+          <option value="other">Iets anders</option>
+        </select>
+      </div>
+    </div>
+    <div class="field" id="ct-property-field">
+      <label for="ct-property">Link of referentie van de advertentie <span class="optional">(optioneel)</span></label>
+      <input type="text" id="ct-property" name="property" placeholder="Plak een link of een referentie">
+    </div>
+    <div class="field">
+      <label for="ct-message">Bericht</label>
+      <textarea id="ct-message" name="message" required aria-describedby="ct-message-error" placeholder="Vertel ons wat je zoekt, of wat je wilt weten."></textarea>
+      <span class="field-error" id="ct-message-error"></span>
+    </div>
+    <fieldset class="consents">
+      <legend>Je toestemmingen</legend>
+      <label class="check"><input type="checkbox" name="consentProcessing" required aria-describedby="ct-consent-error"><span><strong>Verwerking van mijn gegevens (verplicht)</strong>Oikos Immobiliare mag deze gegevens gebruiken om mij te antwoorden, zoals beschreven in het <a href="{{link id=privacy}}">privacybeleid</a>.</span></label>
+      <span class="field-error" id="ct-consent-error"></span>
+      <label class="check"><input type="checkbox" name="consentMarketing"><span><strong>Nieuws en nieuwe woningen per e-mail (optioneel)</strong>Af en toe een e-mail. Je kunt je altijd afmelden.</span></label>
+    </fieldset>
+    <div class="form-actions"><button class="btn btn--primary" type="submit">Bericht versturen</button></div>
+  </form>
+  <noscript><p class="noscript-note">In deze versie van de site heeft dit formulier JavaScript nodig.</p></noscript>
+</div>

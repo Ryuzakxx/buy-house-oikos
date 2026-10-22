@@ -17,6 +17,7 @@ Sito statico (HTML, CSS e JavaScript vanilla, nessuna dipendenza a runtime) per 
 | Mappa delle regioni ("Dove comprare") | Pronta | Le 20 regioni con capoluogo, aeroporti e case tipiche, in inglese e italiano; vedi "Mappa delle regioni" |
 | Catalogo immobili | Assente per scelta | Nessuna scheda pubblica; i 12 immobili di esempio in `data/properties.json` alimentano solo matching e area consulente |
 | Adapter Apimo, CRM, trascrizione, partner | Mock | Vedi "Collegare i servizi reali" |
+| Ricerca immobili sul web (agente AI nell'area consulente) | Pronta, da collegare | Servizio gratuito in `worker/` da pubblicare su Cloudflare; vedi "Ricerca immobili sul web" |
 | Area consulente `/internal/` | Demo | Richiede autenticazione reale prima di andare online |
 | Immagini | Foto reali della Puglia e delle altre regioni, tutte CC0 o di pubblico dominio (Wikimedia Commons); foto del team fornite da Oikos | Elenco e autori in `img/photos/CREDITS.md`; si possono sostituire con foto proprie (vedi "Immagini") |
 | Tema chiaro/scuro | Pronto | Si apre sempre chiaro; scuro solo dal pulsante nell'header (nel menu su telefono) |
@@ -55,7 +56,8 @@ data/                 properties.json, partner-agencies.json, demo-buyers.json, 
 img/photos/           foto in AVIF, WebP, JPEG a due larghezze + manifest.json e CREDITS.md (generati da tools/photos.py)
 img/ph/               segnaposto disegnati, usati solo dove manca una foto
 fonts/                Prata (unico font self-hosted, licenza OFL), lo stesso dei titoli del sito Oikos
-tools/                build.py, check.py, map.py, photos.py, placeholders.py, test-core.mjs, e2e.mjs, pages-audit.mjs
+tools/                build.py, check.py, map.py, photos.py, placeholders.py, test-core.mjs, test-agent.mjs, web-search.mjs, e2e.mjs, pages-audit.mjs
+worker/               servizio della ricerca sul web (Cloudflare Worker): tiene le chiavi API, non fa parte del sito
 DESIGN.md             direzione visiva e motivazioni delle scelte
 ```
 
@@ -174,6 +176,64 @@ Regole di matching (`js/api/matching.js`, funzioni pure):
 
 Il feedback dopo una proposta o una visita (`applyFeedback`) aggiorna il brief: per esempio "too far from the sea" porta la distanza dal mare tra i must have e la stringe al 60% della distanza dell'immobile rifiutato.
 
+## Ricerca immobili sul web
+
+Nella scheda di un buyer dell'area consulente, il riquadro "Found on the web" lancia un agente che cerca il brief sui portali immobiliari e restituisce da 5 a 10 annunci, ognuno con link, punteggio e motivi. Costa zero: usa solo piani gratuiti, senza carta di credito.
+
+Come lavora (`js/api/web-search.js`, `js/core/web-listings.js`):
+
+1. Trasforma il brief in ricerche per città: per ogni regione scelta prende tre città (prima quelle sul mare, se il brief vuole il mare) e scrive una ricerca come la scriverebbe un annuncio, per esempio "Masseria in vendita Ostuni con piscina vista mare". Le città sono in `PLACES`, in cima a `js/core/web-listings.js`; un'area scritta a mano dal buyer ("Umbria") viene cercata così com'è.
+2. Cerca con [Tavily](https://tavily.com) e apre le pagine di elenco trovate (fino a 5 per giro). Una pagina di elenco di casa.it contiene 15-20 annunci, ognuno con link, prezzo, metri quadri, locali, bagni e l'inizio della descrizione.
+3. Un modello linguistico gratuito (Gemma 4 su Cloudflare Workers AI) legge ogni annuncio e compila i campi del brief: tipo, camere, piscina, vista mare, stato, distanze. Quello che l'annuncio non dice resta vuoto e nel risultato compare come "To check": il modello non deve indovinare, e i suoi valori vengono controllati prima dell'uso. Se il modello non risponde, prezzo, superficie, locali, bagni e terreno vengono letti direttamente dal testo.
+4. Il motore di matching del sito (le stesse regole dei "Matches") dà il punteggio. Restano gli annunci compatibili (60 o più) fino a 10; se sono meno di 5 l'agente fa un secondo giro su altre tre città, e se ancora non bastano completa la lista con i più vicini, segnalati come "Weak match".
+
+I risultati restano nella scheda del buyer (`webSearch` nel CRM) e si ricalcolano mentre si modifica il brief; "Add to shortlist" li porta nella shortlist con una copia dei dati e il link.
+
+### Cosa serve, tutto gratuito
+
+| Servizio | Piano gratuito | Consumo di una ricerca |
+|---|---|---|
+| Tavily (ricerca e apertura pagine) | 1.000 crediti al mese, senza carta | 4 crediti per giro (3 ricerche più 5 pagine aperte), al massimo 8: da 125 a 250 ricerche al mese |
+| Cloudflare Workers AI (modello) | 10.000 "neuron" al giorno | circa 200-400: almeno 25 ricerche al giorno |
+| Cloudflare Workers (servizio) | 100.000 richieste al giorno | una ventina |
+
+Per restare a costo zero: non aggiungere un metodo di pagamento su Cloudflare e su Tavily e non passare al piano Workers Paid. Senza carta, quando una quota finisce le richieste vengono rifiutate (il riquadro mostra l'errore) e non arriva nessun addebito.
+
+### Attivarla (una volta, circa 10 minuti)
+
+1. Creare un account gratuito su [tavily.com](https://tavily.com) e copiare la chiave API (`tvly-...`).
+2. Creare un account gratuito su [Cloudflare](https://dash.cloudflare.com/sign-up), poi dal terminale:
+   ```sh
+   cd worker
+   npx wrangler login                       # apre il browser per autorizzare
+   npx wrangler deploy                      # stampa l'indirizzo: https://oikos-web-search.<nome>.workers.dev
+   npx wrangler secret put ACCESS_KEY       # una stringa lunga a caso, per esempio da: openssl rand -hex 24
+   npx wrangler secret put TAVILY_API_KEY   # la chiave tvly-...
+   ```
+3. Nell'area consulente aprire un buyer, riquadro "Found on the web": incollare l'indirizzo del servizio e la chiave `ACCESS_KEY`, premere "Connect". Indirizzo e chiave restano solo in quel browser.
+4. Con un dominio nuovo, aggiungerlo a `ALLOWED_ORIGINS` in `worker/wrangler.toml` e rilanciare `npx wrangler deploy`: il servizio risponde solo ai siti elencati lì e a chi ha la chiave.
+
+Per cambiare modello: `LLM_MODEL` in `worker/wrangler.toml` (un altro modello di Workers AI), oppure un servizio compatibile con le API OpenAI come il piano gratuito di Groq (istruzioni nel file).
+
+Dal terminale, la stessa ricerca senza aprire l'area consulente:
+
+```sh
+node tools/web-search.mjs --buyer b-demo-1             # senza chiavi: Tavily senza account (lento) e senza modello
+SEARCH_SERVICE_URL=https://oikos-web-search.<nome>.workers.dev SEARCH_SERVICE_KEY=<ACCESS_KEY> node tools/web-search.mjs --brief brief.json
+```
+
+`--brief` accetta un file JSON con `{ mustHave, niceToHave, dealBreakers }` o un buyer intero; `--json` stampa i risultati come JSON.
+
+### Limiti da conoscere
+
+- **Fonti.** In pratica la fonte principale è casa.it, l'unico grande portale le cui pagine il servizio di ricerca riesce ad aprire. Immobiliare.it e idealista bloccano la lettura automatica e l'agente non prova ad aggirarli; gate-away.com e wikicasa entrano solo quando la ricerca trova direttamente un singolo annuncio. Un immobile in vendita solo su immobiliare.it non viene trovato.
+- **Dati incompleti.** Dalle pagine di elenco si leggono prezzo, superficie, locali e bagni; camere, piscina, stato e distanze ci sono solo se compaiono nelle prime righe della descrizione. Per questo molti criteri risultano "To check" e il punteggio va letto come una prima selezione.
+- **Annunci di altre agenzie.** Prima di proporli al buyer: verificare che siano ancora disponibili e accordarsi con l'agenzia che li pubblica. Testi e foto degli annunci non vanno ripubblicati sul sito.
+- **Uso dei portali.** L'agente non visita i portali: usa un motore di ricerca che restituisce pagine già indicizzate, pochi accessi alla volta, e porta sempre all'annuncio originale. È ricerca interna dell'agenzia, come la farebbe un consulente a mano; se l'uso cresce molto, conviene chiedere ai portali un accesso ufficiale.
+- **Privacy.** Al servizio arrivano solo i criteri di ricerca (zona, tipo, piscina, vista mare) e i testi degli annunci; mai nome, contatti o note del buyer. Cloudflare non usa i dati di Workers AI per addestrare i modelli.
+- **Perché non Gemini gratuito.** I termini del piano gratuito di Google (in vigore dal 23 marzo 2026) consentono solo i servizi a pagamento per applicazioni offerte a utenti nello Spazio economico europeo, e sul piano gratuito i dati servono a migliorare i prodotti Google. La ricerca Google gratuita inclusa nell'API c'era solo per i modelli Gemini 2.5, in dismissione.
+- **Solo area consulente.** I risultati non vanno al buyer in automatico: il sito non pubblica immobili, e il consulente sceglie cosa proporre. Mostrarli sul sito richiederebbe un servizio aperto a tutti, quindi una protezione dagli abusi (le quote gratuite finirebbero in fretta).
+
 ## Collegare i servizi reali
 
 Tutti gli adapter in `js/api/` sono asincroni e restituiscono già le forme definitive: per passare alla produzione si sostituisce il corpo delle funzioni con chiamate a un backend, senza toccare le pagine.
@@ -214,6 +274,7 @@ Il sito si apre sempre nel tema chiaro, anche se il sistema operativo è imposta
 python3 tools/check.py      # link e ancore, id duplicati, tag, H1 e gerarchia titoli, title/description unici e lunghezza,
                             # canonical, hreflang reciproci, JSON-LD, img con width/height/alt, sitemap, llms.txt, trattini lunghi
 node tools/test-core.mjs    # 17 test unitari: matching, intervista, voce in inglese e italiano, trascrizione, feedback, storni, fusi orari
+node tools/test-agent.mjs   # 12 test della ricerca sul web e del servizio in worker/, con pagine finte e senza rete
 ```
 
 I test nel browser usano `puppeteer-core` installato fuori dal progetto (il sito non ha dipendenze npm):

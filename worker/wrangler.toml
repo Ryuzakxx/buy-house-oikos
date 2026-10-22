@@ -1,0 +1,20 @@
+# Search service for the web search in the consultant area. Deploy from this folder: npx wrangler deploy
+# Setup step by step: README, "Ricerca immobili sul web".
+name = "oikos-web-search"
+main = "index.js"
+compatibility_date = "2026-09-01"
+
+[ai]
+binding = "AI"
+
+[vars]
+# Sites allowed to call the service from a browser: comma separated, no trailing slash.
+ALLOWED_ORIGINS = "https://ryuzakxx.github.io,http://localhost:8000,http://127.0.0.1:8765"
+LLM_MODEL = "@cf/google/gemma-4-26b-a4b-it"
+
+# Secrets, set once from this folder with: npx wrangler secret put NAME
+#   ACCESS_KEY      required: a long random string the consultants type in the consultant area
+#   TAVILY_API_KEY  recommended (free at tavily.com, 1,000 credits a month); without it Tavily's keyless tier is used,
+#                   which is rate-limited
+# To use another OpenAI-compatible model instead of Workers AI (for example Groq's free tier), add the vars
+# LLM_BASE_URL = "https://api.groq.com/openai/v1" and LLM_MODEL = "<model>", and the secret LLM_API_KEY.

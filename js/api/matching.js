@@ -99,3 +99,10 @@ export function matchProperties(wishlist, properties, { includeExcluded = false,
 export function compatibleCount(wishlist, properties, minScore = 60) {
   return matchProperties(wishlist, properties, { minScore }).length;
 }
+
+// A shortlist from sorted matches: up to max compatible properties, topped up to min with the best weaker ones.
+export function pickCandidates(matches, { min = 5, max = 10, minScore = 60 } = {}) {
+  const open = matches.filter((m) => !m.excluded);
+  const strong = open.filter((m) => m.score >= minScore).slice(0, max);
+  return [...strong, ...open.filter((m) => m.score < minScore).slice(0, Math.max(0, min - strong.length))];
+}

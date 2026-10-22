@@ -1,0 +1,26 @@
+---
+id: start/voice
+parent: start
+title: Entretien vocal | Buy House in Italy
+description: Répondez à voix haute à nos questions sur la maison que vous voulez en Italie. La transcription s'affiche à l'écran pour que vous la corrigiez avant de continuer.
+h1: Entretien vocal
+crumb: Entretien vocal
+lede: Nous lisons chaque question à voix haute ; vous répondez en parlant. Vérifiez la transcription à l'écran, corrigez-la si besoin, puis dites-nous quelle importance a la réponse.
+noCtaBar: yes
+wrap: container
+css: start
+js: voice
+---
+<div class="voice-intro" id="voice-intro">
+  <h2>Avant de commencer</h2>
+  <ul>
+    <li>La saisie vocale fonctionne dans Chrome, Edge et Safari. Dans les autres navigateurs, nous vous emmenons au chat guidé, avec les mêmes questions.</li>
+    <li>Le service vocal de votre navigateur transforme ce que vous dites en texte. Dans Chrome, ce son est traité par les serveurs de Google ; Safari utilise ceux d'Apple. Nous ne recevons que le texte.</li>
+    <li>Votre navigateur vous demandera l'autorisation d'utiliser le micro.</li>
+    <li>Vous pouvez passer à l'écrit à tout moment. Les réponses données à voix haute sont gardées.</li>
+  </ul>
+</div>
+<div class="interview" id="interview" data-mode="voice">
+  <p class="interview__loading" id="interview-loading" role="status">Nous vérifions si ce navigateur permet la saisie vocale…</p>
+  <noscript><p class="noscript-note">L'entretien vocal nécessite JavaScript. Vous pouvez aussi <a href="{{link id=start/webcall}}">réserver un appel vidéo</a> ou nous écrire depuis la <a href="{{link id=contact}}">page contact</a>.</p></noscript>
+</div>

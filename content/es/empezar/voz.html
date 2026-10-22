@@ -1,0 +1,26 @@
+---
+id: start/voice
+parent: start
+title: Entrevista por voz | Buy House in Italy
+description: Responde hablando a nuestras preguntas sobre la casa que quieres en Italia. La transcripción aparece en pantalla para que la corrijas antes de seguir.
+h1: Entrevista por voz
+crumb: Entrevista por voz
+lede: Leemos cada pregunta en voz alta; tú respondes hablando. Revisa la transcripción en pantalla, corrígela si hace falta y luego dinos cuánto importa la respuesta.
+noCtaBar: yes
+wrap: container
+css: start
+js: voice
+---
+<div class="voice-intro" id="voice-intro">
+  <h2>Antes de empezar</h2>
+  <ul>
+    <li>La entrada por voz funciona en Chrome, Edge y Safari. En otros navegadores te llevamos al chat guiado, con las mismas preguntas.</li>
+    <li>El servicio de voz de tu navegador convierte lo que dices en texto. En Chrome ese audio lo procesan servidores de Google; Safari usa los de Apple. Nosotros solo recibimos el texto.</li>
+    <li>Tu navegador te pedirá permiso para usar el micrófono.</li>
+    <li>Puedes pasar a escribir cuando quieras. Las respuestas que hayas dado por voz se conservan.</li>
+  </ul>
+</div>
+<div class="interview" id="interview" data-mode="voice">
+  <p class="interview__loading" id="interview-loading" role="status">Comprobando si este navegador admite la entrada por voz…</p>
+  <noscript><p class="noscript-note">La entrevista por voz necesita JavaScript. También puedes <a href="{{link id=start/webcall}}">reservar una videollamada</a> o escribirnos desde la <a href="{{link id=contact}}">página de contacto</a>.</p></noscript>
+</div>

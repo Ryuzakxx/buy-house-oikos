@@ -1,13 +1,28 @@
 // Strings for the interactive pages, picked by the page language (<html lang>); English fills any gap.
 import en from '../i18n/en.js';
-import it from '../i18n/it.js';
 import { withBase } from './base.js';
 
-const DICTIONARIES = { en, it };
+// Only the page's own dictionary is downloaded. If it cannot load, the page carries on in English.
+const LOADERS = {
+  it: () => import('../i18n/it.js'),
+  de: () => import('../i18n/de.js'),
+  fr: () => import('../i18n/fr.js'),
+  nl: () => import('../i18n/nl.js'),
+  es: () => import('../i18n/es.js'),
+};
+const DICTIONARIES = { en };
 const pageLang = globalThis.document?.documentElement?.lang;
+if (LOADERS[pageLang]) {
+  try {
+    DICTIONARIES[pageLang] = (await LOADERS[pageLang]()).default;
+  } catch {
+    // English strings stay in place.
+  }
+}
 export const LANG = DICTIONARIES[pageLang] ? pageLang : 'en';
-export const LOCALE = { en: 'en-GB', it: 'it-IT' }[LANG];
-export const SPEECH_LANG = { en: 'en-GB', it: 'it-IT' }[LANG];
+const REGIONAL = { en: 'en-GB', it: 'it-IT', de: 'de-DE', fr: 'fr-FR', nl: 'nl-NL', es: 'es-ES' };
+export const LOCALE = REGIONAL[LANG];
+export const SPEECH_LANG = REGIONAL[LANG];
 
 const lookup = (dict, key) => key.split('.').reduce((node, part) => (node == null ? undefined : node[part]), dict);
 

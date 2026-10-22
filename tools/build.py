@@ -20,6 +20,7 @@ import os
 import re
 import shutil
 import sys
+import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 from urllib.parse import urlparse
@@ -53,7 +54,9 @@ def truthy(value) -> bool:
 
 
 def slugify(text: str) -> str:
-    text = re.sub(r"<[^>]+>", "", text).lower()
+    # Accented letters keep their base letter (Vénétie, Cerdeña, perché), ß becomes ss.
+    text = re.sub(r"<[^>]+>", "", text).replace("ß", "ss")
+    text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
     text = re.sub(r"[^a-z0-9\s-]", "", text)
     return re.sub(r"[\s-]+", "-", text).strip("-")[:60]
 

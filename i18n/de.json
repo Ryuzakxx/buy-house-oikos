@@ -158,6 +158,172 @@
     "home": "Zur Startseite"
   },
   "noscript": "Dieser Teil der Seite braucht JavaScript.",
+  "italy": {
+    "heading": "Regionen Italiens",
+    "legend": "Kaufratgeber auf dieser Website",
+    "listLabel": "Alle Regionen",
+    "listGuide": "Kaufratgeber auf dieser Website",
+    "tag": "Ratgeber",
+    "groups": {
+      "north": "Norden",
+      "centre": "Mitte",
+      "south": "Süden und Inseln"
+    },
+    "capital": "Hauptstadt der Region",
+    "airports": "Nächste Flughäfen",
+    "homes": "Typische Immobilien",
+    "noGuide": "Für diese Region haben wir noch keinen Ratgeber, aber Ihr Briefing entscheidet, wo wir suchen.",
+    "brief": "Sagen Sie uns, was Sie hier suchen",
+    "guideLink": "Kaufratgeber lesen",
+    "regions": {
+      "piemonte": {
+        "name": "Piemont",
+        "text": "Die Alpen auf drei Seiten und Weinhügel im Süden: die Langhe, das Roero und das Monferrato. Auch das Westufer des Lago Maggiore und der Ortasee liegen hier.",
+        "capital": "Turin",
+        "airports": "Turin (TRN); für die Seen Mailand Malpensa (MXP)",
+        "homes": "Bauernhäuser zwischen den Weinbergen, Villen an den Seen, Häuser in den Bergen"
+      },
+      "valle-d-aosta": {
+        "name": "Aostatal",
+        "text": "Italiens kleinste Region, hoch in den Alpen unter Mont Blanc, Monte Rosa und Matterhorn. Französisch ist neben Italienisch Amtssprache.",
+        "capital": "Aosta",
+        "airports": "Turin (TRN), Mailand Malpensa (MXP), Genf (GVA)",
+        "homes": "Chalets und Wohnungen in Skiorten wie Courmayeur und Cervinia, Steinhäuser in den Seitentälern"
+      },
+      "lombardia": {
+        "name": "Lombardei",
+        "text": "Mailand und die Seen: Comer See, Iseosee, das Ostufer des Lago Maggiore und das Westufer des Gardasees, im Norden die Alpen.",
+        "capital": "Mailand",
+        "airports": "Mailand Malpensa (MXP), Mailand Linate (LIN), Bergamo (BGY)",
+        "homes": "Villen und Wohnungen an den Seen, Wohnungen in Mailand, Chalets im Veltlin",
+        "guide": "Den Ratgeber zum Comer See lesen"
+      },
+      "trentino-alto-adige": {
+        "name": "Trentino-Südtirol",
+        "text": "Zwei autonome Provinzen in den Dolomiten, Trient und Bozen. In Südtirol spricht die Mehrheit Deutsch, und die Nordspitze des Gardasees liegt im Trentino.",
+        "capital": "Trient",
+        "airports": "Verona (VRN), Innsbruck (INN) in Österreich",
+        "homes": "Wohnungen und Chalets in den Bergen, Häuser am Gardasee rund um Riva"
+      },
+      "veneto": {
+        "name": "Venetien",
+        "text": "Von den Dolomiten um Cortina bis nach Venedig und seiner Lagune, dazwischen das Ostufer des Gardasees, die Villen Palladios und die Prosecco-Hügel.",
+        "capital": "Venedig",
+        "airports": "Venedig (VCE), Treviso (TSF), Verona (VRN)",
+        "homes": "Wohnungen in Venedig und Verona, Landvillen, Häuser am See und in den Bergen"
+      },
+      "friuli-venezia-giulia": {
+        "name": "Friaul-Julisch Venetien",
+        "text": "Die Nordostecke zwischen Österreich, Slowenien und der Adria: Triest, die Weinhügel des Collio und die Strände von Grado und Lignano.",
+        "capital": "Triest",
+        "airports": "Triest (TRS); auch Venedig (VCE) ist gut erreichbar",
+        "homes": "Wohnungen in Triest und Udine, Landhäuser zwischen den Weinbergen, Wohnungen am Meer"
+      },
+      "liguria": {
+        "name": "Ligurien",
+        "text": "Ein schmaler Küstenbogen zwischen Frankreich und der Toskana, dahinter steile Terrassenhänge: die Riviera, Portofino und die Cinque Terre.",
+        "capital": "Genua",
+        "airports": "Genua (GOA); Nizza (NCE) für die westliche Riviera, Pisa (PSA) für das östliche Ende",
+        "homes": "Wohnungen in Hafenorten, Häuser in Hügeldörfern mit Meerblick",
+        "guide": "Den Ligurien-Ratgeber lesen"
+      },
+      "emilia-romagna": {
+        "name": "Emilia-Romagna",
+        "text": "Bologna, Parma und Modena in der Ebene, Dörfer im Apennin im Süden und die Adriastrände rund um Rimini.",
+        "capital": "Bologna",
+        "airports": "Bologna (BLQ), Rimini (RMI)",
+        "homes": "Stadtwohnungen, Bauernhäuser in den Hügeln, Wohnungen am Meer"
+      },
+      "toscana": {
+        "name": "Toskana",
+        "text": "Florenz, Siena und Lucca, die Hügel des Chianti und des Val d'Orcia und eine lange Küste von der Versilia bis zur Maremma, mit der Insel Elba.",
+        "capital": "Florenz",
+        "airports": "Pisa (PSA), Florenz (FLR)",
+        "homes": "Steinerne Bauernhäuser, Villen, Wohnungen in historischen Städten",
+        "guide": "Den Toskana-Ratgeber lesen"
+      },
+      "umbria": {
+        "name": "Umbrien",
+        "text": "Grün und ohne Küste, zwischen Toskana, Latium und den Marken: Perugia, Assisi, Orvieto und der Trasimenische See.",
+        "capital": "Perugia",
+        "airports": "Perugia (PEG); Rom Fiumicino (FCO) hat mehr Verbindungen",
+        "homes": "Steinerne Bauernhäuser auf dem Land, Häuser in Hügelstädten"
+      },
+      "marche": {
+        "name": "Marken",
+        "text": "Hügel, die vom Apennin zur Adria abfallen, mit Urbino, Ascoli Piceno und der Conero-Küste bei Ancona.",
+        "capital": "Ancona",
+        "airports": "Ancona (AOI)",
+        "homes": "Bauernhäuser auf dem Land, Häuser in Hügeldörfern, Wohnungen am Meer"
+      },
+      "lazio": {
+        "name": "Latium",
+        "text": "Rom und rundherum der Bolsenasee und der Braccianosee, die Hügel der Tuscia bei Viterbo und eine Küste, die bis Sperlonga und Gaeta reicht.",
+        "capital": "Rom",
+        "airports": "Rom Fiumicino (FCO), Rom Ciampino (CIA)",
+        "homes": "Wohnungen in Rom, Landhäuser in der Tuscia und der Sabina, Häuser am Meer"
+      },
+      "abruzzo": {
+        "name": "Abruzzen",
+        "text": "Berge und Nationalparks nicht weit von den Adriastränden, mit Pescara an der Küste und Steindörfern im Hinterland.",
+        "capital": "L'Aquila",
+        "airports": "Pescara (PSR); Rom Fiumicino (FCO) hat mehr Verbindungen",
+        "homes": "Häuser in Hügel- und Bergdörfern, oft zu renovieren, und Wohnungen an der Küste"
+      },
+      "molise": {
+        "name": "Molise",
+        "text": "Eine der kleinsten Regionen Italiens: ruhige Hügeldörfer zwischen dem Apennin und einem kurzen Stück Adriaküste bei Termoli.",
+        "capital": "Campobasso",
+        "airports": "Keiner in der Region: Pescara (PSR), Neapel (NAP) oder Bari (BRI)",
+        "homes": "Häuser in Hügeldörfern"
+      },
+      "campania": {
+        "name": "Kampanien",
+        "text": "Neapel und sein Golf, Sorrent und die Amalfiküste, die Inseln Capri und Ischia und weiter südlich der Cilento.",
+        "capital": "Neapel",
+        "airports": "Neapel (NAP), Salerno (QSR)",
+        "homes": "Wohnungen mit Meerblick, Häuser auf den Inseln und im Cilento"
+      },
+      "puglia": {
+        "name": "Apulien",
+        "text": "Der Absatz Italiens, mit Küste an zwei Meeren, Olivenhainen, den Trulli des Itria-Tals und dem Salento an der Spitze.",
+        "capital": "Bari",
+        "airports": "Bari (BRI), Brindisi (BDS)",
+        "homes": "Trulli, Masserien, Häuser in den weißen Städten",
+        "guide": "Den Apulien-Ratgeber lesen"
+      },
+      "basilicata": {
+        "name": "Basilikata",
+        "text": "Zwischen Apulien und Kalabrien: die Sassi von Matera, die Berge des Pollino und zwei kurze Küsten, Maratea am Tyrrhenischen und Metaponto am Ionischen Meer.",
+        "capital": "Potenza",
+        "airports": "Keiner in der Region: Bari (BRI) oder Neapel (NAP)",
+        "homes": "Häuser in Matera und in den Orten im Landesinneren, Wohnungen am Meer in Maratea"
+      },
+      "calabria": {
+        "name": "Kalabrien",
+        "text": "Die Stiefelspitze, fast nur Küste und Berge: Tropea und die Costa degli Dei am Tyrrhenischen Meer, Sila und Aspromonte im Landesinneren.",
+        "capital": "Catanzaro",
+        "airports": "Lamezia Terme (SUF), Reggio Calabria (REG), Crotone (CRV)",
+        "homes": "Wohnungen und Villen am Meer"
+      },
+      "sicilia": {
+        "name": "Sizilien",
+        "text": "Die größte Insel des Mittelmeers: Palermo, Catania und der Ätna, die Barockstädte im Südosten und kleinere Inseln wie die Äolischen Inseln.",
+        "capital": "Palermo",
+        "airports": "Palermo (PMO), Catania (CTA), Trapani (TPS), Comiso (CIY)",
+        "homes": "Stadthäuser in historischen Zentren, Villen am Meer, Landhäuser",
+        "guide": "Den Sizilien-Ratgeber lesen"
+      },
+      "sardegna": {
+        "name": "Sardinien",
+        "text": "Die zweitgrößte Insel des Mittelmeers, mit Granitküsten und klarem Wasser: die Costa Smeralda im Nordosten, Alghero im Nordwesten, Cagliari im Süden.",
+        "capital": "Cagliari",
+        "airports": "Cagliari (CAG), Olbia (OLB), Alghero (AHO)",
+        "homes": "Villen und Wohnungen nahe den Stränden, Stazzi (Landhäuser) in der Gallura",
+        "guide": "Den Sardinien-Ratgeber lesen"
+      }
+    }
+  },
   "pages": {
     "services": {
       "label": "Leistungen"

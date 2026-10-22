@@ -1,0 +1,104 @@
+---
+id: start/webcall
+parent: start
+title: Plan een videogesprek met een adviseur | Buy House in Italy
+description: Plan een videogesprek over het kopen van een huis in Italië. Kies een tijd in je eigen tijdzone en de taal die je wilt. Opname alleen met jouw toestemming.
+h1: Plan een videogesprek
+crumb: Videogesprek
+lede: Kies een dag en een tijd in je eigen tijdzone. Een adviseur neemt met je door wat je zoekt en stelt je zoekprofiel op uit het gesprek.
+noCtaBar: yes
+wrap: container
+css: start
+js: webcall
+---
+<div class="booking">
+  <form class="form" id="webcall-form" novalidate>
+    <p class="form-status" id="webcall-status" role="status" tabindex="-1"></p>
+
+    <fieldset>
+      <legend>Wanneer</legend>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="wc-date">Dag</label>
+          <input type="date" id="wc-date" name="date" required aria-describedby="wc-date-hint wc-date-error">
+          <span class="hint" id="wc-date-hint">Maandag tot en met vrijdag.</span>
+          <span class="field-error" id="wc-date-error"></span>
+        </div>
+        <div class="field">
+          <label for="wc-time">Tijd</label>
+          <select id="wc-time" name="time" required aria-describedby="wc-time-hint wc-time-error" disabled>
+            <option value="">Kies eerst een dag</option>
+          </select>
+          <span class="hint" id="wc-time-hint">Weergegeven in jouw tijdzone: <strong id="wc-tz-label">wordt bepaald…</strong></span>
+          <span class="field-error" id="wc-time-error"></span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="wc-tz">Je tijdzone</label>
+        <select id="wc-tz" name="timeZone" aria-describedby="wc-tz-hint"></select>
+        <span class="hint" id="wc-tz-hint">Afgeleid van je apparaat. Wijzig hem als je het gesprek vanaf een andere plek voert.</span>
+      </div>
+      <p class="hint">In deze demo zijn de beschikbare tijden werkdagen van 09:00 tot 17:30 uur Italiaanse tijd. In de echte versie komen ze uit de agenda's van de adviseurs.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Over jou</legend>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="wc-name">Naam</label>
+          <input type="text" id="wc-name" name="name" autocomplete="name" required aria-describedby="wc-name-error" placeholder="Je naam">
+          <span class="field-error" id="wc-name-error"></span>
+        </div>
+        <div class="field">
+          <label for="wc-email">E-mail</label>
+          <input type="email" id="wc-email" name="email" autocomplete="email" required aria-describedby="wc-email-error" placeholder="email@voorbeeld.nl">
+          <span class="field-error" id="wc-email-error"></span>
+        </div>
+      </div>
+      <div class="form-row form-row--2">
+        <div class="field">
+          <label for="wc-phone">Telefoon <span class="optional">(optioneel)</span></label>
+          <input type="tel" id="wc-phone" name="phone" autocomplete="tel" aria-describedby="wc-phone-hint">
+          <span class="hint" id="wc-phone-hint">Met landcode, voor het geval de videolink niet werkt.</span>
+        </div>
+        <div class="field">
+          <label for="wc-country">Land waar je woont</label>
+          <input type="text" id="wc-country" name="country" autocomplete="country-name" required list="country-list" aria-describedby="wc-country-error">
+          <datalist id="country-list">
+            <option value="Nederland"><option value="België"><option value="Duitsland"><option value="Verenigde Staten"><option value="Verenigd Koninkrijk"><option value="Frankrijk"><option value="Zwitserland"><option value="Oostenrijk"><option value="Zweden"><option value="Noorwegen"><option value="Denemarken"><option value="Canada"><option value="Australië"><option value="Spanje"><option value="Ierland">
+          </datalist>
+          <span class="field-error" id="wc-country-error"></span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="wc-language">Taal van het gesprek</label>
+        <select id="wc-language" name="language" required>
+          <option value="nl">Nederlands</option>
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="it">Italiano</option>
+        </select>
+        <span class="hint">We bevestigen per e-mail welke adviseur het gesprek in deze taal kan voeren.</span>
+      </div>
+      <div class="field">
+        <label for="wc-notes">Moeten we vóór het gesprek iets weten? <span class="optional">(optioneel)</span></label>
+        <textarea id="wc-notes" name="notes" placeholder="Gebieden die je overweegt, planning, wie er met je meekoopt…"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset class="consents">
+      <legend>Je toestemmingen</legend>
+      <label class="check"><input type="checkbox" name="consentProcessing" required aria-describedby="wc-consent-error"><span><strong>Verwerking van mijn gegevens (verplicht)</strong>Oikos Immobiliare mag deze gegevens gebruiken om het gesprek te regelen en een woning voor mij te zoeken, zoals beschreven in het <a href="{{link id=privacy}}">privacybeleid</a>.</span></label>
+      <span class="field-error" id="wc-consent-error"></span>
+      <label class="check"><input type="checkbox" name="consentRecording"><span><strong>Opname en transcriptie van het gesprek (optioneel)</strong>Het gesprek wordt opgenomen en uitgeschreven zodat de adviseur er mijn zoekprofiel uit kan opstellen. Zonder deze toestemming maakt de adviseur met de hand aantekeningen.</span></label>
+      <label class="check"><input type="checkbox" name="consentMarketing"><span><strong>Nieuws en nieuwe woningen per e-mail (optioneel)</strong>Af en toe een e-mail over woningen en kopen in Italië. Je kunt je altijd afmelden.</span></label>
+    </fieldset>
+
+    <div class="form-actions">
+      <button class="btn btn--primary" type="submit">Gesprek plannen</button>
+    </div>
+  </form>
+  <noscript><p class="noscript-note">In deze versie van de site heeft plannen JavaScript nodig. Je kunt ons ook schrijven via de <a href="{{link id=contact}}">contactpagina</a>.</p></noscript>
+</div>
